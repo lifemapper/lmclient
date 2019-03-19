@@ -5,8 +5,9 @@ Todo:
     * Save session?
     * Acceptable versions?
 """
-import urllib
-import urllib2
+import requests
+#import urllib
+#import urllib2
 
 from lm_client.apis.auth import AuthApiService
 from lm_client.apis.biotaphy_names import BiotaPhyNamesApiService
@@ -27,6 +28,7 @@ from lm_client.apis.sdm_project import SdmProjectApiService
 from lm_client.apis.shapegrid import ShapegridApiService
 from lm_client.apis.snippet import SnippetApiService
 from lm_client.apis.taxonomy import TaxonomyApiService
+from lm_client.apis.upload import UploadApiService
 from lm_client.apis.tree import TreeApiService
 from lm_client.common.constants import HTTPMethod
 
@@ -73,68 +75,88 @@ class _Client(object):
         return url
 
     # ...........................
-    def _make_request(self, relative_url, method=HTTPMethod.GET, body=None,
-                     headers=None, **query_parameters):
-        """Submits a request to the server and returns an open file-like object
-
-        Args:
-            relative_url (str): The relative URL (after the server root) for
-                this request.
-            method (:obj:`HTTPMethod`, optional): The HTTP method to use for
-                this request (default is 'GET').
-            body (:obj:`str`, optional): If provided, this will be the body of
-                the request.
-            headers (:obj:`dict` or :obj:`None`): If not None, this should be
-                a dictionary of headers.
-            query_parameters (dict): Any additional optional parameters set to
-                this function will be wrapped as query parameters for the
-                request.
-
-        Returns:
-            An open file-like object representing the response from the server.
-        """
-        #try:
-        # Get a list of all non-None query parameters
-        q_params = [
-            (k, v) for (k, v) in dict(
-                query_parameters).items() if v is not None]
-        url_params = urllib.urlencode(q_params)
-
-        if body is not None and len(
-            q_params) > 0 and method == HTTPMethod.POST:
-
-            body = url_params
-            url = self._get_url(relative_url)
-        else:
-            url = self._get_url(relative_url, query_parameter_str=url_params)
-
-        if headers is None:
-            headers = {}
-
-        req = urllib2.Request(url, data=body, headers=headers)
-        req.get_method = lambda: method.upper()
-
-        return urllib2.urlopen(req)
-        #except Exception as e:
-        #    print('The failed URL was: {}'.format(url))
-        #    print('Error: {}'.format(e))
-        #    raise e
+    def _make_url(self, relative_url):
+        return '{}/{}'.format(self.server, relative_url)
+    
+#     # ...........................
+#     def _make_request(self, relative_url, method=HTTPMethod.GET, body=None,
+#                      headers=None, **query_parameters):
+#         """Submits a request to the server and returns an open file-like object
+# 
+#         Args:
+#             relative_url (str): The relative URL (after the server root) for
+#                 this request.
+#             method (:obj:`HTTPMethod`, optional): The HTTP method to use for
+#                 this request (default is 'GET').
+#             body (:obj:`str`, optional): If provided, this will be the body of
+#                 the request.
+#             headers (:obj:`dict` or :obj:`None`): If not None, this should be
+#                 a dictionary of headers.
+#             query_parameters (dict): Any additional optional parameters set to
+#                 this function will be wrapped as query parameters for the
+#                 request.
+# 
+#         Returns:
+#             An open file-like object representing the response from the server.
+#         """
+#         payload = dict(query_parameters)
+#         if headers is None:
+#             headers = {}
+#         
+#         try:
+#             # Get a list of all non-None query parameters
+#             q_params = [
+#                 (k, v) for (k, v) in dict(
+#                     query_parameters).items() if v is not None]
+#             url_params = urllib.urlencode(q_params)
+#     
+#             if body is not None and len(
+#                 q_params) > 0 and method == HTTPMethod.POST:
+#     
+#                 body = url_params
+#                 url = self._get_url(relative_url)
+#             else:
+#                 url = self._get_url(relative_url, query_parameter_str=url_params)
+#     
+#             if headers is None:
+#                 headers = {}
+#     
+#             req = urllib2.Request(url, data=body, headers=headers)
+#             print req.__dict__
+#             req.get_method = lambda: method.upper()
+#     
+#             return urllib2.urlopen(req)
+#         except Exception as e:
+#             print('The failed URL was: {}'.format(url))
+#             print('Error: {}'.format(e))
+#             print('{}'.format(e.__dict__))
+#             raise e
 
     # ...........................
     def delete(self, relative_url, headers=None):
-        return self._make_request(
-            relative_url, method=HTTPMethod.DELETE, headers=headers)
+        return requests.delete(self._make_url(relative_url), headers=headers)
 
     # ...........................
     def get(self, relative_url, headers=None, **query_parameters):
-        return self._make_request(
-            relative_url, method=HTTPMethod.GET, headers=headers,
-            **query_parameters)
+        return requests.get(
+            self._make_url(relative_url), params=dict(query_parameters),
+            headers=headers)
 
     # ...........................
-    def post(self, relative_url, body=None, headers=None, **query_parameters):
-        return self._make_request(
-            relative_url, method=HTTPMethod.POST, body=body, headers=headers)
+    def post(self, relative_url, files=None, headers=None, **query_parameters):
+        """
+        Files should be 'name' : (file name, content, header (optional))
+        """
+        print('in client post')
+        print(str(query_parameters))
+        if files is not None:
+            return requests.post(
+                self._make_url(relative_url), headers=headers,
+                params=query_parameters, files=files)
+        else:
+            return requests.post(
+                self._make_url(relative_url), headers=headers,
+                data=query_parameters)
 
     # ...........................
     # put
@@ -166,3 +188,4 @@ class LmApiClient(object):
         self.snippet = SnippetApiService(self._client)
         self.taxonomy = TaxonomyApiService(self._client)
         self.tree = TreeApiService(self._client)
+        self.upload = UploadApiService(self._client)

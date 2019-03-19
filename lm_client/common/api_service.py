@@ -8,7 +8,7 @@ def format_object(response, interface):
     """
     Todo: Actually determine how to format
     """
-    return json.load(response)
+    return response.json()
 
 # .............................................................................
 class ApiService(object):
@@ -39,10 +39,16 @@ class RestService(ApiService):
         if raw:
             return response
         else:
-            return json.load(response)
+            return response.json()
 
     # ...........................
-    #def delete
+    def delete(self, obj_url, raw=False, headers=None, **query_params):
+        response = self.api_client.delete(
+            obj_url, headers=headers, **query_params)
+        if raw:
+            return response
+        else:
+            return response.json()
 
     # ...........................
     def get(self, obj_url, raw=False, interface=INTERFACES.JSON,
@@ -88,18 +94,20 @@ class RestService(ApiService):
         if raw:
             return response
         else:
-            return json.load(response)
+            return response.json()
 
     # ...........................
-    def post(self, post_url, raw=False, body=None, headers=None,
+    def post(self, post_url, raw=False, files=None, headers=None,
              **query_params):
         """
             headers (:obj:`dict`, optional): Any headers to be sent to the
                 request.
         """
+        print('api service')
+        print(query_params)
         response = self.api_client.post(
-            post_url, body=body, headers=headers, **query_params)
+            post_url, files=files, headers=headers, **query_params)
         if raw:
             return response
         else:
-            return json.load(response)
+            return response.json()
