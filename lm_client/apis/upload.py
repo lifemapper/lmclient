@@ -32,4 +32,11 @@ class UploadApiService(RestService):
                 metadata=metadata, raw=raw)#,
                     #headers={'Content-Type' : 'application/zip',
                     #         'Content-Length' : os.stat(filename).st_size})
-        
+
+    # ...........................
+    def tree(self, filename, tree_name, raw=False):
+        if os.path.exists(filename):
+            return RestService.post(
+                self, self.end_point,
+                files={'file': (filename, open(filename, 'rb'))},
+                file_name=tree_name, upload_type='tree', raw=raw)

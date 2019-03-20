@@ -32,4 +32,15 @@ class Test_occurrence_upload(object):
             raw=False)
         print(response)
         assert response
+
+    def test_tree_upload_valid(self, data_files):
+        tree_filename = data_files.get_tree_uploads()
+        assert os.path.exists(tree_filename)
+        
+        cl = LmApiClient()
+        response = cl.upload.tree(
+            tree_filename, 'test_tree_{}'.format(random.randint(0, 10000)),
+            raw=False)
+        print(response)
+        assert response
         

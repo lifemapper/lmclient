@@ -39,7 +39,7 @@ class RestService(ApiService):
         if raw:
             return response
         else:
-            return response.json()
+            return response.json()['count']
 
     # ...........................
     def delete(self, obj_url, raw=False, headers=None, **query_params):

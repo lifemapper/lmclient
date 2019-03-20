@@ -29,6 +29,10 @@ class SampleDataFiles(object):
         csv_filename = os.path.join(SAMPLE_DATA_PATH, 'test_occurrence.csv')
         meta_filename = os.path.join(SAMPLE_DATA_PATH, 'test_occurrence.json')
         return csv_filename, meta_filename
+    
+    def get_tree_uploads(self):
+        tree_filename = os.path.join(SAMPLE_DATA_PATH, 'test_tree.tre')
+        return tree_filename
 
 # .............................................................................
 @pytest.fixture(scope="session")
