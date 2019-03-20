@@ -147,8 +147,6 @@ class _Client(object):
         """
         Files should be 'name' : (file name, content, header (optional))
         """
-        print('in client post')
-        print(str(query_parameters))
         if files is not None:
             return requests.post(
                 self._make_url(relative_url), headers=headers,
