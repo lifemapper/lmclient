@@ -11,6 +11,16 @@ class UploadApiService(RestService):
     end_point = 'api/v2/upload'
     
     # ...........................
+    def biogeographic_hypotheses(self, filename, package_name, raw=False):
+        if os.path.exists(filename):
+            return RestService.post(
+                self, self.end_point,
+                files={
+                    'file' : (
+                        filename, open(filename, 'rb'), 'application/zip')},
+                file_name=package_name, upload_type='biogeo', raw=raw)
+
+    # ...........................
     def occurrence(self, filename, metadata, data_name, raw=False):
         if os.path.exists(filename):
             return RestService.post(
