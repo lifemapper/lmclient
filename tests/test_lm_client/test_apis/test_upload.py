@@ -21,4 +21,15 @@ class Test_occurrence_upload(object):
             raw=False)
         print(response)
         assert response
+    
+    def test_biogeographic_hypotheses_upload_valid(self, data_files):
+        bg_filename = data_files.get_bg_uploads()
+        assert os.path.exists(bg_filename)
+        
+        cl = LmApiClient()
+        response = cl.upload.biogeographic_hypotheses(
+            bg_filename, 'test_hypotheses_{}'.format(random.randint(0, 10000)),
+            raw=False)
+        print(response)
+        assert response
         

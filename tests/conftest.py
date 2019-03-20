@@ -21,6 +21,10 @@ class SampleDataFiles(object):
         * For test files, the format should be something like:
             "(in)valid_{name}.{extension}".
     """
+    def get_bg_uploads(self):
+        bg_filename = os.path.join(SAMPLE_DATA_PATH, 'test_biogeo.zip')
+        return bg_filename
+
     def get_occ_uploads(self):
         csv_filename = os.path.join(SAMPLE_DATA_PATH, 'test_occurrence.csv')
         meta_filename = os.path.join(SAMPLE_DATA_PATH, 'test_occurrence.json')
