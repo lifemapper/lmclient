@@ -60,6 +60,8 @@ class ShapegridApiService(RestService):
 
         Todo:
             * Fill in return
+        @todo: Fill in return (from todo tag)
+        Todo: Fill in return (from new style)
         """
         return RestService.delete(self,
             '{}/{}'.format(self.end_point, shapegrid_id), raw=raw)
