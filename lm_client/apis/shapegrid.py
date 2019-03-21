@@ -16,6 +16,8 @@ from lm_client.common.api_service import RestService
 # .............................................................................
 class ShapegridApiService(RestService):
     """This class is responsible for interactions with shapegrid end-point
+
+    Todo: Document valid GET interfaces for Shapegrids
     """
     end_point = 'api/v2/shapegrid'
 

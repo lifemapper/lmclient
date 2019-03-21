@@ -12,7 +12,7 @@ class SdmProjectApiService(RestService):
     end_point = 'api/v2/sdmproject'
 
     # ...........................
-    def count(self, raw=False, after_status=None, after_time=None,
+    def count(self, after_status=None, after_time=None,
               algorithm_code=None, before_status=None, before_time=None,
               display_name=None, epsg_code=None, model_scenario_code=None,
               occurrence_set_id=None, projection_scenario_code=None,
@@ -20,57 +20,49 @@ class SdmProjectApiService(RestService):
         """Counts
 
         Args:
-            raw (:obj:`bool`, optional): If True, return the raw response
-                file-like object from the request.  If False, load into JSON.
         """
-        return RestService.count(self,
-            '{}/count'.format(self.end_point), raw=raw,
-            after_status=after_status, after_time=after_time,
-            algorithm_code=algorithm_code, before_status=before_status,
-            before_time=before_time, display_name=display_name,
-            epsg_code=epsg_code, model_scenario_code=model_scenario_code,
+        return RestService.count(
+            self, '{}/count'.format(self.end_point), after_status=after_status,
+            after_time=after_time, algorithm_code=algorithm_code,
+            before_status=before_status, before_time=before_time,
+            display_name=display_name, epsg_code=epsg_code,
+            model_scenario_code=model_scenario_code,
             occurrence_set_id=occurrence_set_id,
             projection_scenario_code=projection_scenario_code,
             scenario_id=scenario_id, status=status, gridset_id=gridset_id)
 
     # ...........................
-    def delete(self, sdmproject_id, raw=False):
+    def delete(self, sdmproject_id):
         """Attempts to delete
 
         Args:
-            raw (:obj:`bool`, optional): If True, return the raw response
-                file-like object from the request.  If False, load into JSON.
         """
         return RestService.delete(
-            self, '{}/{}'.format(self.end_point, _id), raw=raw)
+            self, '{}/{}'.format(self.end_point, _id))
 
     # ...........................
-    def get(self, sdmproject_id, raw=False, interface=None):
+    def get(self, sdmproject_id, interface=None):
         """Attempts to get
 
         Args:
-            raw (:obj:`bool`, optional): If True, return the raw response
-                file-like object from the request.  If False, load into JSON.
         """
-        return RestService.get(self,
-            '{}/{}'.format(self.end_point, sdmproject_id), raw=raw,
+        return RestService.get(
+            self, '{}/{}'.format(self.end_point, sdmproject_id),
             interface=interface)
 
     # ...........................
-    def list(self, raw=False, after_status=None, after_time=None,
-             algorithm_code=None, before_status=None, before_time=None,
-             display_name=None, epsg_code=None, limit=None,
-             model_scenario_code=None, occurrence_set_id=None, offset=None,
+    def list(self, after_status=None, after_time=None, algorithm_code=None,
+             before_status=None, before_time=None, display_name=None,
+             epsg_code=None, limit=None, model_scenario_code=None,
+             occurrence_set_id=None, offset=None,
              projection_scenario_code=None, scenario_id=None, status=None,
              gridset_id=None):
         """Gets a list
 
         Args:
-            raw (:obj:`bool`, optional): If True, return the raw response
-                file-like object from the request.  If False, load into JSON.
         """
-        return RestService.list(self,
-            self.end_point, raw=raw, after_time=after_time,
+        return RestService.list(
+            self, self.end_point, after_time=after_time,
             scenario_id=scenario_id, before_time=before_time, limit=limit,
             offset=offset, after_status=after_status,
             algorithm_code=algorithm_code, before_status=before_status,
@@ -81,9 +73,9 @@ class SdmProjectApiService(RestService):
             gridset_id=gridset_id)
 
     # ...........................
-    def post(self, boom_post_json, raw=False):
+    def post(self, boom_post_json):
         """
         """
-        return RestService.post(self,
-            self.end_point, raw=raw, body=boom_post_json,
-            headers={'Content-Type' : 'application/json'})
+        return RestService.post(
+            self, self.end_point, body=boom_post_json,
+            headers={'Content-Type': 'application/json'})

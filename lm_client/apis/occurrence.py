@@ -3,6 +3,7 @@
 
 from lm_client.common.api_service import RestService
 
+
 # .............................................................................
 class OccurrenceApiService(RestService):
     """
@@ -10,15 +11,13 @@ class OccurrenceApiService(RestService):
     end_point = 'api/v2/occurrence/'
 
     # ...........................
-    def count(self, raw=False, after_status=None, after_time=None,
-              before_status=None, before_time=None, display_name=None,
-              epsg_code=None, gridset_id=None, minimum_number_of_points=None,
-              squid=None, status=None, user=None):
+    def count(self, after_status=None, after_time=None, before_status=None,
+              before_time=None, display_name=None, epsg_code=None,
+              gridset_id=None, minimum_number_of_points=None, squid=None,
+              status=None, user=None):
         """Counts the number of occurrence sets matching the provided criteria.
 
         Args:
-            raw (:obj:`bool`, optional): If True, return the raw response
-                file-like object.  If False, load into JSON.
             after_status (:obj:`int`, optional): Only return occurrence sets
                 that have a status value greater than this number.
             after_time (:obj:`str`, optional): Only return occurrence sets
@@ -43,8 +42,8 @@ class OccurrenceApiService(RestService):
                 sets.  If 'anon', return anonymous occurrence sets.  If None,
                 return the user's occurrence sets.
         """
-        return RestService.count(self,
-            '{}/count'.format(self.end_point), raw=raw,
+        return RestService.count(
+            self, '{}/count'.format(self.end_point),
             after_status=after_status, after_time=after_time,
             before_status=before_status, before_time=before_time,
             display_name=display_name, epsg_code=epsg_code,
@@ -53,14 +52,14 @@ class OccurrenceApiService(RestService):
             status=status, user=user)
 
     # ...........................
-    def delete(self, occurrence_id, raw=False):
+    def delete(self, occurrence_id):
         """Attempts to delete the occurrence set specified by occurrence_id.
         """
-        return RestService.delete(self,
-            '{}/{}'.format(self.end_point, occurrence_id), raw=raw)
+        return RestService.delete(
+            self, '{}/{}'.format(self.end_point, occurrence_id))
 
     # ...........................
-    def get(self, occurrence_id, interface=None, raw=False):
+    def get(self, occurrence_id, interface=None):
         """Attempts to retrieve the occurrence set specified by the ID.
 
         Args:
@@ -68,24 +67,19 @@ class OccurrenceApiService(RestService):
                 retrieve.
             interface (:obj:`str`, optional): If provided, request the response
                 in this interface.
-            raw (:obj:`bool`, optional): If True, return the raw response
-                file-like object.  If False, load into JSON.
         """
-        return RestService.get(self,
-            '{}{}'.format(self.end_point, occurrence_id), interface=interface,
-            raw=raw)
-    
+        return RestService.get(
+            self, '{}{}'.format(self.end_point, occurrence_id),
+            interface=interface)
+
     # ...........................
-    def list(self, raw=False, after_status=None, after_time=None,
-             before_status=None, before_time=None, display_name=None,
-             epsg_code=None, gridset_id=None, limit=None,
-             minimum_number_of_points=None, offset=None, squid=None,
-             status=None, user=None):
+    def list(self, after_status=None, after_time=None, before_status=None,
+             before_time=None, display_name=None, epsg_code=None,
+             gridset_id=None, limit=None, minimum_number_of_points=None,
+             offset=None, squid=None, status=None, user=None):
         """Lists occurrence sets matching the provided criteria.
 
         Args:
-            raw (:obj:`bool`, optional): If True, return the raw response
-                file-like object.  If False, load into JSON.
             after_status (:obj:`int`, optional): Only return occurrence sets
                 that have a status value greater than this number.
             after_time (:obj:`str`, optional): Only return occurrence sets
@@ -114,11 +108,10 @@ class OccurrenceApiService(RestService):
                 sets.  If 'anon', return anonymous occurrence sets.  If None,
                 return the user's occurrence sets.
         """
-        return RestService.list(self,
-            self.end_point, raw=raw, after_status=after_status,
+        return RestService.list(
+            self, self.end_point, after_status=after_status,
             after_time=after_time, before_status=before_status,
             before_time=before_time, display_name=display_name,
             epsg_code=epsg_code, gridset_id=gridset_id, limit=limit,
             minimum_number_of_points=minimum_number_of_points, offset=offset,
             squid=squid, status=status, user=user)
-    

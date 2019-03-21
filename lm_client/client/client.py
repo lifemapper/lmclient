@@ -6,8 +6,6 @@ Todo:
     * Acceptable versions?
 """
 import requests
-#import urllib
-#import urllib2
 
 from lm_client.apis.auth import AuthApiService
 from lm_client.apis.biotaphy_names import BiotaPhyNamesApiService
@@ -32,6 +30,7 @@ from lm_client.apis.upload import UploadApiService
 from lm_client.apis.tree import TreeApiService
 from lm_client.common.constants import HTTPMethod
 
+
 # .............................................................................
 class _Client(object):
     """Base client class for communicating with a server.
@@ -55,7 +54,7 @@ class _Client(object):
             server (str): The base URL for a desired server to use.
         """
         self.server = server
-    
+
     # ...........................
     def _get_url(self, relative_url, query_parameter_str=None):
         """Gets a full URL for a request.
@@ -77,60 +76,6 @@ class _Client(object):
     # ...........................
     def _make_url(self, relative_url):
         return '{}/{}'.format(self.server, relative_url)
-    
-#     # ...........................
-#     def _make_request(self, relative_url, method=HTTPMethod.GET, body=None,
-#                      headers=None, **query_parameters):
-#         """Submits a request to the server and returns an open file-like object
-# 
-#         Args:
-#             relative_url (str): The relative URL (after the server root) for
-#                 this request.
-#             method (:obj:`HTTPMethod`, optional): The HTTP method to use for
-#                 this request (default is 'GET').
-#             body (:obj:`str`, optional): If provided, this will be the body of
-#                 the request.
-#             headers (:obj:`dict` or :obj:`None`): If not None, this should be
-#                 a dictionary of headers.
-#             query_parameters (dict): Any additional optional parameters set to
-#                 this function will be wrapped as query parameters for the
-#                 request.
-# 
-#         Returns:
-#             An open file-like object representing the response from the server.
-#         """
-#         payload = dict(query_parameters)
-#         if headers is None:
-#             headers = {}
-#         
-#         try:
-#             # Get a list of all non-None query parameters
-#             q_params = [
-#                 (k, v) for (k, v) in dict(
-#                     query_parameters).items() if v is not None]
-#             url_params = urllib.urlencode(q_params)
-#     
-#             if body is not None and len(
-#                 q_params) > 0 and method == HTTPMethod.POST:
-#     
-#                 body = url_params
-#                 url = self._get_url(relative_url)
-#             else:
-#                 url = self._get_url(relative_url, query_parameter_str=url_params)
-#     
-#             if headers is None:
-#                 headers = {}
-#     
-#             req = urllib2.Request(url, data=body, headers=headers)
-#             print req.__dict__
-#             req.get_method = lambda: method.upper()
-#     
-#             return urllib2.urlopen(req)
-#         except Exception as e:
-#             print('The failed URL was: {}'.format(url))
-#             print('Error: {}'.format(e))
-#             print('{}'.format(e.__dict__))
-#             raise e
 
     # ...........................
     def delete(self, relative_url, headers=None):
@@ -159,13 +104,14 @@ class _Client(object):
     # ...........................
     # put
 
+
 # .............................................................................
 class LmApiClient(object):
     """A Lifemapper API Client object used to make service requests.
     """
     def __init__(self):
         self._client = _Client('http://notyeti-193.lifemapper.org')
-        
+
         self.auth = AuthApiService(self._client)
         self.biotaphy_names = BiotaPhyNamesApiService(self._client)
         self.biotaphy_points = BiotaPhyPointsApiService(self._client)

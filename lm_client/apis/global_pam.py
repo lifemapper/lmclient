@@ -12,18 +12,15 @@ class GlobalPamApiService(RestService):
     end_point = 'api/v2/globalpam'
 
     # ...........................
-    def get_facets(self, raw=False):
+    def get_facets(self):
         """Attempts to get
 
         Args:
-            raw (:obj:`bool`, optional): If True, return the raw response
-                file-like object from the request.  If False, load into JSON.
         """
-        return RestService.get(
-            self, '{}/gridset'.format(self.end_point), raw=raw)
+        return RestService.get(self, '{}/gridset'.format(self.end_point))
 
     # ...........................
-    def list_matches(self, raw=False, algorithm_code=None, bbox=None,
+    def list_matches(self, algorithm_code=None, bbox=None,
                      display_name=None, gridset_id=None,
                      model_scenario_code=None, point_max=None, point_min=None,
                      prj_scen_code=None, squid=None, taxon_kingdom=None,
@@ -32,11 +29,9 @@ class GlobalPamApiService(RestService):
         """Gets a list
 
         Args:
-            raw (:obj:`bool`, optional): If True, return the raw response
-                file-like object from the request.  If False, load into JSON.
         """
-        return RestService.list(self,
-            self.end_point, raw=raw, algorithm_code=algorithm_code, bbox=bbox,
+        return RestService.list(
+            self, self.end_point, algorithm_code=algorithm_code, bbox=bbox,
             display_name=display_name, gridset_id=gridset_id,
             model_scenario_code=model_scenario_code, point_max=point_max,
             point_min=point_min, prj_scen_code=prj_scen_code, squid=squid,
@@ -51,12 +46,11 @@ class GlobalPamApiService(RestService):
                     point_max=None, point_min=None, prj_scen_code=None,
                     squid=None, taxon_kingdom=None, taxon_phylum=None,
                     taxon_class=None, taxon_order=None, taxon_family=None,
-                    taxon_genus=None, taxon_species=None, raw=False):
+                    taxon_genus=None, taxon_species=None):
         """
         """
-        return RestService.post(self,
-            self.end_point, raw=raw,
-            headers={'Content-Type' : 'application/json'},
+        return RestService.post(
+            self, self.end_point, headers={'Content-Type': 'application/json'},
             archive_name=archive_name, gridset_id=gridset_id,
             algorithm_code=algorithm_code, bbox=bbox,
             display_name=display_name, model_scenario_code=model_scenario_code,

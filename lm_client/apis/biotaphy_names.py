@@ -12,9 +12,9 @@ class BiotaPhyNamesApiService(RestService):
     end_point = 'api/v2/biotaphynames'
 
     # ...........................
-    def post(self, names_list, raw=False):
+    def post(self, names_list):
         """
         """
-        return RestService.post(self,
-            self.end_point, raw=raw, body=json.dumps(names_list),
-            headers={'Content-Type' : 'application/json'})
+        return RestService.post(
+            self, self.end_point, body=json.dumps(names_list),
+            headers={'Content-Type': 'application/json'})
