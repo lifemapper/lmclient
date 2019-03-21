@@ -46,7 +46,15 @@ class ForbiddenError(HttpError):
 
 
 # .............................................................................
-class NotFoundError(Exception):
+class NotAcceptableError(HttpError):
+    """Exception thrown when cannot format in desired interface
+    """
+    code = HttpStatus.NOT_ACCEPTABLE
+    message = 'No acceptable format available'
+
+
+# .............................................................................
+class NotFoundError(HttpError):
     """Exception thrown when the requested object was not found
     """
     code = HttpStatus.NOT_FOUND
@@ -61,5 +69,7 @@ def raise_http_exception(response):
         raise BadRequestError(response.url)
     elif response.status_code == HttpStatus.FORBIDDEN:
         raise ForbiddenError(response.url)
+    elif response.status_code == HttpStatus.NOT_ACCEPTABLE:
+        raise NotAcceptableError(response.url)
     elif response.status_code == HttpStatus.NOT_FOUND:
         raise NotFoundError(response.url)
