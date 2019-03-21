@@ -27,6 +27,17 @@ class BadRequestError(HttpError):
 
 
 # .............................................................................
+class ConflictError(HttpError):
+    """Exception thrown when there is a conflict posting data
+
+    Note:
+        * This often occurs if a file with the same name already exists
+    """
+    code = HttpStatus.CONFLICT
+    message = 'Conflict'
+
+
+# .............................................................................
 class ForbiddenError(HttpError):
     """Exception thrown when the user does not have access to an object
     """

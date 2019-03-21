@@ -12,7 +12,7 @@ class AuthApiService(ApiService):
     """
     """
     # ...........................
-    def login(self, user_id, passwd, raw=False):
+    def login(self, user_id, passwd):
         """
         """
         policy_server = urlparse(self.api_client.server).netloc
@@ -25,16 +25,10 @@ class AuthApiService(ApiService):
 
         response = self.api_client.post(
             self, 'api/v2/login', user_id=user_id, pword=passwd)
-        if raw:
-            return response
-        else:
-            return json.load(response)
+        return response
 
     # ...........................
-    def logout(self, raw=False):
+    def logout(self):
 
         response = self.api_client.get(self, 'api/v2/logout')
-        if raw:
-            return response
-        else:
-            return json.load(response)
+        return response

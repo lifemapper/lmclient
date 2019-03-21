@@ -90,12 +90,13 @@ class RestService(ApiService):
                 along with the request.
 
         Raises:
-            None - If the delete a
+            ForbiddenError - Raised if the user does not have permission to
+                delete the specified object.
+            NotFoundError - Raised if the object was not found.
         """
         response = self.api_client.delete(
             obj_url, headers=headers, **query_params)
 
-        # Response should just be an acknowledgement of deletion if successful
         raise_http_exception(response)
 
     # ...........................
@@ -114,6 +115,19 @@ class RestService(ApiService):
                 request.
             **query_params (dict): A dictionary of query parameters that may
                 be used in object retrieval.
+
+        Returns:
+            dict - If the interface is a JSON interface, the response is
+                encoded as a JSON dictionary object.
+            str - If the interface is a text interface, the response is
+                returned as text.
+            bytes - If the interface is a binary interface, the response is
+                returned as bytes.
+
+        Raises:
+            ForbiddenError - Raised if the user does not have permission to
+                access the specified object.
+            NotFoundError - Raised if the requested object was not found.
         """
         if interface is not None:
             obj_url = '{}/{}'.format(obj_url, interface)
@@ -128,12 +142,14 @@ class RestService(ApiService):
 
         Args:
             list_url (str): A relative URL for listing objects.
-            raw (:obj:`bool`, optional): If True, return the raw response
-                file-like object from the request.  If False, load into JSON.
             headers (:obj:`dict`, optional): Any headers to be sent to the
                 request.
             **query_params (dict): A dictionary of query parameters to be used
                 as criteria for listing.
+
+        Returns:
+            List of JSON dictionaries - The list of matching objects is
+                returned as a list of dictionaries.
         """
         response = self.api_client.get(
             list_url, headers=headers, **query_params)
@@ -143,9 +159,27 @@ class RestService(ApiService):
     # ...........................
     def post(self, post_url, files=None, headers=None,
              **query_params):
-        """
+        """Submits a POST request to the server.
+
+        Args:
+            post_url (str): A relative URL where the POST request will be made.
+            files (:obj:`dict`, optional): A dictionary with file query
+                parameter name keys and tuple values with (file name, open
+                file-like object or string, and optionally a mime-type for the
+                file).
             headers (:obj:`dict`, optional): Any headers to be sent to the
                 request.
+            **query_params (dict): A dictionary of query parameters to be sent
+                with the POST request.
+
+        Returns:
+            dict - A JSON dictionary returned from the POST request
+
+        Raises:
+            BadRequestError - Raised if the parameters provided do not match
+                the parameters required.
+            ConflictError - Raised if the POST cannot complete because an
+                object already exists with those values.
         """
         response = self.api_client.post(
             post_url, files=files, headers=headers, **query_params)
