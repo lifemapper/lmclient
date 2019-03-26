@@ -68,9 +68,11 @@ def data_files():
 
 # .............................................................................
 @pytest.fixture
-def get_client_generators(config_file):
+#def get_client_generators(config_file):
+def get_client_generators():
     client_generators = [ClientGetter(None, None)]
     # Read config file for user and password combinations
+    config_file = None
     if config_file is not None:
         with open(config_file) as in_file:
             # Add client getters
@@ -92,6 +94,6 @@ def pytest_generate_tests(metafunc):
     """
     if 'client_generator' in metafunc.fixturenames:
         metafunc.parametrize(
-            'client_generator', get_client_generators(
-                metafunc.config.getoption('config_file')))
+            'client_generator', get_client_generators())
+                #metafunc.config.getoption('config_file')))
 
