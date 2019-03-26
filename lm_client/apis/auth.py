@@ -24,11 +24,11 @@ class AuthApiService(ApiService):
         urllib2.install_opener(opener)
 
         response = self.api_client.post(
-            self, 'api/v2/login', user_id=user_id, pword=passwd)
+            'api/v2/login', user_id=user_id, pword=passwd)
         return response
 
     # ...........................
     def logout(self):
 
-        response = self.api_client.get(self, 'api/v2/logout')
+        response = self.api_client.get('api/v2/logout')
         return response
