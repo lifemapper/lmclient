@@ -17,7 +17,6 @@ setup(
     url='https://github.com/lifemapper/lm_client',
     license=license,
     packages=find_packages(exclude=('tests', 'docs')),
-    scripts=['bin/ancestral_distribution.py'],
     install_requires=[
         'requests']
 )
