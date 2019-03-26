@@ -1,6 +1,6 @@
 """Module containing authentication service calls
 """
-import cookielib
+import http.cookiejar
 import json
 from urlparse import urlparse
 
@@ -16,9 +16,9 @@ class AuthApiService(ApiService):
         """
         """
         policy_server = urlparse(self.api_client.server).netloc
-        policy = cookielib.DefaultCookiePolicy(
+        policy = http.cookiejar.DefaultCookiePolicy(
             allowed_domains=(policy_server,))
-        self.cookie_jar = cookielib.LWPCookieJar(policy=policy)
+        self.cookie_jar = http.cookiejar.LWPCookieJar(policy=policy)
         opener = urllib2.build_opener(
             urllib2.HTTPCookieProcessor(self.cookie_jar))
         urllib2.install_opener(opener)
