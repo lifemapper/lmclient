@@ -47,10 +47,10 @@
   <h1>Source code for lm_client.apis.auth</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Module containing authentication service calls</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="k">try</span><span class="p">:</span>
+<span class="k">try</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
     <span class="kn">import</span> <span class="nn">http.cookiejar</span> <span class="k">as</span> <span class="nn">cookie_jar</span>
     <span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="k">import</span> <span class="n">urlparse</span>
-<span class="k">except</span><span class="p">:</span>
+<span class="k">except</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
     <span class="kn">import</span> <span class="nn">cookielib</span> <span class="k">as</span> <span class="nn">cookie_jar</span>
     <span class="kn">from</span> <span class="nn">urlparse</span> <span class="k">import</span> <span class="n">urlparse</span>
 <span class="kn">import</span> <span class="nn">json</span>
