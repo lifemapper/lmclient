@@ -1,0 +1,1130 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>lm_client.apis package &#8212; Lifemapper Client Library 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Lifemapper Client Library 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="lm-client-apis-package">
+<h1>lm_client.apis package<a class="headerlink" href="#lm-client-apis-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-lm_client.apis.auth">
+<span id="lm-client-apis-auth-module"></span><h2>lm_client.apis.auth module<a class="headerlink" href="#module-lm_client.apis.auth" title="Permalink to this headline">¶</a></h2>
+<p>Module containing authentication service calls</p>
+<dl class="class">
+<dt id="lm_client.apis.auth.AuthApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.auth.</code><code class="descname">AuthApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/auth.html#AuthApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.auth.AuthApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.ApiService" title="lm_client.common.api_service.ApiService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.ApiService</span></code></a></p>
+<dl class="method">
+<dt id="lm_client.apis.auth.AuthApiService.login">
+<code class="descname">login</code><span class="sig-paren">(</span><em>user_id</em>, <em>passwd</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/auth.html#AuthApiService.login"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.auth.AuthApiService.login" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.auth.AuthApiService.logout">
+<code class="descname">logout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/auth.html#AuthApiService.logout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.auth.AuthApiService.logout" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.biotaphy_points">
+<span id="lm-client-apis-biotaphy-points-module"></span><h2>lm_client.apis.biotaphy_points module<a class="headerlink" href="#module-lm_client.apis.biotaphy_points" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lm_client.apis.biotaphy_points.BiotaPhyPointsApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.biotaphy_points.</code><code class="descname">BiotaPhyPointsApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/biotaphy_points.html#BiotaPhyPointsApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.biotaphy_points.BiotaPhyPointsApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="attribute">
+<dt id="lm_client.apis.biotaphy_points.BiotaPhyPointsApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/biotaphypoints'</em><a class="headerlink" href="#lm_client.apis.biotaphy_points.BiotaPhyPointsApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.biotaphy_points.BiotaPhyPointsApiService.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>taxon_ids</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/biotaphy_points.html#BiotaPhyPointsApiService.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.biotaphy_points.BiotaPhyPointsApiService.post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.env_layer">
+<span id="lm-client-apis-env-layer-module"></span><h2>lm_client.apis.env_layer module<a class="headerlink" href="#module-lm_client.apis.env_layer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lm_client.apis.env_layer.EnvLayerApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.env_layer.</code><code class="descname">EnvLayerApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/env_layer.html#EnvLayerApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.env_layer.EnvLayerApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="method">
+<dt id="lm_client.apis.env_layer.EnvLayerApiService.count">
+<code class="descname">count</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>alt_pred_code=None</em>, <em>before_time=None</em>, <em>date_code=None</em>, <em>epsg_code=None</em>, <em>env_code=None</em>, <em>env_type_id=None</em>, <em>gcm_code=None</em>, <em>scenario_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/env_layer.html#EnvLayerApiService.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.env_layer.EnvLayerApiService.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.env_layer.EnvLayerApiService.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>env_layer_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/env_layer.html#EnvLayerApiService.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.env_layer.EnvLayerApiService.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to delete</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.apis.env_layer.EnvLayerApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/envlayer'</em><a class="headerlink" href="#lm_client.apis.env_layer.EnvLayerApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.env_layer.EnvLayerApiService.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>env_layer_id</em>, <em>interface=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/env_layer.html#EnvLayerApiService.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.env_layer.EnvLayerApiService.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to get</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.env_layer.EnvLayerApiService.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>alt_pred_code=None</em>, <em>before_time=None</em>, <em>date_code=None</em>, <em>epsg_code=None</em>, <em>env_code=None</em>, <em>env_type_id=None</em>, <em>gcm_code=None</em>, <em>scenario_id=None</em>, <em>limit=None</em>, <em>offset=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/env_layer.html#EnvLayerApiService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.env_layer.EnvLayerApiService.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.env_layer.EnvLayerApiService.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>layer_content</em>, <em>layer_type</em>, <em>epsg_code</em>, <em>layer_name</em>, <em>env_layer_type_id=None</em>, <em>additional_metadata=None</em>, <em>val_units=None</em>, <em>env_code=None</em>, <em>gcm_code=None</em>, <em>alt_pred_code=None</em>, <em>date_code=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/env_layer.html#EnvLayerApiService.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.env_layer.EnvLayerApiService.post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.gbif_parser">
+<span id="lm-client-apis-gbif-parser-module"></span><h2>lm_client.apis.gbif_parser module<a class="headerlink" href="#module-lm_client.apis.gbif_parser" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lm_client.apis.gbif_parser.GbifNameParserApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.gbif_parser.</code><code class="descname">GbifNameParserApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/gbif_parser.html#GbifNameParserApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.gbif_parser.GbifNameParserApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="attribute">
+<dt id="lm_client.apis.gbif_parser.GbifNameParserApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/gbifparser'</em><a class="headerlink" href="#lm_client.apis.gbif_parser.GbifNameParserApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.gbif_parser.GbifNameParserApiService.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>names_list</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/gbif_parser.html#GbifNameParserApiService.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.gbif_parser.GbifNameParserApiService.post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.global_pam">
+<span id="lm-client-apis-global-pam-module"></span><h2>lm_client.apis.global_pam module<a class="headerlink" href="#module-lm_client.apis.global_pam" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lm_client.apis.global_pam.GlobalPamApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.global_pam.</code><code class="descname">GlobalPamApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/global_pam.html#GlobalPamApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.global_pam.GlobalPamApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="attribute">
+<dt id="lm_client.apis.global_pam.GlobalPamApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/globalpam'</em><a class="headerlink" href="#lm_client.apis.global_pam.GlobalPamApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.global_pam.GlobalPamApiService.get_facets">
+<code class="descname">get_facets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/global_pam.html#GlobalPamApiService.get_facets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.global_pam.GlobalPamApiService.get_facets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to get</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.global_pam.GlobalPamApiService.list_matches">
+<code class="descname">list_matches</code><span class="sig-paren">(</span><em>algorithm_code=None</em>, <em>bbox=None</em>, <em>display_name=None</em>, <em>gridset_id=None</em>, <em>model_scenario_code=None</em>, <em>point_max=None</em>, <em>point_min=None</em>, <em>prj_scen_code=None</em>, <em>squid=None</em>, <em>taxon_kingdom=None</em>, <em>taxon_phylum=None</em>, <em>taxon_class=None</em>, <em>taxon_order=None</em>, <em>taxon_family=None</em>, <em>taxon_genus=None</em>, <em>taxon_species=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/global_pam.html#GlobalPamApiService.list_matches"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.global_pam.GlobalPamApiService.list_matches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.global_pam.GlobalPamApiService.post_subset">
+<code class="descname">post_subset</code><span class="sig-paren">(</span><em>archive_name</em>, <em>gridset_id</em>, <em>algorithm_code=None</em>, <em>bbox=None</em>, <em>display_name=None</em>, <em>model_scenario_code=None</em>, <em>point_max=None</em>, <em>point_min=None</em>, <em>prj_scen_code=None</em>, <em>squid=None</em>, <em>taxon_kingdom=None</em>, <em>taxon_phylum=None</em>, <em>taxon_class=None</em>, <em>taxon_order=None</em>, <em>taxon_family=None</em>, <em>taxon_genus=None</em>, <em>taxon_species=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/global_pam.html#GlobalPamApiService.post_subset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.global_pam.GlobalPamApiService.post_subset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.gridset">
+<span id="lm-client-apis-gridset-module"></span><h2>lm_client.apis.gridset module<a class="headerlink" href="#module-lm_client.apis.gridset" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lm_client.apis.gridset.GridsetApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.gridset.</code><code class="descname">GridsetApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/gridset.html#GridsetApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.gridset.GridsetApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="method">
+<dt id="lm_client.apis.gridset.GridsetApiService.count">
+<code class="descname">count</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>before_time=None</em>, <em>epsg_code=None</em>, <em>meta_string=None</em>, <em>shapegrid_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/gridset.html#GridsetApiService.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.gridset.GridsetApiService.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.gridset.GridsetApiService.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>gridset_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/gridset.html#GridsetApiService.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.gridset.GridsetApiService.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to delete a gridset</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.gridset.GridsetApiService.delete_tree">
+<code class="descname">delete_tree</code><span class="sig-paren">(</span><em>gridset_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/gridset.html#GridsetApiService.delete_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.gridset.GridsetApiService.delete_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to delete a gridset’s tree</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.apis.gridset.GridsetApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/gridset'</em><a class="headerlink" href="#lm_client.apis.gridset.GridsetApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.gridset.GridsetApiService.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>gridset_id</em>, <em>interface=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/gridset.html#GridsetApiService.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.gridset.GridsetApiService.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to get</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.gridset.GridsetApiService.get_hypotheses">
+<code class="descname">get_hypotheses</code><span class="sig-paren">(</span><em>gridset_id</em>, <em>interface=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/gridset.html#GridsetApiService.get_hypotheses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.gridset.GridsetApiService.get_hypotheses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to get</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.gridset.GridsetApiService.get_tree">
+<code class="descname">get_tree</code><span class="sig-paren">(</span><em>gridset_id</em>, <em>interface=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/gridset.html#GridsetApiService.get_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.gridset.GridsetApiService.get_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to get</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.gridset.GridsetApiService.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>before_time=None</em>, <em>epsg_code=None</em>, <em>limit=None</em>, <em>meta_string=None</em>, <em>offset=None</em>, <em>shapegrid_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/gridset.html#GridsetApiService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.gridset.GridsetApiService.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.gridset.GridsetApiService.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>boom_post_json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/gridset.html#GridsetApiService.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.gridset.GridsetApiService.post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.gridset.GridsetApiService.post_analyses">
+<code class="descname">post_analyses</code><span class="sig-paren">(</span><em>gridset_id</em>, <em>do_calc=None</em>, <em>do_mcpa=None</em>, <em>num_permutations=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/gridset.html#GridsetApiService.post_analyses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.gridset.GridsetApiService.post_analyses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.gridset.GridsetApiService.post_tree">
+<code class="descname">post_tree</code><span class="sig-paren">(</span><em>gridset_id</em>, <em>tree_id=None</em>, <em>tree_content=None</em>, <em>tree_schema=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/gridset.html#GridsetApiService.post_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.gridset.GridsetApiService.post_tree" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.hint">
+<span id="lm-client-apis-hint-module"></span><h2>lm_client.apis.hint module<a class="headerlink" href="#module-lm_client.apis.hint" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lm_client.apis.hint.SpeciesHintApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.hint.</code><code class="descname">SpeciesHintApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/hint.html#SpeciesHintApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.hint.SpeciesHintApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="attribute">
+<dt id="lm_client.apis.hint.SpeciesHintApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/hint'</em><a class="headerlink" href="#lm_client.apis.hint.SpeciesHintApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.hint.SpeciesHintApiService.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>search_string</em>, <em>limit=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/hint.html#SpeciesHintApiService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.hint.SpeciesHintApiService.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list</p>
+<p>Args:</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.layer">
+<span id="lm-client-apis-layer-module"></span><h2>lm_client.apis.layer module<a class="headerlink" href="#module-lm_client.apis.layer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lm_client.apis.layer.LayerApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.layer.</code><code class="descname">LayerApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/layer.html#LayerApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.layer.LayerApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="method">
+<dt id="lm_client.apis.layer.LayerApiService.count">
+<code class="descname">count</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>before_time=None</em>, <em>epsg_code=None</em>, <em>squid=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/layer.html#LayerApiService.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.layer.LayerApiService.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.layer.LayerApiService.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>layer_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/layer.html#LayerApiService.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.layer.LayerApiService.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to delete</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.apis.layer.LayerApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/layer'</em><a class="headerlink" href="#lm_client.apis.layer.LayerApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.layer.LayerApiService.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>layer_id</em>, <em>interface=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/layer.html#LayerApiService.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.layer.LayerApiService.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to get</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.layer.LayerApiService.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>before_time=None</em>, <em>epsg_code=None</em>, <em>limit=None</em>, <em>offset=None</em>, <em>squid=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/layer.html#LayerApiService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.layer.LayerApiService.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.layer.LayerApiService.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>layer_content</em>, <em>layer_type</em>, <em>epsg_code</em>, <em>layer_name</em>, <em>env_layer_type_id=None</em>, <em>additional_metadata=None</em>, <em>val_units=None</em>, <em>env_code=None</em>, <em>gcm_code=None</em>, <em>alt_pred_code=None</em>, <em>date_code=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/layer.html#LayerApiService.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.layer.LayerApiService.post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.occurrence">
+<span id="lm-client-apis-occurrence-module"></span><h2>lm_client.apis.occurrence module<a class="headerlink" href="#module-lm_client.apis.occurrence" title="Permalink to this headline">¶</a></h2>
+<p>Module containing functions for using the Occurrence service</p>
+<dl class="class">
+<dt id="lm_client.apis.occurrence.OccurrenceApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.occurrence.</code><code class="descname">OccurrenceApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/occurrence.html#OccurrenceApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.occurrence.OccurrenceApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="method">
+<dt id="lm_client.apis.occurrence.OccurrenceApiService.count">
+<code class="descname">count</code><span class="sig-paren">(</span><em>after_status=None</em>, <em>after_time=None</em>, <em>before_status=None</em>, <em>before_time=None</em>, <em>display_name=None</em>, <em>epsg_code=None</em>, <em>gridset_id=None</em>, <em>minimum_number_of_points=None</em>, <em>squid=None</em>, <em>status=None</em>, <em>user=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/occurrence.html#OccurrenceApiService.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.occurrence.OccurrenceApiService.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts the number of occurrence sets matching the provided criteria.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>after_status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Only return occurrence sets
+that have a status value greater than this number.</li>
+<li><strong>after_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Only return occurrence sets
+modified after this time (in ISO-8601 format).</li>
+<li><strong>before_status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Only return occurrence sets
+that have a status value less than this number.</li>
+<li><strong>before_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Only return occurrence sets
+modified before this time (in ISO-8601 format).</li>
+<li><strong>display_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Only return occurrence sets
+that have this display name.</li>
+<li><strong>epsg_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Only return occurrence sets that
+have this EPSG code.</li>
+<li><strong>gridset_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Only return occurrence sets that
+are part of the gridset with this ID.</li>
+<li><strong>minimum_number_of_points</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Only return
+occurrence sets that have at least this many points.</li>
+<li><strong>squid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Only return occurrence sets that have
+this squid (hash value for species identifier).</li>
+<li><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Only return occurrence sets that
+have this status.</li>
+<li><strong>user</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – If ‘public’, return public occurrence
+sets.  If ‘anon’, return anonymous occurrence sets.  If None,
+return the user’s occurrence sets.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.occurrence.OccurrenceApiService.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>occurrence_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/occurrence.html#OccurrenceApiService.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.occurrence.OccurrenceApiService.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to delete the occurrence set specified by occurrence_id.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.apis.occurrence.OccurrenceApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/occurrence/'</em><a class="headerlink" href="#lm_client.apis.occurrence.OccurrenceApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.occurrence.OccurrenceApiService.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>occurrence_id</em>, <em>interface=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/occurrence.html#OccurrenceApiService.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.occurrence.OccurrenceApiService.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to retrieve the occurrence set specified by the ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>occurrence_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The ID number of the occurrence set to
+retrieve.</li>
+<li><strong>interface</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – If provided, request the response
+in this interface.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.occurrence.OccurrenceApiService.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>after_status=None</em>, <em>after_time=None</em>, <em>before_status=None</em>, <em>before_time=None</em>, <em>display_name=None</em>, <em>epsg_code=None</em>, <em>gridset_id=None</em>, <em>limit=None</em>, <em>minimum_number_of_points=None</em>, <em>offset=None</em>, <em>squid=None</em>, <em>status=None</em>, <em>user=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/occurrence.html#OccurrenceApiService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.occurrence.OccurrenceApiService.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists occurrence sets matching the provided criteria.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>after_status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Only return occurrence sets
+that have a status value greater than this number.</li>
+<li><strong>after_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Only return occurrence sets
+modified after this time (in ISO-8601 format).</li>
+<li><strong>before_status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Only return occurrence sets
+that have a status value less than this number.</li>
+<li><strong>before_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Only return occurrence sets
+modified before this time (in ISO-8601 format).</li>
+<li><strong>display_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Only return occurrence sets
+that have this display name.</li>
+<li><strong>epsg_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Only return occurrence sets that
+have this EPSG code.</li>
+<li><strong>gridset_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Only return occurrence sets that
+are part of the gridset with this ID.</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Only return this number of occurrence
+sets.</li>
+<li><strong>minimum_number_of_points</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Only return
+occurrence sets that have at least this many points.</li>
+<li><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Offset the occurrence sets returned
+by this number.</li>
+<li><strong>squid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Only return occurrence sets that have
+this squid (hash value for species identifier).</li>
+<li><strong>status</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Only return occurrence sets that
+have this status.</li>
+<li><strong>user</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – If ‘public’, return public occurrence
+sets.  If ‘anon’, return anonymous occurrence sets.  If None,
+return the user’s occurrence sets.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.ogc">
+<span id="lm-client-apis-ogc-module"></span><h2>lm_client.apis.ogc module<a class="headerlink" href="#module-lm_client.apis.ogc" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lm_client.apis.ogc.OgcApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.ogc.</code><code class="descname">OgcApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/ogc.html#OgcApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.ogc.OgcApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="attribute">
+<dt id="lm_client.apis.ogc.OgcApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/ogc'</em><a class="headerlink" href="#lm_client.apis.ogc.OgcApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.ogc.OgcApiService.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>map_name</em>, <em>bbox=None</em>, <em>bgcolor=None</em>, <em>color=None</em>, <em>coverage=None</em>, <em>crs=None</em>, <em>exceptions=None</em>, <em>height=None</em>, <em>layer=None</em>, <em>layers=None</em>, <em>point=None</em>, <em>request=None</em>, <em>format=None</em>, <em>service=None</em>, <em>sld=None</em>, <em>sld_body=None</em>, <em>srs=None</em>, <em>styles=None</em>, <em>time=None</em>, <em>transparent=None</em>, <em>version=None</em>, <em>width=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/ogc.html#OgcApiService.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.ogc.OgcApiService.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to get</p>
+<p>Args:</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.open_tree">
+<span id="lm-client-apis-open-tree-module"></span><h2>lm_client.apis.open_tree module<a class="headerlink" href="#module-lm_client.apis.open_tree" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lm_client.apis.open_tree.OpenTreeApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.open_tree.</code><code class="descname">OpenTreeApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/open_tree.html#OpenTreeApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.open_tree.OpenTreeApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="attribute">
+<dt id="lm_client.apis.open_tree.OpenTreeApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/opentree'</em><a class="headerlink" href="#lm_client.apis.open_tree.OpenTreeApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.open_tree.OpenTreeApiService.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>taxon_ids</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/open_tree.html#OpenTreeApiService.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.open_tree.OpenTreeApiService.post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.raw_solr">
+<span id="lm-client-apis-raw-solr-module"></span><h2>lm_client.apis.raw_solr module<a class="headerlink" href="#module-lm_client.apis.raw_solr" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lm_client.apis.raw_solr.SolrRawApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.raw_solr.</code><code class="descname">SolrRawApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/raw_solr.html#SolrRawApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.raw_solr.SolrRawApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="attribute">
+<dt id="lm_client.apis.raw_solr.SolrRawApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/rawsolr'</em><a class="headerlink" href="#lm_client.apis.raw_solr.SolrRawApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.raw_solr.SolrRawApiService.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>collection</em>, <em>query_string</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/raw_solr.html#SolrRawApiService.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.raw_solr.SolrRawApiService.post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.scenario">
+<span id="lm-client-apis-scenario-module"></span><h2>lm_client.apis.scenario module<a class="headerlink" href="#module-lm_client.apis.scenario" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lm_client.apis.scenario.ScenarioApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.scenario.</code><code class="descname">ScenarioApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/scenario.html#ScenarioApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.scenario.ScenarioApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="method">
+<dt id="lm_client.apis.scenario.ScenarioApiService.count">
+<code class="descname">count</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>alt_pred_code=None</em>, <em>before_time=None</em>, <em>date_code=None</em>, <em>epsg_code=None</em>, <em>gcm_code=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/scenario.html#ScenarioApiService.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.scenario.ScenarioApiService.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.scenario.ScenarioApiService.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>scenario_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/scenario.html#ScenarioApiService.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.scenario.ScenarioApiService.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to delete</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.apis.scenario.ScenarioApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/scenario'</em><a class="headerlink" href="#lm_client.apis.scenario.ScenarioApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.scenario.ScenarioApiService.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>scenario_id</em>, <em>interface=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/scenario.html#ScenarioApiService.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.scenario.ScenarioApiService.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to get</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.scenario.ScenarioApiService.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>alt_pred_code=None</em>, <em>before_time=None</em>, <em>date_code=None</em>, <em>epsg_code=None</em>, <em>gcm_code=None</em>, <em>limit=None</em>, <em>offset=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/scenario.html#ScenarioApiService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.scenario.ScenarioApiService.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.scenario.ScenarioApiService.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>scenario_json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/scenario.html#ScenarioApiService.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.scenario.ScenarioApiService.post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.scenario_package">
+<span id="lm-client-apis-scenario-package-module"></span><h2>lm_client.apis.scenario_package module<a class="headerlink" href="#module-lm_client.apis.scenario_package" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lm_client.apis.scenario_package.ScenarioPackageApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.scenario_package.</code><code class="descname">ScenarioPackageApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/scenario_package.html#ScenarioPackageApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.scenario_package.ScenarioPackageApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="method">
+<dt id="lm_client.apis.scenario_package.ScenarioPackageApiService.count">
+<code class="descname">count</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>before_time=None</em>, <em>scenario_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/scenario_package.html#ScenarioPackageApiService.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.scenario_package.ScenarioPackageApiService.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.apis.scenario_package.ScenarioPackageApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/scenpackage'</em><a class="headerlink" href="#lm_client.apis.scenario_package.ScenarioPackageApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.scenario_package.ScenarioPackageApiService.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>scenario_package_id</em>, <em>interface=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/scenario_package.html#ScenarioPackageApiService.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.scenario_package.ScenarioPackageApiService.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to get</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.scenario_package.ScenarioPackageApiService.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>before_time=None</em>, <em>limit=None</em>, <em>offset=None</em>, <em>scenario_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/scenario_package.html#ScenarioPackageApiService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.scenario_package.ScenarioPackageApiService.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list</p>
+<p>Args:</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.sdm_project">
+<span id="lm-client-apis-sdm-project-module"></span><h2>lm_client.apis.sdm_project module<a class="headerlink" href="#module-lm_client.apis.sdm_project" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lm_client.apis.sdm_project.SdmProjectApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.sdm_project.</code><code class="descname">SdmProjectApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/sdm_project.html#SdmProjectApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.sdm_project.SdmProjectApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="method">
+<dt id="lm_client.apis.sdm_project.SdmProjectApiService.count">
+<code class="descname">count</code><span class="sig-paren">(</span><em>after_status=None</em>, <em>after_time=None</em>, <em>algorithm_code=None</em>, <em>before_status=None</em>, <em>before_time=None</em>, <em>display_name=None</em>, <em>epsg_code=None</em>, <em>model_scenario_code=None</em>, <em>occurrence_set_id=None</em>, <em>projection_scenario_code=None</em>, <em>scenario_id=None</em>, <em>status=None</em>, <em>gridset_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/sdm_project.html#SdmProjectApiService.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.sdm_project.SdmProjectApiService.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.sdm_project.SdmProjectApiService.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>sdmproject_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/sdm_project.html#SdmProjectApiService.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.sdm_project.SdmProjectApiService.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to delete</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.apis.sdm_project.SdmProjectApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/sdmproject'</em><a class="headerlink" href="#lm_client.apis.sdm_project.SdmProjectApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.sdm_project.SdmProjectApiService.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>sdmproject_id</em>, <em>interface=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/sdm_project.html#SdmProjectApiService.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.sdm_project.SdmProjectApiService.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to get</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.sdm_project.SdmProjectApiService.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>after_status=None</em>, <em>after_time=None</em>, <em>algorithm_code=None</em>, <em>before_status=None</em>, <em>before_time=None</em>, <em>display_name=None</em>, <em>epsg_code=None</em>, <em>limit=None</em>, <em>model_scenario_code=None</em>, <em>occurrence_set_id=None</em>, <em>offset=None</em>, <em>projection_scenario_code=None</em>, <em>scenario_id=None</em>, <em>status=None</em>, <em>gridset_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/sdm_project.html#SdmProjectApiService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.sdm_project.SdmProjectApiService.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list</p>
+<p>Args:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.sdm_project.SdmProjectApiService.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>boom_post_json</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/sdm_project.html#SdmProjectApiService.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.sdm_project.SdmProjectApiService.post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.shapegrid">
+<span id="lm-client-apis-shapegrid-module"></span><h2>lm_client.apis.shapegrid module<a class="headerlink" href="#module-lm_client.apis.shapegrid" title="Permalink to this headline">¶</a></h2>
+<p>This module interacts with the shapegrid end-point</p>
+<p>Shapegrids are vector layers where each feature represents a site.  These are
+the same sites that are used for Presence Absence Matrices, PAMs, as well as
+encoded climate data and biogeographic hypotheses.  Lifemapper generated
+shapegrids are regularly spaced rectangular or hexagonal cells that form a
+grid.  The grid generally covers an area specified by a bounding box, but may
+also have some cells removed in a “cutout” operation so that the remaining
+cells cover the desired area of interest.</p>
+<dl class="class">
+<dt id="lm_client.apis.shapegrid.ShapegridApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.shapegrid.</code><code class="descname">ShapegridApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/shapegrid.html#ShapegridApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.shapegrid.ShapegridApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<p>This class is responsible for interactions with shapegrid end-point</p>
+<dl class="method">
+<dt id="lm_client.apis.shapegrid.ShapegridApiService.count">
+<code class="descname">count</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>before_time=None</em>, <em>cell_sides=None</em>, <em>cell_size=None</em>, <em>epsg_code=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/shapegrid.html#ShapegridApiService.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.shapegrid.ShapegridApiService.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts shapegrids matching the provided criteria</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>after_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Count shapegrids modified after
+this time (in ISO-8601 format).</li>
+<li><strong>before_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Count shapegrids modified
+before this time (in ISO-8601 format).</li>
+<li><strong>cell_sides</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Count shapegrids that have cells
+with the specified number of sides
+(4 - rectangles, 6 - hexagons).</li>
+<li><strong>cell_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a>, optional) – Count shapegrids with the
+specified cell size (resolution).</li>
+<li><strong>epsg_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Count shapegrids that were
+created using the specified spatial projection represented by
+the EPSG code.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">int - The number of shapegrids matching the provided criteria.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.shapegrid.ShapegridApiService.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>shapegrid_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/shapegrid.html#ShapegridApiService.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.shapegrid.ShapegridApiService.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to delete a shapegrid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>shapegrid_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The database identifier of the shapegrid to
+attempt to delete.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal"><span class="pre">ForbiddenError</span></code> – Thrown if the client user does not have permission
+to delete the requested shapegrid.</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">NotFoundError</span></code> – Thrown if the requested shapegrid is not found.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.apis.shapegrid.ShapegridApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/shapegrid'</em><a class="headerlink" href="#lm_client.apis.shapegrid.ShapegridApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.shapegrid.ShapegridApiService.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>shapegrid_id</em>, <em>interface=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/shapegrid.html#ShapegridApiService.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.shapegrid.ShapegridApiService.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to get a shapegrid</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>shapegrid_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The database identifier of the shapegrid to
+attempt to retrieve.</li>
+<li><strong>interface</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – The requested interface, or
+format, for the shapegrid to be returned as.  Valid options
+are: EML, JSON (default), GeoJSON, and SHAPEFILE.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>If the interface is set to JSON or GEO_JSON, returns a</dt>
+<dd><p class="first last">dictionary</p>
+</dd>
+<dt>bytes: If the interface is set to SHAPEFILE, the zipped shapefile</dt>
+<dd><p class="first last">is returned.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)">dict</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal"><span class="pre">ForbiddenError</span></code> – Thrown if the client user does not have permission
+to access the requested shapegrid.</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">NotFoundError</span></code> – Thrown if the requested shapegrid is not found.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.shapegrid.ShapegridApiService.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>before_time=None</em>, <em>cell_sides=None</em>, <em>cell_size=None</em>, <em>epsg_code=None</em>, <em>limit=None</em>, <em>offset=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/shapegrid.html#ShapegridApiService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.shapegrid.ShapegridApiService.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list of shapegrids matching the provided criteria</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>after_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return shapegrids modified after
+this time (in ISO-8601 format).</li>
+<li><strong>before_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return shapegrids modified
+before this time (in ISO-8601 format).</li>
+<li><strong>cell_sides</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Return shapegrids that have
+cells with the specified number of sides
+(4 - rectangles, 6 - hexagons).</li>
+<li><strong>cell_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">float</span></code></a>, optional) – Return shapegrids with the
+specified cell size (resolution).</li>
+<li><strong>epsg_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Return shapegrids that were
+created using the specified spatial projection represented by
+the EPSG code.</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Return this number of shapegrids.</li>
+<li><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Offset the shapegrids returned by
+this number.  Use along with limit to implement paging.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>list of shapegrid metadata - Returns a list of shapegrids matching</dt>
+<dd><p class="first last">the provided criteria.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.shapegrid.ShapegridApiService.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>name</em>, <em>epsg_code</em>, <em>cell_sides</em>, <em>cell_size</em>, <em>map_units</em>, <em>bbox</em>, <em>cutout=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/shapegrid.html#ShapegridApiService.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.shapegrid.ShapegridApiService.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Posts a new shapegrid to the server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – A name for this shapegrid.</li>
+<li><strong>epsg_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – An EPSG code representing the map projection to
+use when defining this shapegrid.</li>
+<li><strong>cell_sides</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The number of sides each cell in the shapegrid
+should have.  Use 4 for rectangular cells and 6 for hexagonal
+cells.</li>
+<li><strong>cell_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – The size of each side of each cell in the
+shapegrid (in map_units).</li>
+<li><strong>map_units</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – <p>The units for the cell_sizes of the map.  Examples
+are:</p>
+<blockquote>
+<div>dd - decimal degrees
+m - meters
+ft - feet</div></blockquote>
+</li>
+<li><strong>bbox</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.7)"><em>tuple</em></a>) – Bounding box tuple for this shapegrid in the form
+(minimum x, maximum x, minimum y, maximum y).</li>
+<li><strong>cutout</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – An area of the shapegrid to “cut
+out”, meaning to remove cells that fall within that area.  This
+should be specified as Well-Known Text.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>dict - A JSON dictionary of metadata about the newly posted</dt>
+<dd><p class="first last">shapegrid.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal"><span class="pre">BadRequestError</span></code> – Raised if the post data required is invalid.</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ConflictError</span></code> – Raised if the post data already exists on the
+server.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.snippet">
+<span id="lm-client-apis-snippet-module"></span><h2>lm_client.apis.snippet module<a class="headerlink" href="#module-lm_client.apis.snippet" title="Permalink to this headline">¶</a></h2>
+<p>Module containing functions for using the snippet service end-point</p>
+<dl class="class">
+<dt id="lm_client.apis.snippet.SnippetApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.snippet.</code><code class="descname">SnippetApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/snippet.html#SnippetApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.snippet.SnippetApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<p>This class is used for working with the snippet service end-point</p>
+<dl class="attribute">
+<dt id="lm_client.apis.snippet.SnippetApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/snippet/'</em><a class="headerlink" href="#lm_client.apis.snippet.SnippetApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.snippet.SnippetApiService.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>agent=None</em>, <em>before_time=None</em>, <em>catalog_number=None</em>, <em>collection=None</em>, <em>ident1=None</em>, <em>ident2=None</em>, <em>operation=None</em>, <em>provider=None</em>, <em>url=None</em>, <em>who=None</em>, <em>why=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/snippet.html#SnippetApiService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.snippet.SnippetApiService.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists snippets matching the provided criteria.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>after_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Only return snippets modified
+after this time (in ISO-8601 format).</li>
+<li><strong>agent</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return snippets initiated by this
+agent.</li>
+<li><strong>before_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Only return snippets modified
+before this time (in ISO-8601 format).</li>
+<li><strong>catalog_number</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – List snippets for occurrence
+records with this catalog number.</li>
+<li><strong>collection</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – List snippets for this
+collection.</li>
+<li><strong>ident1</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – List snippets with this primary
+object identifier.</li>
+<li><strong>ident2</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – List snippets with this secondary
+object identifier.</li>
+<li><strong>operation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – List snippets for this operation.</li>
+<li><strong>provider</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – List snippets for this occurrence
+point provider.</li>
+<li><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – List snippets related to this URL.</li>
+<li><strong>who</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – List snippets created by this entity.</li>
+<li><strong>why</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – List snippets that were created for
+this reason.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.taxonomy">
+<span id="lm-client-apis-taxonomy-module"></span><h2>lm_client.apis.taxonomy module<a class="headerlink" href="#module-lm_client.apis.taxonomy" title="Permalink to this headline">¶</a></h2>
+<p>This module contains functions for getting taxonomy hints</p>
+<dl class="class">
+<dt id="lm_client.apis.taxonomy.TaxonomyApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.taxonomy.</code><code class="descname">TaxonomyApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/taxonomy.html#TaxonomyApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.taxonomy.TaxonomyApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="attribute">
+<dt id="lm_client.apis.taxonomy.TaxonomyApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/taxonomy'</em><a class="headerlink" href="#lm_client.apis.taxonomy.TaxonomyApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.taxonomy.TaxonomyApiService.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>canonical_name=None</em>, <em>limit=None</em>, <em>scientific_name=None</em>, <em>squid=None</em>, <em>taxon_class=None</em>, <em>taxon_family=None</em>, <em>taxon_genus=None</em>, <em>taxon_key=None</em>, <em>taxon_kingdom=None</em>, <em>taxon_order=None</em>, <em>taxon_phylum=None</em>, <em>user=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/taxonomy.html#TaxonomyApiService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.taxonomy.TaxonomyApiService.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets a list</p>
+<p>Args:</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.tree">
+<span id="lm-client-apis-tree-module"></span><h2>lm_client.apis.tree module<a class="headerlink" href="#module-lm_client.apis.tree" title="Permalink to this headline">¶</a></h2>
+<p>Module containing functions for using the tree service endpoint</p>
+<dl class="class">
+<dt id="lm_client.apis.tree.TreeApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.tree.</code><code class="descname">TreeApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/tree.html#TreeApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.tree.TreeApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<p>This class is used for working with the tree service end-point</p>
+<dl class="method">
+<dt id="lm_client.apis.tree.TreeApiService.count">
+<code class="descname">count</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>before_time=None</em>, <em>has_branch_lengths=None</em>, <em>is_binary=None</em>, <em>is_ultrametric=None</em>, <em>meta_string=None</em>, <em>name=None</em>, <em>user=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/tree.html#TreeApiService.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.tree.TreeApiService.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Counts the number of trees matching the provided criteria.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>after_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Only trees modified after this
+time (in ISO-8601 format).</li>
+<li><strong>before_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Only return trees modified
+before this time (in ISO-8601 format).</li>
+<li><strong>has_branch_lengths</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional) – Return trees that have
+or do not have branch lengths.</li>
+<li><strong>is_binary</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional) – Return trees that are or are not
+binary.</li>
+<li><strong>is_ultrametric</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional) – Return trees that are or
+are not ultrametric.</li>
+<li><strong>meta_string</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return trees with this metadata
+string attached to them.</li>
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return trees that have this name.</li>
+<li><strong>user</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – If ‘public’, return public trees.  If
+‘anon’, return anonymous trees.  If None, return the user’s
+trees.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.tree.TreeApiService.delete">
+<code class="descname">delete</code><span class="sig-paren">(</span><em>tree_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/tree.html#TreeApiService.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.tree.TreeApiService.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to delete the tree specified by tree_id.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.apis.tree.TreeApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/tree/'</em><a class="headerlink" href="#lm_client.apis.tree.TreeApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.tree.TreeApiService.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>tree_id</em>, <em>interface=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/tree.html#TreeApiService.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.tree.TreeApiService.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to retrieve the tree specified by the ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tree</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The ID number of the tree to retrieve.</li>
+<li><strong>interface</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – If provided, request the response
+in this interface.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.tree.TreeApiService.list">
+<code class="descname">list</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>before_time=None</em>, <em>has_branch_lengths=None</em>, <em>is_binary=None</em>, <em>is_ultrametric=None</em>, <em>limit=None</em>, <em>meta_string=None</em>, <em>name=None</em>, <em>offset=None</em>, <em>user=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/tree.html#TreeApiService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.tree.TreeApiService.list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists occurrence sets matching the provided criteria.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>after_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Only trees modified after this
+time (in ISO-8601 format).</li>
+<li><strong>before_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Only return trees modified
+before this time (in ISO-8601 format).</li>
+<li><strong>has_branch_lengths</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional) – Return trees that have
+or do not have branch lengths.</li>
+<li><strong>is_binary</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional) – Return trees that are or are not
+binary.</li>
+<li><strong>is_ultrametric</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional) – Return trees that are or
+are not ultrametric.</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Return up to this number of trees.</li>
+<li><strong>meta_string</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return trees with this metadata
+string attached to them.</li>
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return trees that have this name.</li>
+<li><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Offset the list of returned trees by
+this number.</li>
+<li><strong>user</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – If ‘public’, return public trees.  If
+‘anon’, return anonymous trees.  If None, return the user’s
+trees.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.tree.TreeApiService.post">
+<code class="descname">post</code><span class="sig-paren">(</span><em>filename_or_flo</em>, <em>name</em>, <em>schema</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/tree.html#TreeApiService.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.tree.TreeApiService.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempt to POST a new tree to the service end-point</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filename_or_flo</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a><em> or </em><em>file-like object</em>) – A filename or file-like
+object containing the tree data.</li>
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – A name for this new tree.</li>
+<li><strong>schema</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The tree schema (newick, nexus, nexml).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis.upload">
+<span id="lm-client-apis-upload-module"></span><h2>lm_client.apis.upload module<a class="headerlink" href="#module-lm_client.apis.upload" title="Permalink to this headline">¶</a></h2>
+<p>Module containing functions for uploading data services</p>
+<dl class="class">
+<dt id="lm_client.apis.upload.UploadApiService">
+<em class="property">class </em><code class="descclassname">lm_client.apis.upload.</code><code class="descname">UploadApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/upload.html#UploadApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.upload.UploadApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<dl class="method">
+<dt id="lm_client.apis.upload.UploadApiService.biogeographic_hypotheses">
+<code class="descname">biogeographic_hypotheses</code><span class="sig-paren">(</span><em>filename</em>, <em>package_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/upload.html#UploadApiService.biogeographic_hypotheses"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.upload.UploadApiService.biogeographic_hypotheses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.apis.upload.UploadApiService.end_point">
+<code class="descname">end_point</code><em class="property"> = 'api/v2/upload'</em><a class="headerlink" href="#lm_client.apis.upload.UploadApiService.end_point" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.upload.UploadApiService.occurrence">
+<code class="descname">occurrence</code><span class="sig-paren">(</span><em>filename</em>, <em>metadata</em>, <em>data_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/upload.html#UploadApiService.occurrence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.upload.UploadApiService.occurrence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="lm_client.apis.upload.UploadApiService.tree">
+<code class="descname">tree</code><span class="sig-paren">(</span><em>filename</em>, <em>tree_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/upload.html#UploadApiService.tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.upload.UploadApiService.tree" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.apis">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-lm_client.apis" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Lifemapper Client Library 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Lifemapper Team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>

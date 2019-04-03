@@ -1,0 +1,198 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>lm_client.common.constants &#8212; Lifemapper Client Library 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Lifemapper Client Library 1.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for lm_client.common.constants</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Module containing constants for the Lifemapper API Client</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="c1"># .............................................................................</span>
+<div class="viewcode-block" id="HTTPMethod"><a class="viewcode-back" href="../../../source/lm_client.common.html#lm_client.common.constants.HTTPMethod">[docs]</a><span class="k">class</span> <span class="nc">HTTPMethod</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Class containing constants for supported HTTP methods</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">DELETE</span> <span class="o">=</span> <span class="s1">&#39;DELETE&#39;</span>
+    <span class="n">GET</span> <span class="o">=</span> <span class="s1">&#39;GET&#39;</span>
+    <span class="n">POST</span> <span class="o">=</span> <span class="s1">&#39;POST&#39;</span>
+    <span class="n">PUT</span> <span class="o">=</span> <span class="s1">&#39;PUT&#39;</span></div>
+
+
+<span class="c1"># .............................................................................</span>
+<div class="viewcode-block" id="HttpStatus"><a class="viewcode-back" href="../../../source/lm_client.common.html#lm_client.common.constants.HttpStatus">[docs]</a><span class="k">class</span> <span class="nc">HttpStatus</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Constants class for HTTP 1.1 Status Codes</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        * HTTP 1.1 Status Codes as defined by</span>
+<span class="sd">            http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Informational 1xx</span>
+    <span class="n">CONTINUE</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">SWITCHING_PROTOCOLS</span> <span class="o">=</span> <span class="mi">101</span>
+
+    <span class="c1"># Successful 2xx</span>
+    <span class="n">OK</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="n">CREATED</span> <span class="o">=</span> <span class="mi">201</span>
+    <span class="n">ACCEPTED</span> <span class="o">=</span> <span class="mi">202</span>
+    <span class="n">NON_AUTHORITATIVE_INFORMATION</span> <span class="o">=</span> <span class="mi">203</span>
+    <span class="n">NO_CONTENT</span> <span class="o">=</span> <span class="mi">204</span>
+    <span class="n">RESET_CONTENT</span> <span class="o">=</span> <span class="mi">205</span>
+    <span class="n">PARTIAL_CONTENT</span> <span class="o">=</span> <span class="mi">206</span>
+
+    <span class="c1"># Redirectional 3xx</span>
+    <span class="n">MULTIPLE_CHOICES</span> <span class="o">=</span> <span class="mi">300</span>
+    <span class="n">MOVED_PERMANENTLY</span> <span class="o">=</span> <span class="mi">301</span>
+    <span class="n">FOUND</span> <span class="o">=</span> <span class="mi">302</span>
+    <span class="n">SEE_OTHER</span> <span class="o">=</span> <span class="mi">303</span>
+    <span class="n">NOT_MODIFIED</span> <span class="o">=</span> <span class="mi">204</span>
+    <span class="n">USE_PROXY</span> <span class="o">=</span> <span class="mi">305</span>
+    <span class="n">TEMPORARY_REDIRECT</span> <span class="o">=</span> <span class="mi">307</span>
+
+    <span class="c1"># Client Error 4xx</span>
+    <span class="n">BAD_REQUEST</span> <span class="o">=</span> <span class="mi">400</span>
+    <span class="n">UNAUTHORIZED</span> <span class="o">=</span> <span class="mi">401</span>
+    <span class="n">FORBIDDEN</span> <span class="o">=</span> <span class="mi">403</span>
+    <span class="n">NOT_FOUND</span> <span class="o">=</span> <span class="mi">404</span>
+    <span class="n">METHOD_NOT_ALLOWED</span> <span class="o">=</span> <span class="mi">405</span>
+    <span class="n">NOT_ACCEPTABLE</span> <span class="o">=</span> <span class="mi">406</span>
+    <span class="n">PROXY_AUTHENTICATION_REQUIRED</span> <span class="o">=</span> <span class="mi">407</span>
+    <span class="n">REQUEST_TIMEOUT</span> <span class="o">=</span> <span class="mi">408</span>
+    <span class="n">CONFLICT</span> <span class="o">=</span> <span class="mi">409</span>
+    <span class="n">GONE</span> <span class="o">=</span> <span class="mi">410</span>
+    <span class="n">LENGTH_REQUIRED</span> <span class="o">=</span> <span class="mi">411</span>
+    <span class="n">PRECONDITION_FAILED</span> <span class="o">=</span> <span class="mi">412</span>
+    <span class="n">REQUEST_ENTITY_TOO_LARGE</span> <span class="o">=</span> <span class="mi">413</span>
+    <span class="n">REQUEST_URI_TOO_LONG</span> <span class="o">=</span> <span class="mi">414</span>
+    <span class="n">UNSUPPORTED_MEDIA_TYPE</span> <span class="o">=</span> <span class="mi">415</span>
+    <span class="n">REQUEST_RANGE_NOT_SATISFIABLE</span> <span class="o">=</span> <span class="mi">416</span>
+    <span class="n">EXPECTATION_FAILED</span> <span class="o">=</span> <span class="mi">417</span>
+
+    <span class="c1"># Server Error 5xx</span>
+    <span class="n">INTERNAL_SERVER_ERROR</span> <span class="o">=</span> <span class="mi">500</span>
+    <span class="n">NOT_IMPLEMENTED</span> <span class="o">=</span> <span class="mi">501</span>
+    <span class="n">BAD_GATEWAY</span> <span class="o">=</span> <span class="mi">502</span>
+    <span class="n">SERVICE_UNAVAILABLE</span> <span class="o">=</span> <span class="mi">503</span>
+    <span class="n">GATEWAY_TIMEOUT</span> <span class="o">=</span> <span class="mi">504</span>
+    <span class="n">HTTP_VERSION_NOT_SUPPORTED</span> <span class="o">=</span> <span class="mi">505</span></div>
+
+
+<span class="c1"># .............................................................................</span>
+<div class="viewcode-block" id="INTERFACES"><a class="viewcode-back" href="../../../source/lm_client.common.html#lm_client.common.constants.INTERFACES">[docs]</a><span class="k">class</span> <span class="nc">INTERFACES</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Class containing constants for available service format interfaces</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">CSV</span> <span class="o">=</span> <span class="s1">&#39;csv&#39;</span>
+    <span class="n">EML</span> <span class="o">=</span> <span class="s1">&#39;eml&#39;</span>
+    <span class="n">GEO_JSON</span> <span class="o">=</span> <span class="s1">&#39;geojson&#39;</span>
+    <span class="n">GTIFF</span> <span class="o">=</span> <span class="s1">&#39;gtiff&#39;</span>
+    <span class="n">JSON</span> <span class="o">=</span> <span class="s1">&#39;json&#39;</span>
+    <span class="n">KML</span> <span class="o">=</span> <span class="s1">&#39;kml&#39;</span>
+    <span class="n">NEWICK</span> <span class="o">=</span> <span class="s1">&#39;newick&#39;</span>
+    <span class="n">NEXUS</span> <span class="o">=</span> <span class="s1">&#39;nexus&#39;</span>
+    <span class="n">PACKAGE</span> <span class="o">=</span> <span class="s1">&#39;package&#39;</span>
+    <span class="n">PROGRESS</span> <span class="o">=</span> <span class="s1">&#39;progress&#39;</span>
+    <span class="n">SHAPEFILE</span> <span class="o">=</span> <span class="s1">&#39;shape&#39;</span>
+
+    <span class="c1"># ...........................</span>
+<div class="viewcode-block" id="INTERFACES.binary_interfaces"><a class="viewcode-back" href="../../../source/lm_client.common.html#lm_client.common.constants.INTERFACES.binary_interfaces">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">binary_interfaces</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;Returns a list of interfaces that have binary content</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">INTERFACES</span><span class="o">.</span><span class="n">GTIFF</span><span class="p">,</span> <span class="n">INTERFACES</span><span class="o">.</span><span class="n">PACKAGE</span><span class="p">,</span> <span class="n">INTERFACES</span><span class="o">.</span><span class="n">SHAPEFILE</span><span class="p">]</span></div>
+
+    <span class="c1"># ...........................</span>
+<div class="viewcode-block" id="INTERFACES.json_interfaces"><a class="viewcode-back" href="../../../source/lm_client.common.html#lm_client.common.constants.INTERFACES.json_interfaces">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">json_interfaces</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;Returns a list of interfaces that can be processed as JSON</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">INTERFACES</span><span class="o">.</span><span class="n">GEO_JSON</span><span class="p">,</span> <span class="n">INTERFACES</span><span class="o">.</span><span class="n">JSON</span><span class="p">,</span> <span class="n">INTERFACES</span><span class="o">.</span><span class="n">PROGRESS</span><span class="p">]</span></div>
+
+    <span class="c1"># ...........................</span>
+<div class="viewcode-block" id="INTERFACES.text_interfaces"><a class="viewcode-back" href="../../../source/lm_client.common.html#lm_client.common.constants.INTERFACES.text_interfaces">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">text_interfaces</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;Returns a list of interfaces that are text</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">INTERFACES</span><span class="o">.</span><span class="n">CSV</span><span class="p">,</span> <span class="n">INTERFACES</span><span class="o">.</span><span class="n">EML</span><span class="p">,</span> <span class="n">INTERFACES</span><span class="o">.</span><span class="n">GEO_JSON</span><span class="p">,</span>
+            <span class="n">INTERFACES</span><span class="o">.</span><span class="n">JSON</span><span class="p">,</span> <span class="n">INTERFACES</span><span class="o">.</span><span class="n">KML</span><span class="p">,</span> <span class="n">INTERFACES</span><span class="o">.</span><span class="n">NEWICK</span><span class="p">,</span>
+            <span class="n">INTERFACES</span><span class="o">.</span><span class="n">NEXUS</span><span class="p">,</span> <span class="n">INTERFACES</span><span class="o">.</span><span class="n">PROGRESS</span><span class="p">]</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Lifemapper Client Library 1.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Lifemapper Team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>
