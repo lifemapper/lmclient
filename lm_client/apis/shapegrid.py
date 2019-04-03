@@ -16,19 +16,15 @@ from lm_client.common.api_service import RestService
 # .............................................................................
 class ShapegridApiService(RestService):
     """This class is responsible for interactions with shapegrid end-point
-
-    Todo: Document valid GET interfaces for Shapegrids
     """
     end_point = 'api/v2/shapegrid'
 
     # ...........................
-    def count(self, raw=False, after_time=None, before_time=None,
-              cell_sides=None, cell_size=None, epsg_code=None):
+    def count(self, after_time=None, before_time=None, cell_sides=None,
+              cell_size=None, epsg_code=None):
         """Counts shapegrids matching the provided criteria
 
         Args:
-            raw (:obj:`bool`, optional): If True, return the raw response
-                file-like object from the request.  If False, load into JSON.
             after_time (:obj:`str`, optional): Count shapegrids modified after
                 this time (in ISO-8601 format).
             before_time (:obj:`str`, optional): Count shapegrids modified
@@ -46,55 +42,58 @@ class ShapegridApiService(RestService):
             int - The number of shapegrids matching the provided criteria.
         """
         return RestService.count(
-            self, '{}/count'.format(self.end_point), raw=raw,
-            after_time=after_time, before_time=before_time,
-            cell_sides=cell_sides, cell_size=cell_size, epsg_code=epsg_code)
+            self, '{}/count'.format(self.end_point), after_time=after_time,
+            before_time=before_time, cell_sides=cell_sides,
+            cell_size=cell_size, epsg_code=epsg_code)
 
     # ...........................
-    def delete(self, shapegrid_id, raw=False):
+    def delete(self, shapegrid_id):
         """Attempts to delete a shapegrid
 
         Args:
-            raw (:obj:`bool`, optional): If True, return the raw response
-                file-like object from the request.  If False, load into JSON.
             shapegrid_id (int): The database identifier of the shapegrid to
                 attempt to delete.
 
-        Todo: Fill in returns for shapegrid delete
-        Todo: Add documentation for exceptions from shapegrid delete
+        Raises:
+            ForbiddenError: Thrown if the client user does not have permission
+                to delete the requested shapegrid.
+            NotFoundError: Thrown if the requested shapegrid is not found.
         """
         return RestService.delete(
-            self, '{}/{}'.format(self.end_point, shapegrid_id), raw=raw)
+            self, '{}/{}'.format(self.end_point, shapegrid_id))
 
     # ...........................
-    def get(self, shapegrid_id, raw=False, interface=None):
+    def get(self, shapegrid_id, interface=None):
         """Attempts to get a shapegrid
 
         Args:
             shapegrid_id (int): The database identifier of the shapegrid to
                 attempt to retrieve.
-            raw (:obj:`bool`, optional): If True, return the raw response
-                file-like object from the request.  If False, load into JSON.
             interface (:obj:`str`, optional): The requested interface, or
                 format, for the shapegrid to be returned as.  Valid options
                 are: EML, JSON (default), GeoJSON, and SHAPEFILE.
 
-        Todo: Add documentation for return options for shapegrid GET
-        Todo: Add documentation for exceptions from shapegrid GET
+        Returns:
+            dict: If the interface is set to JSON or GEO_JSON, returns a
+                dictionary
+            bytes: If the interface is set to SHAPEFILE, the zipped shapefile
+                is returned.
+
+        Raises:
+            ForbiddenError: Thrown if the client user does not have permission
+                to access the requested shapegrid.
+            NotFoundError: Thrown if the requested shapegrid is not found.
         """
         return RestService.get(
-            self, '{}/{}'.format(self.end_point, shapegrid_id), raw=raw,
+            self, '{}/{}'.format(self.end_point, shapegrid_id),
             interface=interface)
 
     # ...........................
-    def list(self, raw=False, after_time=None, before_time=None,
-             cell_sides=None, cell_size=None, epsg_code=None, limit=None,
-             offset=None):
+    def list(self, after_time=None, before_time=None, cell_sides=None,
+             cell_size=None, epsg_code=None, limit=None, offset=None):
         """Gets a list of shapegrids matching the provided criteria
 
         Args:
-            raw (:obj:`bool`, optional): If True, return the raw response
-                file-like object from the request.  If False, load into JSON.
             after_time (:obj:`str`, optional): Return shapegrids modified after
                 this time (in ISO-8601 format).
             before_time (:obj:`str`, optional): Return shapegrids modified
@@ -116,14 +115,14 @@ class ShapegridApiService(RestService):
                 the provided criteria.
         """
         return RestService.list(
-            self, self.end_point, raw=raw, after_time=after_time,
+            self, self.end_point, after_time=after_time,
             before_time=before_time, cell_sides=cell_sides,
             cell_size=cell_size, epsg_code=epsg_code, limit=limit,
             offset=offset)
 
     # ...........................
     def post(self, name, epsg_code, cell_sides, cell_size, map_units, bbox,
-             cutout=None, raw=False):
+             cutout=None):
         """Posts a new shapegrid to the server.
 
         Args:
@@ -145,17 +144,17 @@ class ShapegridApiService(RestService):
             cutout (:obj:`str`, optional): An area of the shapegrid to "cut
                 out", meaning to remove cells that fall within that area.  This
                 should be specified as Well-Known Text.
-            raw (:obj:`bool`, optional): If Ture, return the raw response
-                file-like object from the request.  If False, load into JSON.
 
         Returns:
             dict - A JSON dictionary of metadata about the newly posted
                 shapegrid.
 
-        Todo: Add documentation about failure responses
+        Raises:
+            BadRequestError: Raised if the post data required is invalid.
+            ConflictError: Raised if the post data already exists on the
+                server.
         """
         return RestService.post(
-            self, self.end_point, raw=raw,
-            headers={'Content-Type': 'application/json'}, name=name,
-            epsg_code=epsg_code, cell_sides=cell_sides, cell_size=cell_size,
-            map_units=map_units, bbox=bbox, cutout=cutout)
+            self, self.end_point, headers={'Content-Type': 'application/json'},
+            name=name, epsg_code=epsg_code, cell_sides=cell_sides,
+            cell_size=cell_size, map_units=map_units, bbox=bbox, cutout=cutout)
