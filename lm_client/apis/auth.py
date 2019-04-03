@@ -1,9 +1,9 @@
 """Module containing authentication service calls
 """
-try:
+try:  # pragma: no cover
     import http.cookiejar as cookie_jar
     from urllib.parse import urlparse
-except:
+except:  # pragma: no cover
     import cookielib as cookie_jar
     from urlparse import urlparse
 import json
