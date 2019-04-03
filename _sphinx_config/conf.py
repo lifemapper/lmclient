@@ -144,7 +144,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'LifemapperClientLibrary.tex', u'Lifemapper Client Library Documentation',
+    (master_doc, 'LifemapperClientLibrary.tex',
+     u'Lifemapper Client Library Documentation',
      u'Lifemapper Team', 'manual'),
 ]
 
@@ -154,7 +155,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'lifemapperclientlibrary', u'Lifemapper Client Library Documentation',
+    (master_doc, 'lifemapperclientlibrary',
+     u'Lifemapper Client Library Documentation',
      [author], 1)
 ]
 
@@ -165,13 +167,11 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'LifemapperClientLibrary', u'Lifemapper Client Library Documentation',
-     author, 'LifemapperClientLibrary', 'One line description of project.',
+    (master_doc, 'LifemapperClientLibrary',
+     u'Lifemapper Client Library Documentation', author,
+     'LifemapperClientLibrary', 'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {'https://docs.python.org/': None}
