@@ -74,7 +74,6 @@ def data_files():
 
 
 # .............................................................................
-@pytest.fixture
 def get_client_generators():
     client_generators = [ClientGetter(None, None)]
     # Read config file for user and password combinations
