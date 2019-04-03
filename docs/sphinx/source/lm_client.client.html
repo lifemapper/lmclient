@@ -1,0 +1,238 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>lm_client.client package &#8212; Lifemapper Client Library 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Lifemapper Client Library 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="lm-client-client-package">
+<h1>lm_client.client package<a class="headerlink" href="#lm-client-client-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-lm_client.client.client">
+<span id="lm-client-client-client-module"></span><h2>lm_client.client.client module<a class="headerlink" href="#module-lm_client.client.client" title="Permalink to this headline">¶</a></h2>
+<p>Module containing the Lifemapper web service client</p>
+<dl class="class">
+<dt id="lm_client.client.client.LmApiClient">
+<em class="property">class </em><code class="descclassname">lm_client.client.client.</code><code class="descname">LmApiClient</code><a class="reference internal" href="../_modules/lm_client/client/client.html#LmApiClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.client.client.LmApiClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>A Lifemapper API Client object used to make service requests.</p>
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.auth">
+<code class="descname">auth</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.auth" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>AuthApiService</em> – Service end-point for authentication requests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.biotaphy_points">
+<code class="descname">biotaphy_points</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.biotaphy_points" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>BiotaPhyPointsApiService</em> – Service end-point for
+querying the available data counts from iDigBio for a group of
+species.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.env_layer">
+<code class="descname">env_layer</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.env_layer" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>EnvLayerApiService</em> – Service end-point for environmental
+layer requests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.gbif_parser">
+<code class="descname">gbif_parser</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.gbif_parser" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>GbifNameParserApiService</em> – Service end-point for searching
+for accepted taxon names for provided species names.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.global_pam">
+<code class="descname">global_pam</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.global_pam" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>GlobalPamApiService</em> – Service end-point for querying and
+subsetting global PAMs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.gridset">
+<code class="descname">gridset</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.gridset" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>GridsetApiService</em> – Service end-point for making gridset
+related requests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.hint">
+<code class="descname">hint</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.hint" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>SpeciesHintApiService</em> – Service end-point for searching for
+species with existing data on the server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.layer">
+<code class="descname">layer</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.layer" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>LayerApiService</em> – Service end-point for making layer requests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.occurrence">
+<code class="descname">occurrence</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.occurrence" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>OccurrenceApiService</em> – Service end-point for making
+occurrence set related requests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.ogc">
+<code class="descname">ogc</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.ogc" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>OgcApiService</em> – Service end-point for making OGC requests to
+Lifemapper mapping services.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.open_tree">
+<code class="descname">open_tree</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.open_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>OpenTreeApiService</em> – Service end-point for making requests
+to OpenTree APIs.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.raw_solr">
+<code class="descname">raw_solr</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.raw_solr" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>SolrRawApiService</em> – Service end-point for making raw Solr
+requests to the server.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.scenario">
+<code class="descname">scenario</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.scenario" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>ScenarioApiService</em> – Service end-point for scenario requests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.scenario_package">
+<code class="descname">scenario_package</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.scenario_package" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>ScenarioPackageApiService</em> – Service end-point for
+scenario package requests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.sdm_project">
+<code class="descname">sdm_project</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.sdm_project" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>SdmProjectApiService</em> – Service end-point for SDM
+projection requests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.shapegrid">
+<code class="descname">shapegrid</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.shapegrid" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>ShapegridApiService</em> – Service end-point for shapegrid
+requests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.snippet">
+<code class="descname">snippet</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.snippet" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>SnippetApiService</em> – Service end-point for snippet listings.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.taxonomy">
+<code class="descname">taxonomy</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.taxonomy" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>TaxonomyApiService</em> – Service end-point for taxonomy searches.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.tree">
+<code class="descname">tree</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.tree" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>TreeApiService</em> – Service end-point for tree requests.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.client.client.LmApiClient.upload">
+<code class="descname">upload</code><a class="headerlink" href="#lm_client.client.client.LmApiClient.upload" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>UploadApiService</em> – Service end-point for large file uploads.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lm_client.client">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-lm_client.client" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Lifemapper Client Library 1.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Lifemapper Team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>

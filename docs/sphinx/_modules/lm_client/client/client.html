@@ -1,0 +1,307 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>lm_client.client.client &#8212; Lifemapper Client Library 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Lifemapper Client Library 1.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for lm_client.client.client</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Module containing the Lifemapper web service client</span>
+
+<span class="sd">Todo:</span>
+<span class="sd">    * Singleton?</span>
+<span class="sd">    * Save session?</span>
+<span class="sd">    * Acceptable versions?</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="kn">from</span> <span class="nn">lm_client.apis.auth</span> <span class="k">import</span> <span class="n">AuthApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.biotaphy_points</span> <span class="k">import</span> <span class="n">BiotaPhyPointsApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.env_layer</span> <span class="k">import</span> <span class="n">EnvLayerApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.gbif_parser</span> <span class="k">import</span> <span class="n">GbifNameParserApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.global_pam</span> <span class="k">import</span> <span class="n">GlobalPamApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.gridset</span> <span class="k">import</span> <span class="n">GridsetApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.hint</span> <span class="k">import</span> <span class="n">SpeciesHintApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.layer</span> <span class="k">import</span> <span class="n">LayerApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.occurrence</span> <span class="k">import</span> <span class="n">OccurrenceApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.ogc</span> <span class="k">import</span> <span class="n">OgcApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.open_tree</span> <span class="k">import</span> <span class="n">OpenTreeApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.raw_solr</span> <span class="k">import</span> <span class="n">SolrRawApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.scenario</span> <span class="k">import</span> <span class="n">ScenarioApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.scenario_package</span> <span class="k">import</span> <span class="n">ScenarioPackageApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.sdm_project</span> <span class="k">import</span> <span class="n">SdmProjectApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.shapegrid</span> <span class="k">import</span> <span class="n">ShapegridApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.snippet</span> <span class="k">import</span> <span class="n">SnippetApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.taxonomy</span> <span class="k">import</span> <span class="n">TaxonomyApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.upload</span> <span class="k">import</span> <span class="n">UploadApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.apis.tree</span> <span class="k">import</span> <span class="n">TreeApiService</span>
+<span class="kn">from</span> <span class="nn">lm_client.common.constants</span> <span class="k">import</span> <span class="n">HTTPMethod</span>
+
+
+<span class="c1"># .............................................................................</span>
+<span class="k">class</span> <span class="nc">_Client</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Base client class for communicating with a server.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        __version__ (str): The version of this client.</span>
+<span class="sd">        UA_STRING (str): The User-Agent string this client sends to a server.</span>
+<span class="sd">        server (str): The base URL for a desired server.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;4.0.0&#39;</span>
+    <span class="n">UA_STRING</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+        <span class="s1">&#39;lm_client/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">__version__</span><span class="p">),</span>
+        <span class="s1">&#39;(Lifemapper Python Client Library;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;http://lifemapper.org; lifemapper@ku.edu)&#39;</span><span class="p">])</span>
+    <span class="n">client_headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="n">UA_STRING</span><span class="p">}</span>
+
+    <span class="c1"># ...........................</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">server</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Constructor.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            server (str): The base URL for a desired server to use.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">server</span> <span class="o">=</span> <span class="n">server</span>
+
+    <span class="c1"># ...........................</span>
+    <span class="k">def</span> <span class="nf">_get_headers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request_headers</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Merges request headers with client default headers.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            request_headers (:obj:`dict` or :obj:`None`): A dictionary of</span>
+<span class="sd">                headers to be sent to the specific request.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict - A merged dictionary of request headers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">request_headers</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">request_headers</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">header_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_headers</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="c1"># Don&#39;t override existing headers</span>
+            <span class="k">if</span> <span class="n">header_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">request_headers</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">request_headers</span><span class="p">[</span><span class="n">header_name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_headers</span><span class="p">[</span><span class="n">header_name</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">request_headers</span>
+
+    <span class="c1"># ...........................</span>
+    <span class="k">def</span> <span class="nf">_make_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_url</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Assembles the full (base) URL for a request.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            relative_url (str): The relative URL from the server root.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str - A URL string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">server</span><span class="p">,</span> <span class="n">relative_url</span><span class="p">)</span>
+
+    <span class="c1"># ...........................</span>
+    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">query_parameters</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sends a HTTP DELETE request to a URL.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            relative_url (str): The relative URL from the server root.</span>
+<span class="sd">            headers (:obj:`dict`, optional): Any headers to be sent to the</span>
+<span class="sd">                request.</span>
+<span class="sd">            **query_params (dict): A dictionary of query parameters to be sent</span>
+<span class="sd">                with the request.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            requests.models.Response - The response object generated from the</span>
+<span class="sd">                request.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_make_url</span><span class="p">(</span><span class="n">relative_url</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_headers</span><span class="p">(</span><span class="n">headers</span><span class="p">),</span>
+            <span class="n">params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">query_parameters</span><span class="p">))</span>
+
+    <span class="c1"># ...........................</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">query_parameters</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sends a HTTP GET request to a URL.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            relative_url (str): The relative URL from the server root.</span>
+<span class="sd">            headers (:obj:`dict`, optional): Any headers to be sent to the</span>
+<span class="sd">                request.</span>
+<span class="sd">            **query_params (dict): A dictionary of query parameters to be sent</span>
+<span class="sd">                with the request.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            requests.models.Response - The response object generated from the</span>
+<span class="sd">                request.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_make_url</span><span class="p">(</span><span class="n">relative_url</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">query_parameters</span><span class="p">),</span>
+            <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_headers</span><span class="p">(</span><span class="n">headers</span><span class="p">))</span>
+
+    <span class="c1"># ...........................</span>
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_url</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">query_parameters</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sends an HTTP POST request to a URL.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            relative_url (str): The relative URL from the server root.</span>
+<span class="sd">            files (:obj:`dict`, optional): Keys should be file query parameter</span>
+<span class="sd">                names and values should be tuples of (file name, content,</span>
+<span class="sd">                content-type (optional)).</span>
+<span class="sd">            headers (:obj:`dict`, optional): Any headers to be sent to the</span>
+<span class="sd">                request.</span>
+<span class="sd">            **query_params (dict): A dictionary of query parameters to be sent</span>
+<span class="sd">                with the request.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            requests.models.Response - The response object generated from the</span>
+<span class="sd">                request.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">files</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_make_url</span><span class="p">(</span><span class="n">relative_url</span><span class="p">),</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_headers</span><span class="p">(</span><span class="n">headers</span><span class="p">),</span> <span class="n">params</span><span class="o">=</span><span class="n">query_parameters</span><span class="p">,</span>
+                <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_make_url</span><span class="p">(</span><span class="n">relative_url</span><span class="p">),</span>
+                <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_headers</span><span class="p">(</span><span class="n">headers</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="n">query_parameters</span><span class="p">)</span>
+
+
+<span class="c1"># .............................................................................</span>
+<div class="viewcode-block" id="LmApiClient"><a class="viewcode-back" href="../../../source/lm_client.client.html#lm_client.client.client.LmApiClient">[docs]</a><span class="k">class</span> <span class="nc">LmApiClient</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A Lifemapper API Client object used to make service requests.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        auth (AuthApiService): Service end-point for authentication requests.</span>
+<span class="sd">        biotaphy_points (BiotaPhyPointsApiService): Service end-point for</span>
+<span class="sd">            querying the available data counts from iDigBio for a group of</span>
+<span class="sd">            species.</span>
+<span class="sd">        env_layer (EnvLayerApiService): Service end-point for environmental</span>
+<span class="sd">            layer requests.</span>
+<span class="sd">        gbif_parser (GbifNameParserApiService): Service end-point for searching</span>
+<span class="sd">            for accepted taxon names for provided species names.</span>
+<span class="sd">        global_pam (GlobalPamApiService): Service end-point for querying and</span>
+<span class="sd">            subsetting global PAMs.</span>
+<span class="sd">        gridset (GridsetApiService): Service end-point for making gridset</span>
+<span class="sd">            related requests.</span>
+<span class="sd">        hint (SpeciesHintApiService): Service end-point for searching for</span>
+<span class="sd">            species with existing data on the server.</span>
+<span class="sd">        layer (LayerApiService): Service end-point for making layer requests.</span>
+<span class="sd">        occurrence (OccurrenceApiService): Service end-point for making</span>
+<span class="sd">            occurrence set related requests.</span>
+<span class="sd">        ogc (OgcApiService): Service end-point for making OGC requests to</span>
+<span class="sd">            Lifemapper mapping services.</span>
+<span class="sd">        open_tree (OpenTreeApiService): Service end-point for making requests</span>
+<span class="sd">            to OpenTree APIs.</span>
+<span class="sd">        raw_solr (SolrRawApiService): Service end-point for making raw Solr</span>
+<span class="sd">            requests to the server.</span>
+<span class="sd">        scenario (ScenarioApiService): Service end-point for scenario requests.</span>
+<span class="sd">        scenario_package (ScenarioPackageApiService): Service end-point for</span>
+<span class="sd">            scenario package requests.</span>
+<span class="sd">        sdm_project (SdmProjectApiService): Service end-point for SDM</span>
+<span class="sd">            projection requests.</span>
+<span class="sd">        shapegrid (ShapegridApiService): Service end-point for shapegrid</span>
+<span class="sd">            requests.</span>
+<span class="sd">        snippet (SnippetApiService): Service end-point for snippet listings.</span>
+<span class="sd">        taxonomy (TaxonomyApiService): Service end-point for taxonomy searches.</span>
+<span class="sd">        tree (TreeApiService): Service end-point for tree requests.</span>
+<span class="sd">        upload (UploadApiService): Service end-point for large file uploads.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Constructor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">_Client</span><span class="p">(</span><span class="s1">&#39;http://svc.lifemapper.org&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="n">AuthApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">biotaphy_points</span> <span class="o">=</span> <span class="n">BiotaPhyPointsApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">env_layer</span> <span class="o">=</span> <span class="n">EnvLayerApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gbif_parser</span> <span class="o">=</span> <span class="n">GbifNameParserApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">global_pam</span> <span class="o">=</span> <span class="n">GlobalPamApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gridset</span> <span class="o">=</span> <span class="n">GridsetApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hint</span> <span class="o">=</span> <span class="n">SpeciesHintApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layer</span> <span class="o">=</span> <span class="n">LayerApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">occurrence</span> <span class="o">=</span> <span class="n">OccurrenceApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ogc</span> <span class="o">=</span> <span class="n">OgcApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">open_tree</span> <span class="o">=</span> <span class="n">OpenTreeApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raw_solr</span> <span class="o">=</span> <span class="n">SolrRawApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scenario</span> <span class="o">=</span> <span class="n">ScenarioApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scenario_package</span> <span class="o">=</span> <span class="n">ScenarioPackageApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sdm_project</span> <span class="o">=</span> <span class="n">SdmProjectApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shapegrid</span> <span class="o">=</span> <span class="n">ShapegridApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">snippet</span> <span class="o">=</span> <span class="n">SnippetApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">taxonomy</span> <span class="o">=</span> <span class="n">TaxonomyApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tree</span> <span class="o">=</span> <span class="n">TreeApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">upload</span> <span class="o">=</span> <span class="n">UploadApiService</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">Lifemapper Client Library 1.0.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Lifemapper Team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+    </div>
+  </body>
+</html>
