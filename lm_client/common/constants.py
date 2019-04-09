@@ -3,16 +3,6 @@
 
 
 # .............................................................................
-class HTTPMethod(object):
-    """Class containing constants for supported HTTP methods
-    """
-    DELETE = 'DELETE'
-    GET = 'GET'
-    POST = 'POST'
-    PUT = 'PUT'
-
-
-# .............................................................................
 class HttpStatus:
     """Constants class for HTTP 1.1 Status Codes
 

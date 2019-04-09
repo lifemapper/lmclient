@@ -27,7 +27,6 @@ from lm_client.apis.snippet import SnippetApiService
 from lm_client.apis.taxonomy import TaxonomyApiService
 from lm_client.apis.upload import UploadApiService
 from lm_client.apis.tree import TreeApiService
-from lm_client.common.constants import HTTPMethod
 
 
 # .............................................................................
