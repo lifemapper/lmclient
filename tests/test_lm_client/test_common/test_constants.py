@@ -13,7 +13,7 @@ class Test_HttpStatus(object):
         """
         for att in dir(HttpStatus):
             if not att.startswith('_'):
-                val = HttpStatus().__getattribute__(att)
+                val = getattr(HttpStatus(), att)
                 assert isinstance(val, int)
 
 
