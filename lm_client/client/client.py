@@ -195,7 +195,7 @@ class LmApiClient(object):
     def __init__(self):
         """Constructor
         """
-        self._client = _Client('http://svc.lifemapper.org')
+        self._client = _Client('http://notyeti-193.lifemapper.org')
 
         self.auth = AuthApiService(self._client)
         self.biotaphy_points = BiotaPhyPointsApiService(self._client)
