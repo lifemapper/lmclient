@@ -67,6 +67,11 @@ class EnvLayerApiService(RestService):
                 returned in the specified format.
             NotFoundError: Raised if the specified environmental layer was not
                 found on the server.
+
+        Returns:
+            dict - Returned if JSON interface is selected.
+            bytes - Returned if GTIFF interface is selected.
+            xml string - Returned if the EML interface is selected.
         """
         return RestService.get(
             self, '{}/{}'.format(self.end_point, env_layer_id),
@@ -105,7 +110,7 @@ class EnvLayerApiService(RestService):
                 layers by this amount.  Useful for paging.
 
         Returns:
-            list of dicts - A list of environmental layers a dictionary objects
+            list of dicts - A list of environmental layer dictionary objects
                 with metadata about each one.  The response format is JSON.
         """
         return RestService.list(

@@ -142,3 +142,29 @@ class Test_env_layer_api_service(object):
         with client_generator.get_client() as cl:
             lyrs = cl.env_layer.list()
             assert len(lyrs) >= 0
+
+    # ...........................
+    def test_list_with_bad_parameter_values(self, client_generator):
+        """Tests list with invalid parameter values.
+
+        Args:
+            client_generator (ClientGetter): Object used to get a client.
+        """
+        with client_generator.get_client() as cl:
+            layers = cl.env_layer.list(after_time='bad_value')
+            assert len(layers) == 0
+
+    # ...........................
+    def test_list_with_parameters(self, client_generator):
+        """Tests list with parameters.
+
+        Args:
+            client_generator (ClientGetter): Object used to get a client.
+        """
+        with client_generator.get_client() as cl:
+            layers = cl.env_layer.list()
+            test_time = '{}T{}Z'.format(
+                *layers[0]['modificationTime'].split(' '))
+            all_count = cl.env_layer.count()
+            layers_before = cl.env_layer.list(before_time=test_time)
+            assert len(layers_before) < all_count
