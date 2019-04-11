@@ -74,7 +74,7 @@ class INTERFACES(object):
     NEXUS = 'nexus'
     PACKAGE = 'package'
     PROGRESS = 'progress'
-    SHAPEFILE = 'shape'
+    SHAPEFILE = 'shapefile'
 
     # ...........................
     @staticmethod
