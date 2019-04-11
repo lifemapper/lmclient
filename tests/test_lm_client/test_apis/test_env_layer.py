@@ -102,8 +102,7 @@ class Test_env_layer_api_service(object):
             env_layer_id = env_layers[0]['id']
             env_layer = cl.env_layer.get(
                 env_layer_id, interface=INTERFACES.EML)
-            assert isinstance(env_layer, str)
-            assert fromstring(env_layer)
+            assert fromstring(env_layer) is not None
 
     # ...........................
     def test_get_valid_gtiff(self, client_generator):
