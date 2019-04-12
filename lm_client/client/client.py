@@ -27,7 +27,6 @@ from lm_client.apis.snippet import SnippetApiService
 from lm_client.apis.taxonomy import TaxonomyApiService
 from lm_client.apis.upload import UploadApiService
 from lm_client.apis.tree import TreeApiService
-from lm_client.common.constants import HTTPMethod
 
 
 # .............................................................................
@@ -196,7 +195,7 @@ class LmApiClient(object):
     def __init__(self):
         """Constructor
         """
-        self._client = _Client('http://svc.lifemapper.org')
+        self._client = _Client('http://notyeti-193.lifemapper.org')
 
         self.auth = AuthApiService(self._client)
         self.biotaphy_points = BiotaPhyPointsApiService(self._client)

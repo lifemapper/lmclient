@@ -54,37 +54,6 @@ class Test_env_layer_api_service(object):
             count_before = cl.env_layer.count(before_time=test_time)
             assert count_before < all_count
 
-#     # ...........................
-#     def test_delete_invalid_bad_id(self, client_generator):
-#         """Test delete with a bad id (string).
-#
-#         Args:
-#             client_generator (ClientGetter): Object used to get a client.
-#         """
-#         with client_generator.get_client() as cl:
-#             with pytest.raises(BadRequestError):
-#                 cl.env_layer.delete('bad_id')
-
-#     # ...........................
-#     def test_delete_invalid_nonexisting_id(self, client_generator):
-#         """Tests delete with a non-existing integer id.
-#
-#         Args:
-#             client_generator (ClientGetter): Object used to get a client.
-#         """
-#         with client_generator.get_client() as cl:
-#             with pytest.raises(NotFoundError):
-#                 cl.env_layer.delete(-99999)
-
-    # ...........................
-#    def test_delete_valid(self, client_generator):
-#        """Tests that delete valid env layer works properly.
-#
-#        Args:
-#            client_generator (ClientGetter): Object used to get a client.
-#        """
-#        raise Exception('Test not implemented')
-
     # ...........................
     def test_get_invalid_bad_id(self, client_generator):
         """Tests get with invalid environmental layer.
@@ -107,32 +76,40 @@ class Test_env_layer_api_service(object):
             with pytest.raises(BadRequestError):
                 cl.env_layer.get('invalid_id')
 
-#     # ...........................
-#     def test_get_invalid_interface(self, client_generator):
-#         """Test for valid env layer but invalid interface
-#         """
-#         with client_generator.get_client() as cl:
-#             env_layers = cl.env_layer.list()
-#             env_layer_id = env_layers[0]['id']
-#             with pytest.raises(NotAcceptableError):
-#                 cl.env_layer.get(
-#                     env_layer_id, interface=INTERFACES.SHAPEFILE)
+    # ...........................
+    def test_get_invalid_interface(self, client_generator):
+        """Test for valid env layer but invalid interface
 
-#     # ...........................
-#     def test_get_valid_eml(self, client_generator):
-#         """Tests that an env layer EML can be retrieved
-#         """
-#         with client_generator.get_client() as cl:
-#             env_layers = cl.env_layer.list()
-#             env_layer_id = env_layers[0]['id']
-#             env_layer = cl.env_layer.get(
-#                 env_layer_id, interface=INTERFACES.EML)
-#             assert isinstance(env_layer, str)
-#             assert fromstring(env_layer)
+        Args:
+            client_generator (ClientGetter): Object used to get a client.
+        """
+        with client_generator.get_client() as cl:
+            env_layers = cl.env_layer.list()
+            env_layer_id = env_layers[0]['id']
+            with pytest.raises(NotAcceptableError):
+                cl.env_layer.get(
+                    env_layer_id, interface=INTERFACES.SHAPEFILE)
+
+    # ...........................
+    def test_get_valid_eml(self, client_generator):
+        """Tests that an env layer EML can be retrieved
+
+        Args:
+            client_generator (ClientGetter): Object used to get a client.
+        """
+        with client_generator.get_client() as cl:
+            env_layers = cl.env_layer.list()
+            env_layer_id = env_layers[0]['id']
+            env_layer = cl.env_layer.get(
+                env_layer_id, interface=INTERFACES.EML)
+            assert fromstring(env_layer) is not None
 
     # ...........................
     def test_get_valid_gtiff(self, client_generator):
         """Tests that an env layer geotiff can be retrieved
+
+        Args:
+            client_generator (ClientGetter): Object used to get a client.
         """
         with client_generator.get_client() as cl:
             env_layers = cl.env_layer.list()
@@ -145,6 +122,9 @@ class Test_env_layer_api_service(object):
     # ...........................
     def test_get_valid_json(self, client_generator):
         """Tests that an env layer JSON can be retrieved
+
+        Args:
+            client_generator (ClientGetter): Object used to get a client.
         """
         with client_generator.get_client() as cl:
             env_layers = cl.env_layer.list()
@@ -162,3 +142,29 @@ class Test_env_layer_api_service(object):
         with client_generator.get_client() as cl:
             lyrs = cl.env_layer.list()
             assert len(lyrs) >= 0
+
+    # ...........................
+    def test_list_with_bad_parameter_values(self, client_generator):
+        """Tests list with invalid parameter values.
+
+        Args:
+            client_generator (ClientGetter): Object used to get a client.
+        """
+        with client_generator.get_client() as cl:
+            layers = cl.env_layer.list(after_time='bad_value')
+            assert len(layers) == 0
+
+    # ...........................
+    def test_list_with_parameters(self, client_generator):
+        """Tests list with parameters.
+
+        Args:
+            client_generator (ClientGetter): Object used to get a client.
+        """
+        with client_generator.get_client() as cl:
+            layers = cl.env_layer.list()
+            test_time = '{}T{}Z'.format(
+                *layers[0]['modificationTime'].split(' '))
+            all_count = cl.env_layer.count()
+            layers_before = cl.env_layer.list(before_time=test_time)
+            assert len(layers_before) < all_count
