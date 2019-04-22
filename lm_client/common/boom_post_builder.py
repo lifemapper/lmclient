@@ -10,7 +10,7 @@ statistics that we add in the future
 
 
 # .............................................................................
-class BoomPostGenerator(object):
+class BoomPostGenerator(object):  # pragma: no cover
     # ................................
     def __init__(self, archive_name):
         self.archive_name = archive_name
@@ -22,6 +22,41 @@ class BoomPostGenerator(object):
         self.scenario_package = None
         self.sdm = None
         self.tree = None
+
+    # ................................
+    def add_algorithm(self, algorithm_code, parameters=None):
+        """Adds an algorithm to the configuration
+
+        Args:
+            algorithm_code (str): The code for the algorithm being added.
+            parameters (:obj:`list` of (:obj:`str`, :obj:`str`) :obj:`tuple`:
+                A list of algorithm parameter tuples where the first element is
+                the parameter name and the second is the value.
+        """
+        if self.sdm is None:
+            self.sdm = {}
+        if 'algorithm' not in self.sdm.keys():
+            self.sdm['algorithm'] = []
+        parameters = {}
+        if parameters is not None:
+            for name, val in parameters:
+                parameters[name] = val
+        alg = {
+            'code': algorithm_code,
+            'parameters': parameters
+        }
+        self.sdm['algorithm'].append(alg)
+
+    # ................................
+    def add_hull_region_intersect_mask(self, region_layer_name, buffer):
+        """Adds the hull region intersect masking method to the configuration.
+        """
+        if self.sdm is None:
+            self.sdm = {}
+        self.sdm['hull_region_intersect_mask'] = {
+            'buffer': buffer,
+            'region': region_layer_name
+        }
 
     # ................................
     def add_scenario_package(self, package_name, model_scenario_code=None,
@@ -201,23 +236,3 @@ class BoomPostGenerator(object):
             req['tree'] = self.tree
 
         return json.dumps(req)
-
-#   BoomSDMs:
-#     type: object
-#     description: |
-#       This section will specify how to post multiple SDMs in one fell swoop
-#     required: [algorithm]
-#     properties:
-#       algorithm:
-#         type: array
-#         items:
-#           $ref: '#/definitions/Algorithm'
-#       hull_region_intersect_mask:
-#         type: object
-#         description: |
-#         properties:
-#           buffer:
-#             type: number
-#             description: The buffer, in map units, to use around the points
-#           region:
-#             type: string
