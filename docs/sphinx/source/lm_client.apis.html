@@ -89,22 +89,48 @@
 </div>
 <div class="section" id="module-lm_client.apis.env_layer">
 <span id="lm-client-apis-env-layer-module"></span><h2>lm_client.apis.env_layer module<a class="headerlink" href="#module-lm_client.apis.env_layer" title="Permalink to this headline">¶</a></h2>
+<p>Module containing a class for accessing the environmental layer end-point.</p>
 <dl class="class">
 <dt id="lm_client.apis.env_layer.EnvLayerApiService">
 <em class="property">class </em><code class="descclassname">lm_client.apis.env_layer.</code><code class="descname">EnvLayerApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/env_layer.html#EnvLayerApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.env_layer.EnvLayerApiService" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<p>Class for accessing the environmental layer service end-point.</p>
 <dl class="method">
 <dt id="lm_client.apis.env_layer.EnvLayerApiService.count">
 <code class="descname">count</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>alt_pred_code=None</em>, <em>before_time=None</em>, <em>date_code=None</em>, <em>epsg_code=None</em>, <em>env_code=None</em>, <em>env_type_id=None</em>, <em>gcm_code=None</em>, <em>scenario_id=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/env_layer.html#EnvLayerApiService.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.env_layer.EnvLayerApiService.count" title="Permalink to this definition">¶</a></dt>
-<dd><p>Counts</p>
-<p>Args:</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="lm_client.apis.env_layer.EnvLayerApiService.delete">
-<code class="descname">delete</code><span class="sig-paren">(</span><em>env_layer_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/env_layer.html#EnvLayerApiService.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.env_layer.EnvLayerApiService.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attempts to delete</p>
-<p>Args:</p>
+<dd><p>Counts environmental layers matching the specified criteria.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>after_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching environmental layers
+are modified after this time specified in ISO-8601 format.</li>
+<li><strong>alt_pred_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching environmental layers
+must have this alternate prediction code.</li>
+<li><strong>before_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching environmental layers
+are modified before this time specified in ISO-8601 format.</li>
+<li><strong>date_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching environmental layers
+will have this date code.</li>
+<li><strong>epsg_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Matching environmental layers
+will have the map projection specified by this EPSG code.</li>
+<li><strong>env_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching environmental layers
+will have this environment code.</li>
+<li><strong>env_type_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching environmental layers
+will have this environmental layer type identifier.</li>
+<li><strong>gcm_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching environmental layers
+will have this GCM code.</li>
+<li><strong>scenario_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Matching environmental layers
+will belong to the Lifemapper scenario specified by this
+identifier.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">int - The number of matching environmental layers.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -115,21 +141,86 @@
 <dl class="method">
 <dt id="lm_client.apis.env_layer.EnvLayerApiService.get">
 <code class="descname">get</code><span class="sig-paren">(</span><em>env_layer_id</em>, <em>interface=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/env_layer.html#EnvLayerApiService.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.env_layer.EnvLayerApiService.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attempts to get</p>
-<p>Args:</p>
+<dd><p>Attempts to get an environmental layer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>env_layer_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The identifier of the environmental layer to be
+retrieved.</li>
+<li><strong>interface</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – The format in which to return the
+environmental layer.  Valid formats are eml, gtiff and json.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first simple">
+<li><code class="xref py py-exc docutils literal"><span class="pre">BadRequestError</span></code> – Raised if the environmental layer id provided is
+invalid.</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ForbiddenError</span></code> – Raised if the client user does not have permission
+to access the specified environmental layer.</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">NotAcceptableError</span></code> – Raised if the environmental layer cannot be
+returned in the specified format.</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">NotFoundError</span></code> – Raised if the specified environmental layer was not
+found on the server.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">dict - Returned if JSON interface is selected.
+bytes - Returned if GTIFF interface is selected.
+xml string - Returned if the EML interface is selected.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="lm_client.apis.env_layer.EnvLayerApiService.list">
 <code class="descname">list</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>alt_pred_code=None</em>, <em>before_time=None</em>, <em>date_code=None</em>, <em>epsg_code=None</em>, <em>env_code=None</em>, <em>env_type_id=None</em>, <em>gcm_code=None</em>, <em>scenario_id=None</em>, <em>limit=None</em>, <em>offset=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/env_layer.html#EnvLayerApiService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.env_layer.EnvLayerApiService.list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a list</p>
-<p>Args:</p>
+<dd><p>Gets a list of environmental layers matching the specified criteria.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>after_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching environmental layers
+are modified after this time specified in ISO-8601 format.</li>
+<li><strong>alt_pred_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching environmental layers
+must have this alternate prediction code.</li>
+<li><strong>before_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching environmental layers
+are modified before this time specified in ISO-8601 format.</li>
+<li><strong>date_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching environmental layers
+will have this date code.</li>
+<li><strong>epsg_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Matching environmental layers
+will have the map projection specified by this EPSG code.</li>
+<li><strong>env_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching environmental layers
+will have this environment code.</li>
+<li><strong>env_type_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching environmental layers
+will have this environmental layer type identifier.</li>
+<li><strong>gcm_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching environmental layers
+will have this GCM code.</li>
+<li><strong>scenario_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Matching environmental layers
+will belong to the Lifemapper scenario specified by this
+identifier.</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Return, at most, this many
+environmental layers.</li>
+<li><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Offset the returned environmental
+layers by this amount.  Useful for paging.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>list of dicts - A list of environmental layer dictionary objects</dt>
+<dd><p class="first last">with metadata about each one.  The response format is JSON.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
-
-<dl class="method">
-<dt id="lm_client.apis.env_layer.EnvLayerApiService.post">
-<code class="descname">post</code><span class="sig-paren">(</span><em>layer_content</em>, <em>layer_type</em>, <em>epsg_code</em>, <em>layer_name</em>, <em>env_layer_type_id=None</em>, <em>additional_metadata=None</em>, <em>val_units=None</em>, <em>env_code=None</em>, <em>gcm_code=None</em>, <em>alt_pred_code=None</em>, <em>date_code=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/env_layer.html#EnvLayerApiService.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.env_layer.EnvLayerApiService.post" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -287,22 +378,37 @@
 </div>
 <div class="section" id="module-lm_client.apis.layer">
 <span id="lm-client-apis-layer-module"></span><h2>lm_client.apis.layer module<a class="headerlink" href="#module-lm_client.apis.layer" title="Permalink to this headline">¶</a></h2>
+<p>Module containing a class for accessing the layer end-point.</p>
 <dl class="class">
 <dt id="lm_client.apis.layer.LayerApiService">
 <em class="property">class </em><code class="descclassname">lm_client.apis.layer.</code><code class="descname">LayerApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/layer.html#LayerApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.layer.LayerApiService" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="lm_client.common.html#lm_client.common.api_service.RestService" title="lm_client.common.api_service.RestService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.RestService</span></code></a></p>
+<p>Class for accessing the layer service end-point.</p>
 <dl class="method">
 <dt id="lm_client.apis.layer.LayerApiService.count">
 <code class="descname">count</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>before_time=None</em>, <em>epsg_code=None</em>, <em>squid=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/layer.html#LayerApiService.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.layer.LayerApiService.count" title="Permalink to this definition">¶</a></dt>
-<dd><p>Counts</p>
-<p>Args:</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="lm_client.apis.layer.LayerApiService.delete">
-<code class="descname">delete</code><span class="sig-paren">(</span><em>layer_id</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/layer.html#LayerApiService.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.layer.LayerApiService.delete" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attempts to delete</p>
-<p>Args:</p>
+<dd><p>Counts layers matching the specified criteria.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>after_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching layers are modified
+after this time specified in ISO-8601 format.</li>
+<li><strong>before_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching layers are modified
+before this time specified in ISO-8601 format.</li>
+<li><strong>epsg_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Matching layers will have the map
+projection specified by this EPSG code.</li>
+<li><strong>squid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching layers will have this hash-
+based species identifier.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">int - The number of matching layers.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -313,21 +419,68 @@
 <dl class="method">
 <dt id="lm_client.apis.layer.LayerApiService.get">
 <code class="descname">get</code><span class="sig-paren">(</span><em>layer_id</em>, <em>interface=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/layer.html#LayerApiService.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.layer.LayerApiService.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attempts to get</p>
-<p>Args:</p>
+<dd><p>Attempts to get a layer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>layer_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The identifier of the layer to be retrieved.</li>
+<li><strong>interface</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – The format in which to return the
+layer.  Valid formats are eml, json and either gtiff or
+shapefile.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><code class="xref py py-exc docutils literal"><span class="pre">BadRequestError</span></code> – Raised if the layer id provided is invalid.</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">ForbiddenError</span></code> – Raised if the client user does not have permission
+to access the specified layer.</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">NotAcceptableError</span></code> – Raised if the layer cannot be returned in the
+specified format.</li>
+<li><code class="xref py py-exc docutils literal"><span class="pre">NotFoundError</span></code> – Raised if the specified layer was not found on the
+server.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="lm_client.apis.layer.LayerApiService.list">
 <code class="descname">list</code><span class="sig-paren">(</span><em>after_time=None</em>, <em>before_time=None</em>, <em>epsg_code=None</em>, <em>limit=None</em>, <em>offset=None</em>, <em>squid=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/layer.html#LayerApiService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.layer.LayerApiService.list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a list</p>
-<p>Args:</p>
+<dd><p>Gets a list of layers matching the specified criteria.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>after_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching layers are modified
+after this time specified in ISO-8601 format.</li>
+<li><strong>before_time</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching layers are modified
+before this time specified in ISO-8601 format.</li>
+<li><strong>epsg_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Matching layers will have the map
+projection specified by this EPSG code.</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Return, at most, this many layers.</li>
+<li><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Offset the returned layers by this
+amount.  Useful for paging.</li>
+<li><strong>squid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Matching layers will have this hash-
+based species identifier.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>list of dicts - A list of layer dictionary objects with metadata</dt>
+<dd><p class="first last">about each one.  The response format is JSON.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
-
-<dl class="method">
-<dt id="lm_client.apis.layer.LayerApiService.post">
-<code class="descname">post</code><span class="sig-paren">(</span><em>layer_content</em>, <em>layer_type</em>, <em>epsg_code</em>, <em>layer_name</em>, <em>env_layer_type_id=None</em>, <em>additional_metadata=None</em>, <em>val_units=None</em>, <em>env_code=None</em>, <em>gcm_code=None</em>, <em>alt_pred_code=None</em>, <em>date_code=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/layer.html#LayerApiService.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.layer.LayerApiService.post" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -920,8 +1073,51 @@ this reason.</li>
 <dl class="method">
 <dt id="lm_client.apis.taxonomy.TaxonomyApiService.list">
 <code class="descname">list</code><span class="sig-paren">(</span><em>canonical_name=None</em>, <em>limit=None</em>, <em>scientific_name=None</em>, <em>squid=None</em>, <em>taxon_class=None</em>, <em>taxon_family=None</em>, <em>taxon_genus=None</em>, <em>taxon_key=None</em>, <em>taxon_kingdom=None</em>, <em>taxon_order=None</em>, <em>taxon_phylum=None</em>, <em>user=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/apis/taxonomy.html#TaxonomyApiService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.apis.taxonomy.TaxonomyApiService.list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets a list</p>
-<p>Args:</p>
+<dd><p>Gets a list of taxonomy matches</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>canoncial_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return matches that have
+this canonical name.</li>
+<li><strong>limit</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – The maximum number of matches to
+return with this request.</li>
+<li><strong>scientific_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return matches with this
+scientific name.</li>
+<li><strong>squid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return matches that have this
+hashed-based species identifier.</li>
+<li><strong>taxon_class</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return matches that have this
+taxonomic class.</li>
+<li><strong>taxon_family</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return matches that have this
+taxonomic family.</li>
+<li><strong>taxon_genus</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return matches that belong to
+this genus.</li>
+<li><strong>taxon_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">int</span></code></a>, optional) – Return matches for this GBIF
+taxonomic key.</li>
+<li><strong>taxon_kingdom</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return matches that belong to
+this taxonomic kingdom.</li>
+<li><strong>taxon_order</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return matches belonging to
+this taxonomic order.</li>
+<li><strong>taxon_phylum</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return matches belonging to
+this phylum.</li>
+<li><strong>user</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">str</span></code></a>, optional) – Return matches for this user.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>A list of taxonomy dictionaries matching the provided</dt>
+<dd><p class="first last">parameters</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">List of dict</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

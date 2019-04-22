@@ -63,9 +63,36 @@
              <span class="n">squid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">taxon_class</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">taxon_family</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">taxon_genus</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">taxon_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">taxon_kingdom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">taxon_order</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">taxon_phylum</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Gets a list</span>
+        <span class="sd">&quot;&quot;&quot;Gets a list of taxonomy matches</span>
 
 <span class="sd">        Args:</span>
+<span class="sd">            canoncial_name (:obj:`str`, optional): Return matches that have</span>
+<span class="sd">                this canonical name.</span>
+<span class="sd">            limit (:obj:`int`, optional): The maximum number of matches to</span>
+<span class="sd">                return with this request.</span>
+<span class="sd">            scientific_name (:obj:`str`, optional): Return matches with this</span>
+<span class="sd">                scientific name.</span>
+<span class="sd">            squid (:obj:`str`, optional): Return matches that have this</span>
+<span class="sd">                hashed-based species identifier.</span>
+<span class="sd">            taxon_class (:obj:`str`, optional): Return matches that have this</span>
+<span class="sd">                taxonomic class.</span>
+<span class="sd">            taxon_family (:obj:`str`, optional): Return matches that have this</span>
+<span class="sd">                taxonomic family.</span>
+<span class="sd">            taxon_genus (:obj:`str`, optional): Return matches that belong to</span>
+<span class="sd">                this genus.</span>
+<span class="sd">            taxon_key (:obj:`int`, optional): Return matches for this GBIF</span>
+<span class="sd">                taxonomic key.</span>
+<span class="sd">            taxon_kingdom (:obj:`str`, optional): Return matches that belong to</span>
+<span class="sd">                this taxonomic kingdom.</span>
+<span class="sd">            taxon_order (:obj:`str`, optional): Return matches belonging to</span>
+<span class="sd">                this taxonomic order.</span>
+<span class="sd">            taxon_phylum (:obj:`str`, optional): Return matches belonging to</span>
+<span class="sd">                this phylum.</span>
+<span class="sd">            user (:obj:`str`, optional): Return matches for this user.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of dict: A list of taxonomy dictionaries matching the provided</span>
+<span class="sd">                parameters</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">RestService</span><span class="o">.</span><span class="n">list</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_point</span><span class="p">,</span> <span class="n">canonical_name</span><span class="o">=</span><span class="n">canonical_name</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">,</span>
