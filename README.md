@@ -1,11 +1,11 @@
 # Lifemapper Client Library
 
-![Latest release](https://img.shields.io/github/release/lifemapper/lm_client.svg)
+[![Latest release](https://img.shields.io/github/release/lifemapper/lm_client.svg)](https://github.com/lifemapper/lm_client/releases/latest)
 [![Build Status](https://travis-ci.org/lifemapper/lm_client.svg?branch=master)](https://travis-ci.org/lifemapper/lm_client)
 [![Coverage Status](https://coveralls.io/repos/github/lifemapper/lm_client/badge.svg?branch=master)](https://coveralls.io/github/lifemapper/lm_client?branch=master)
-![License Badge](https://img.shields.io/github/license/lifemapper/lm_client.svg)
+[![License Badge](https://img.shields.io/github/license/lifemapper/lm_client.svg)](https://github.com/lifemapper/lm_client/blob/v1.0.0/LICENSE)
 
-The Lifemapper Client Library is an pen source project designed to provide
+The Lifemapper Client Library is an open source project designed to provide
 access to Lifemapper web services.
 
 ![Lifemapper](https://biotaphy.github.io/analyses/sphinx/_images/lm_logo.png)
