@@ -16,7 +16,7 @@ class AuthApiService(ApiService):
     """
     """
     # ...........................
-    def login(self, user_id, passwd):
+    def login(self, user_id, passwd):  # pragma: no cover
         """
         """
         policy_server = urlparse(self.api_client.server).netloc
