@@ -45,7 +45,7 @@
           <div class="body" role="main">
             
   <h1>Source code for lm_client.apis.layer</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">&quot;&quot;&quot;Module containing a class for accessing the layer end-point.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
@@ -54,35 +54,50 @@
 
 <span class="c1"># .............................................................................</span>
 <div class="viewcode-block" id="LayerApiService"><a class="viewcode-back" href="../../../source/lm_client.apis.html#lm_client.apis.layer.LayerApiService">[docs]</a><span class="k">class</span> <span class="nc">LayerApiService</span><span class="p">(</span><span class="n">RestService</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Class for accessing the layer service end-point.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">end_point</span> <span class="o">=</span> <span class="s1">&#39;api/v2/layer&#39;</span>
 
     <span class="c1"># ...........................</span>
 <div class="viewcode-block" id="LayerApiService.count"><a class="viewcode-back" href="../../../source/lm_client.apis.html#lm_client.apis.layer.LayerApiService.count">[docs]</a>    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">after_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">before_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">epsg_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
               <span class="n">squid</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Counts</span>
+        <span class="sd">&quot;&quot;&quot;Counts layers matching the specified criteria.</span>
 
 <span class="sd">        Args:</span>
+<span class="sd">            after_time (:obj:`str`, optional): Matching layers are modified</span>
+<span class="sd">                after this time specified in ISO-8601 format.</span>
+<span class="sd">            before_time (:obj:`str`, optional): Matching layers are modified</span>
+<span class="sd">                before this time specified in ISO-8601 format.</span>
+<span class="sd">            epsg_code (:obj:`int`, optional): Matching layers will have the map</span>
+<span class="sd">                projection specified by this EPSG code.</span>
+<span class="sd">            squid (:obj:`str`, optional): Matching layers will have this hash-</span>
+<span class="sd">                based species identifier.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int - The number of matching layers.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">RestService</span><span class="o">.</span><span class="n">count</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/count&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end_point</span><span class="p">),</span> <span class="n">after_time</span><span class="o">=</span><span class="n">after_time</span><span class="p">,</span>
             <span class="n">before_time</span><span class="o">=</span><span class="n">before_time</span><span class="p">,</span> <span class="n">epsg_code</span><span class="o">=</span><span class="n">epsg_code</span><span class="p">,</span> <span class="n">squid</span><span class="o">=</span><span class="n">squid</span><span class="p">)</span></div>
 
     <span class="c1"># ...........................</span>
-<div class="viewcode-block" id="LayerApiService.delete"><a class="viewcode-back" href="../../../source/lm_client.apis.html#lm_client.apis.layer.LayerApiService.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Attempts to delete</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">RestService</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end_point</span><span class="p">,</span> <span class="n">layer_id</span><span class="p">))</span></div>
-
-    <span class="c1"># ...........................</span>
 <div class="viewcode-block" id="LayerApiService.get"><a class="viewcode-back" href="../../../source/lm_client.apis.html#lm_client.apis.layer.LayerApiService.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer_id</span><span class="p">,</span> <span class="n">interface</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Attempts to get</span>
+        <span class="sd">&quot;&quot;&quot;Attempts to get a layer</span>
 
 <span class="sd">        Args:</span>
+<span class="sd">            layer_id (int): The identifier of the layer to be retrieved.</span>
+<span class="sd">            interface (:obj:`str`, optional): The format in which to return the</span>
+<span class="sd">                layer.  Valid formats are eml, json and either gtiff or</span>
+<span class="sd">                shapefile.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            BadRequestError: Raised if the layer id provided is invalid.</span>
+<span class="sd">            ForbiddenError: Raised if the client user does not have permission</span>
+<span class="sd">                to access the specified layer.</span>
+<span class="sd">            NotAcceptableError: Raised if the layer cannot be returned in the</span>
+<span class="sd">                specified format.</span>
+<span class="sd">            NotFoundError: Raised if the specified layer was not found on the</span>
+<span class="sd">                server.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">RestService</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end_point</span><span class="p">,</span> <span class="n">layer_id</span><span class="p">),</span>
@@ -91,29 +106,29 @@
     <span class="c1"># ...........................</span>
 <div class="viewcode-block" id="LayerApiService.list"><a class="viewcode-back" href="../../../source/lm_client.apis.html#lm_client.apis.layer.LayerApiService.list">[docs]</a>    <span class="k">def</span> <span class="nf">list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">after_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">before_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">epsg_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">squid</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Gets a list</span>
+        <span class="sd">&quot;&quot;&quot;Gets a list of layers matching the specified criteria.</span>
 
 <span class="sd">        Args:</span>
+<span class="sd">            after_time (:obj:`str`, optional): Matching layers are modified</span>
+<span class="sd">                after this time specified in ISO-8601 format.</span>
+<span class="sd">            before_time (:obj:`str`, optional): Matching layers are modified</span>
+<span class="sd">                before this time specified in ISO-8601 format.</span>
+<span class="sd">            epsg_code (:obj:`int`, optional): Matching layers will have the map</span>
+<span class="sd">                projection specified by this EPSG code.</span>
+<span class="sd">            limit (:obj:`int`, optional): Return, at most, this many layers.</span>
+<span class="sd">            offset (:obj:`int`, optional): Offset the returned layers by this</span>
+<span class="sd">                amount.  Useful for paging.</span>
+<span class="sd">            squid (:obj:`str`, optional): Matching layers will have this hash-</span>
+<span class="sd">                based species identifier.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list of dicts - A list of layer dictionary objects with metadata</span>
+<span class="sd">                about each one.  The response format is JSON.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">RestService</span><span class="o">.</span><span class="n">list</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_point</span><span class="p">,</span> <span class="n">after_time</span><span class="o">=</span><span class="n">after_time</span><span class="p">,</span>
             <span class="n">before_time</span><span class="o">=</span><span class="n">before_time</span><span class="p">,</span> <span class="n">epsg_code</span><span class="o">=</span><span class="n">epsg_code</span><span class="p">,</span> <span class="n">squid</span><span class="o">=</span><span class="n">squid</span><span class="p">,</span>
-            <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">offset</span><span class="p">)</span></div>
-
-    <span class="c1"># ...........................</span>
-<div class="viewcode-block" id="LayerApiService.post"><a class="viewcode-back" href="../../../source/lm_client.apis.html#lm_client.apis.layer.LayerApiService.post">[docs]</a>    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer_content</span><span class="p">,</span> <span class="n">layer_type</span><span class="p">,</span> <span class="n">epsg_code</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">,</span>
-             <span class="n">env_layer_type_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">additional_metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">val_units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-             <span class="n">env_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gcm_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alt_pred_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">date_code</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">RestService</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_point</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">layer_content</span><span class="p">,</span>
-            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">},</span>
-            <span class="n">layer_type</span><span class="o">=</span><span class="n">layer_type</span><span class="p">,</span> <span class="n">epsg_code</span><span class="o">=</span><span class="n">epsg_code</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">,</span>
-            <span class="n">env_layer_type_id</span><span class="o">=</span><span class="n">env_layer_type_id</span><span class="p">,</span>
-            <span class="n">additional_metadata</span><span class="o">=</span><span class="n">additional_metadata</span><span class="p">,</span> <span class="n">val_units</span><span class="o">=</span><span class="n">val_units</span><span class="p">,</span>
-            <span class="n">env_code</span><span class="o">=</span><span class="n">env_code</span><span class="p">,</span> <span class="n">gcm_code</span><span class="o">=</span><span class="n">gcm_code</span><span class="p">,</span> <span class="n">alt_pred_code</span><span class="o">=</span><span class="n">alt_pred_code</span><span class="p">,</span>
-            <span class="n">date_code</span><span class="o">=</span><span class="n">date_code</span><span class="p">)</span></div></div>
+            <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">offset</span><span class="p">)</span></div></div>
 </pre></div>
 
           </div>

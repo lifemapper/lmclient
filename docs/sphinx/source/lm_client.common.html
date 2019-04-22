@@ -274,33 +274,6 @@ those in the INTERFACES constants class.</li>
 <span id="lm-client-common-constants-module"></span><h2>lm_client.common.constants module<a class="headerlink" href="#module-lm_client.common.constants" title="Permalink to this headline">¶</a></h2>
 <p>Module containing constants for the Lifemapper API Client</p>
 <dl class="class">
-<dt id="lm_client.common.constants.HTTPMethod">
-<em class="property">class </em><code class="descclassname">lm_client.common.constants.</code><code class="descname">HTTPMethod</code><a class="reference internal" href="../_modules/lm_client/common/constants.html#HTTPMethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.constants.HTTPMethod" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Class containing constants for supported HTTP methods</p>
-<dl class="attribute">
-<dt id="lm_client.common.constants.HTTPMethod.DELETE">
-<code class="descname">DELETE</code><em class="property"> = 'DELETE'</em><a class="headerlink" href="#lm_client.common.constants.HTTPMethod.DELETE" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="lm_client.common.constants.HTTPMethod.GET">
-<code class="descname">GET</code><em class="property"> = 'GET'</em><a class="headerlink" href="#lm_client.common.constants.HTTPMethod.GET" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="lm_client.common.constants.HTTPMethod.POST">
-<code class="descname">POST</code><em class="property"> = 'POST'</em><a class="headerlink" href="#lm_client.common.constants.HTTPMethod.POST" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="lm_client.common.constants.HTTPMethod.PUT">
-<code class="descname">PUT</code><em class="property"> = 'PUT'</em><a class="headerlink" href="#lm_client.common.constants.HTTPMethod.PUT" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="class">
 <dt id="lm_client.common.constants.HttpStatus">
 <em class="property">class </em><code class="descclassname">lm_client.common.constants.</code><code class="descname">HttpStatus</code><a class="reference internal" href="../_modules/lm_client/common/constants.html#HttpStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.constants.HttpStatus" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constants class for HTTP 1.1 Status Codes</p>
@@ -568,7 +541,7 @@ those in the INTERFACES constants class.</li>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.INTERFACES.SHAPEFILE">
-<code class="descname">SHAPEFILE</code><em class="property"> = 'shape'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.SHAPEFILE" title="Permalink to this definition">¶</a></dt>
+<code class="descname">SHAPEFILE</code><em class="property"> = 'shapefile'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.SHAPEFILE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="staticmethod">
@@ -598,8 +571,8 @@ those in the INTERFACES constants class.</li>
 <dl class="exception">
 <dt id="lm_client.common.exceptions.BadRequestError">
 <em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">BadRequestError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#BadRequestError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.BadRequestError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#lm_client.common.exceptions.HttpError" title="lm_client.common.exceptions.HttpError"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions.HttpError</span></code></a></p>
-<p>Exception thrown when there is a problem with the request provided</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<p>Exception thrown when there is a problem with the request provided.</p>
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.BadRequestError.code">
 <code class="descname">code</code><em class="property"> = 400</em><a class="headerlink" href="#lm_client.common.exceptions.BadRequestError.code" title="Permalink to this definition">¶</a></dt>
@@ -615,8 +588,8 @@ those in the INTERFACES constants class.</li>
 <dl class="exception">
 <dt id="lm_client.common.exceptions.ConflictError">
 <em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">ConflictError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#ConflictError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.ConflictError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#lm_client.common.exceptions.HttpError" title="lm_client.common.exceptions.HttpError"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions.HttpError</span></code></a></p>
-<p>Exception thrown when there is a conflict posting data</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<p>Exception thrown when there is a conflict posting data.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <ul class="last simple">
@@ -638,8 +611,8 @@ those in the INTERFACES constants class.</li>
 <dl class="exception">
 <dt id="lm_client.common.exceptions.ForbiddenError">
 <em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">ForbiddenError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#ForbiddenError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.ForbiddenError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#lm_client.common.exceptions.HttpError" title="lm_client.common.exceptions.HttpError"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions.HttpError</span></code></a></p>
-<p>Exception thrown when the user does not have access to an object</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<p>Exception thrown when the user does not have access to an object.</p>
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.ForbiddenError.code">
 <code class="descname">code</code><em class="property"> = 403</em><a class="headerlink" href="#lm_client.common.exceptions.ForbiddenError.code" title="Permalink to this definition">¶</a></dt>
@@ -653,18 +626,35 @@ those in the INTERFACES constants class.</li>
 </dd></dl>
 
 <dl class="exception">
-<dt id="lm_client.common.exceptions.HttpError">
-<em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">HttpError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#HttpError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.HttpError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></p>
-<p>Base class for HTTP Errors</p>
+<dt id="lm_client.common.exceptions.InternalServerError">
+<em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">InternalServerError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#InternalServerError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.InternalServerError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<p>Exception thrown when the server experiences an error during a request.</p>
 <dl class="attribute">
-<dt id="lm_client.common.exceptions.HttpError.code">
-<code class="descname">code</code><em class="property"> = None</em><a class="headerlink" href="#lm_client.common.exceptions.HttpError.code" title="Permalink to this definition">¶</a></dt>
+<dt id="lm_client.common.exceptions.InternalServerError.code">
+<code class="descname">code</code><em class="property"> = 500</em><a class="headerlink" href="#lm_client.common.exceptions.InternalServerError.code" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
-<dt id="lm_client.common.exceptions.HttpError.url">
-<code class="descname">url</code><em class="property"> = None</em><a class="headerlink" href="#lm_client.common.exceptions.HttpError.url" title="Permalink to this definition">¶</a></dt>
+<dt id="lm_client.common.exceptions.InternalServerError.message">
+<code class="descname">message</code><em class="property"> = 'Internal Server Error'</em><a class="headerlink" href="#lm_client.common.exceptions.InternalServerError.message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="lm_client.common.exceptions.MethodNotAllowedError">
+<em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">MethodNotAllowedError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#MethodNotAllowedError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.MethodNotAllowedError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<p>Exception thrown when the requested HTTP method is not allowed.</p>
+<dl class="attribute">
+<dt id="lm_client.common.exceptions.MethodNotAllowedError.code">
+<code class="descname">code</code><em class="property"> = 405</em><a class="headerlink" href="#lm_client.common.exceptions.MethodNotAllowedError.code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.common.exceptions.MethodNotAllowedError.message">
+<code class="descname">message</code><em class="property"> = 'Method not allowed'</em><a class="headerlink" href="#lm_client.common.exceptions.MethodNotAllowedError.message" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -672,8 +662,8 @@ those in the INTERFACES constants class.</li>
 <dl class="exception">
 <dt id="lm_client.common.exceptions.NotAcceptableError">
 <em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">NotAcceptableError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#NotAcceptableError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.NotAcceptableError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#lm_client.common.exceptions.HttpError" title="lm_client.common.exceptions.HttpError"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions.HttpError</span></code></a></p>
-<p>Exception thrown when cannot format in desired interface</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<p>Exception thrown when cannot format in desired interface.</p>
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.NotAcceptableError.code">
 <code class="descname">code</code><em class="property"> = 406</em><a class="headerlink" href="#lm_client.common.exceptions.NotAcceptableError.code" title="Permalink to this definition">¶</a></dt>
@@ -689,8 +679,8 @@ those in the INTERFACES constants class.</li>
 <dl class="exception">
 <dt id="lm_client.common.exceptions.NotFoundError">
 <em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">NotFoundError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#NotFoundError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.NotFoundError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#lm_client.common.exceptions.HttpError" title="lm_client.common.exceptions.HttpError"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions.HttpError</span></code></a></p>
-<p>Exception thrown when the requested object was not found</p>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<p>Exception thrown when the requested object was not found.</p>
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.NotFoundError.code">
 <code class="descname">code</code><em class="property"> = 404</em><a class="headerlink" href="#lm_client.common.exceptions.NotFoundError.code" title="Permalink to this definition">¶</a></dt>
@@ -703,10 +693,27 @@ those in the INTERFACES constants class.</li>
 
 </dd></dl>
 
+<dl class="exception">
+<dt id="lm_client.common.exceptions.ServiceUnavailableError">
+<em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">ServiceUnavailableError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#ServiceUnavailableError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.ServiceUnavailableError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<p>Exception thrown when the requested service is unavailable.</p>
+<dl class="attribute">
+<dt id="lm_client.common.exceptions.ServiceUnavailableError.code">
+<code class="descname">code</code><em class="property"> = 503</em><a class="headerlink" href="#lm_client.common.exceptions.ServiceUnavailableError.code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="lm_client.common.exceptions.ServiceUnavailableError.message">
+<code class="descname">message</code><em class="property"> = 'Service Unavailable'</em><a class="headerlink" href="#lm_client.common.exceptions.ServiceUnavailableError.message" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="function">
 <dt id="lm_client.common.exceptions.raise_http_exception">
 <code class="descclassname">lm_client.common.exceptions.</code><code class="descname">raise_http_exception</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#raise_http_exception"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.raise_http_exception" title="Permalink to this definition">¶</a></dt>
-<dd><p>Look at the status_code of the response and throw the proper exception</p>
+<dd><p>Look at the status_code of the response and throw the proper exception.</p>
 </dd></dl>
 
 </div>

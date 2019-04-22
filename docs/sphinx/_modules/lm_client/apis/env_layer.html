@@ -45,7 +45,7 @@
           <div class="body" role="main">
             
   <h1>Source code for lm_client.apis.env_layer</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">&quot;&quot;&quot;Module containing a class for accessing the environmental layer end-point.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 
@@ -54,7 +54,7 @@
 
 <span class="c1"># .............................................................................</span>
 <div class="viewcode-block" id="EnvLayerApiService"><a class="viewcode-back" href="../../../source/lm_client.apis.html#lm_client.apis.env_layer.EnvLayerApiService">[docs]</a><span class="k">class</span> <span class="nc">EnvLayerApiService</span><span class="p">(</span><span class="n">RestService</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Class for accessing the environmental layer service end-point.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">end_point</span> <span class="o">=</span> <span class="s1">&#39;api/v2/envlayer&#39;</span>
 
@@ -62,9 +62,31 @@
 <div class="viewcode-block" id="EnvLayerApiService.count"><a class="viewcode-back" href="../../../source/lm_client.apis.html#lm_client.apis.env_layer.EnvLayerApiService.count">[docs]</a>    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">after_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alt_pred_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">before_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
               <span class="n">date_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">epsg_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">env_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">env_type_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
               <span class="n">gcm_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scenario_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Counts</span>
+        <span class="sd">&quot;&quot;&quot;Counts environmental layers matching the specified criteria.</span>
 
 <span class="sd">        Args:</span>
+<span class="sd">            after_time (:obj:`str`, optional): Matching environmental layers</span>
+<span class="sd">                are modified after this time specified in ISO-8601 format.</span>
+<span class="sd">            alt_pred_code (:obj:`str`, optional): Matching environmental layers</span>
+<span class="sd">                must have this alternate prediction code.</span>
+<span class="sd">            before_time (:obj:`str`, optional): Matching environmental layers</span>
+<span class="sd">                are modified before this time specified in ISO-8601 format.</span>
+<span class="sd">            date_code (:obj:`str`, optional): Matching environmental layers</span>
+<span class="sd">                will have this date code.</span>
+<span class="sd">            epsg_code (:obj:`int`, optional): Matching environmental layers</span>
+<span class="sd">                will have the map projection specified by this EPSG code.</span>
+<span class="sd">            env_code (:obj:`str`, optional): Matching environmental layers</span>
+<span class="sd">                will have this environment code.</span>
+<span class="sd">            env_type_id (:obj:`str`, optional): Matching environmental layers</span>
+<span class="sd">                will have this environmental layer type identifier.</span>
+<span class="sd">            gcm_code (:obj:`str`, optional): Matching environmental layers</span>
+<span class="sd">                will have this GCM code.</span>
+<span class="sd">            scenario_id (:obj:`int`, optional): Matching environmental layers</span>
+<span class="sd">                will belong to the Lifemapper scenario specified by this</span>
+<span class="sd">                identifier.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            int - The number of matching environmental layers.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">RestService</span><span class="o">.</span><span class="n">count</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/count&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end_point</span><span class="p">),</span> <span class="n">after_time</span><span class="o">=</span><span class="n">after_time</span><span class="p">,</span>
@@ -74,19 +96,29 @@
             <span class="n">scenario_id</span><span class="o">=</span><span class="n">scenario_id</span><span class="p">)</span></div>
 
     <span class="c1"># ...........................</span>
-<div class="viewcode-block" id="EnvLayerApiService.delete"><a class="viewcode-back" href="../../../source/lm_client.apis.html#lm_client.apis.env_layer.EnvLayerApiService.delete">[docs]</a>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env_layer_id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Attempts to delete</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">RestService</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end_point</span><span class="p">,</span> <span class="n">env_layer_id</span><span class="p">))</span></div>
-
-    <span class="c1"># ...........................</span>
 <div class="viewcode-block" id="EnvLayerApiService.get"><a class="viewcode-back" href="../../../source/lm_client.apis.html#lm_client.apis.env_layer.EnvLayerApiService.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">env_layer_id</span><span class="p">,</span> <span class="n">interface</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Attempts to get</span>
+        <span class="sd">&quot;&quot;&quot;Attempts to get an environmental layer</span>
 
 <span class="sd">        Args:</span>
+<span class="sd">            env_layer_id (int): The identifier of the environmental layer to be</span>
+<span class="sd">                retrieved.</span>
+<span class="sd">            interface (:obj:`str`, optional): The format in which to return the</span>
+<span class="sd">                environmental layer.  Valid formats are eml, gtiff and json.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            BadRequestError: Raised if the environmental layer id provided is</span>
+<span class="sd">                invalid.</span>
+<span class="sd">            ForbiddenError: Raised if the client user does not have permission</span>
+<span class="sd">                to access the specified environmental layer.</span>
+<span class="sd">            NotAcceptableError: Raised if the environmental layer cannot be</span>
+<span class="sd">                returned in the specified format.</span>
+<span class="sd">            NotFoundError: Raised if the specified environmental layer was not</span>
+<span class="sd">                found on the server.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict - Returned if JSON interface is selected.</span>
+<span class="sd">            bytes - Returned if GTIFF interface is selected.</span>
+<span class="sd">            xml string - Returned if the EML interface is selected.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">RestService</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end_point</span><span class="p">,</span> <span class="n">env_layer_id</span><span class="p">),</span>
@@ -97,31 +129,43 @@
              <span class="n">before_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">date_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">epsg_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">env_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">env_type_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gcm_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scenario_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">offset</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Gets a list</span>
+        <span class="sd">&quot;&quot;&quot;Gets a list of environmental layers matching the specified criteria.</span>
 
 <span class="sd">        Args:</span>
+<span class="sd">            after_time (:obj:`str`, optional): Matching environmental layers</span>
+<span class="sd">                are modified after this time specified in ISO-8601 format.</span>
+<span class="sd">            alt_pred_code (:obj:`str`, optional): Matching environmental layers</span>
+<span class="sd">                must have this alternate prediction code.</span>
+<span class="sd">            before_time (:obj:`str`, optional): Matching environmental layers</span>
+<span class="sd">                are modified before this time specified in ISO-8601 format.</span>
+<span class="sd">            date_code (:obj:`str`, optional): Matching environmental layers</span>
+<span class="sd">                will have this date code.</span>
+<span class="sd">            epsg_code (:obj:`int`, optional): Matching environmental layers</span>
+<span class="sd">                will have the map projection specified by this EPSG code.</span>
+<span class="sd">            env_code (:obj:`str`, optional): Matching environmental layers</span>
+<span class="sd">                will have this environment code.</span>
+<span class="sd">            env_type_id (:obj:`str`, optional): Matching environmental layers</span>
+<span class="sd">                will have this environmental layer type identifier.</span>
+<span class="sd">            gcm_code (:obj:`str`, optional): Matching environmental layers</span>
+<span class="sd">                will have this GCM code.</span>
+<span class="sd">            scenario_id (:obj:`int`, optional): Matching environmental layers</span>
+<span class="sd">                will belong to the Lifemapper scenario specified by this</span>
+<span class="sd">                identifier.</span>
+<span class="sd">            limit (:obj:`int`, optional): Return, at most, this many</span>
+<span class="sd">                environmental layers.</span>
+<span class="sd">            offset (:obj:`int`, optional): Offset the returned environmental</span>
+<span class="sd">                layers by this amount.  Useful for paging.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            list of dicts - A list of environmental layer dictionary objects</span>
+<span class="sd">                with metadata about each one.  The response format is JSON.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">RestService</span><span class="o">.</span><span class="n">list</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_point</span><span class="p">,</span> <span class="n">after_time</span><span class="o">=</span><span class="n">after_time</span><span class="p">,</span>
             <span class="n">alt_pred_code</span><span class="o">=</span><span class="n">alt_pred_code</span><span class="p">,</span> <span class="n">before_time</span><span class="o">=</span><span class="n">before_time</span><span class="p">,</span>
             <span class="n">date_code</span><span class="o">=</span><span class="n">date_code</span><span class="p">,</span> <span class="n">epsg_code</span><span class="o">=</span><span class="n">epsg_code</span><span class="p">,</span> <span class="n">env_code</span><span class="o">=</span><span class="n">env_code</span><span class="p">,</span>
             <span class="n">env_type_id</span><span class="o">=</span><span class="n">env_type_id</span><span class="p">,</span> <span class="n">gcm_code</span><span class="o">=</span><span class="n">gcm_code</span><span class="p">,</span>
-            <span class="n">scenario_id</span><span class="o">=</span><span class="n">scenario_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">offset</span><span class="p">)</span></div>
-
-    <span class="c1"># ...........................</span>
-<div class="viewcode-block" id="EnvLayerApiService.post"><a class="viewcode-back" href="../../../source/lm_client.apis.html#lm_client.apis.env_layer.EnvLayerApiService.post">[docs]</a>    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer_content</span><span class="p">,</span> <span class="n">layer_type</span><span class="p">,</span> <span class="n">epsg_code</span><span class="p">,</span> <span class="n">layer_name</span><span class="p">,</span>
-             <span class="n">env_layer_type_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">additional_metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">val_units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-             <span class="n">env_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gcm_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alt_pred_code</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">date_code</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">RestService</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-            <span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">end_point</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">layer_content</span><span class="p">,</span>
-            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">},</span>
-            <span class="n">layer_type</span><span class="o">=</span><span class="n">layer_type</span><span class="p">,</span> <span class="n">epsg_code</span><span class="o">=</span><span class="n">epsg_code</span><span class="p">,</span> <span class="n">layer_name</span><span class="o">=</span><span class="n">layer_name</span><span class="p">,</span>
-            <span class="n">env_layer_type_id</span><span class="o">=</span><span class="n">env_layer_type_id</span><span class="p">,</span>
-            <span class="n">additional_metadata</span><span class="o">=</span><span class="n">additional_metadata</span><span class="p">,</span> <span class="n">val_units</span><span class="o">=</span><span class="n">val_units</span><span class="p">,</span>
-            <span class="n">env_code</span><span class="o">=</span><span class="n">env_code</span><span class="p">,</span> <span class="n">gcm_code</span><span class="o">=</span><span class="n">gcm_code</span><span class="p">,</span> <span class="n">alt_pred_code</span><span class="o">=</span><span class="n">alt_pred_code</span><span class="p">,</span>
-            <span class="n">date_code</span><span class="o">=</span><span class="n">date_code</span><span class="p">)</span></div></div>
+            <span class="n">scenario_id</span><span class="o">=</span><span class="n">scenario_id</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">offset</span><span class="p">)</span></div></div>
 </pre></div>
 
           </div>
