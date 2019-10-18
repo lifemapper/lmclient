@@ -1,0 +1,125 @@
+========
+Tutorial
+========
+
+This tutorial provides some examples for performing basic tasks using the
+Lifemapper service APIs via the client library.
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Contents:
+        
+----
+    
+Create a client instance and authenticate
+=========================================
+The first task you will need to perform is to create an instance and you will
+most likely want to authenticate.
+
+  ::
+
+    >>> from lm_client.client.client import LmApiClient
+    >>> cl = LmApiClient()
+    >>> cl.auth.login('my_user', 'my_password')
+
+----
+
+Upload Data
+===========
+For experiments using your own data, you will first need to upload those data
+objects.  See: `Upload docs <../source/lm_client.apis.html#module-lm_client.apis.upload>`_.
+
+Upload biogeographic hypotheses
+-------------------------------
+Biogeographic hypotheses are a collection of shapefiles representing historical
+biogeography that may potentially effect distribution of species.  These
+uploads should be zipped together into one file and each hypothesis should have
+an additional JSON metadata file describing the hypothesis that has the same
+name as the other files for the shapefile but with a .json extension.  The file
+should be in the format::
+
+    {
+        “description” : “A description of the hypothesis”,
+        “author” : “The author of the shapefile”,
+        “title” : “A title of this hypothesis”,
+        “citation” : “A citation if applicable”,
+        “bbox” : [min x, min y, max x, max y]
+    }
+
+
+::
+
+    >>> from lm_client.client.client import LmApiClient
+    >>> cl = LmApiClient()
+    >>> cl.auth.login('my_user', 'my_password')
+    >>> cl.upload.biogeographic_hypotheses(hypothesis_zip_filename, 'my_hypotheses')
+
+
+Upload occurrence data
+----------------------
+Occurrence data uploads are single CSV files with occurrence points for one or
+more species.  The occurrences for each species should be grouped together in
+contiguous lines.  Along with the CSV file, JSON metadata describing it should
+be uploaded as well.  This metadata file should be in the following format
+(found at: http://lifemapper.github.io/api.html?url=/assets/yaml/lmV2.yml#/definitions/OccurrenceMetadata::
+    {
+        "field" : [
+            {
+                "key" : "string", # The original name in the CSV header, or column index (zero-based)
+                "shortName" : "10charname", # Short name for the field, 10 characters or less
+                "fieldType" : "type" # Type of the field (integer, real, string)
+            }
+        ],
+        "role" : {
+            "groupBy" : "taxon", # Field used to group data
+            "latitude" : "lat", # Field representing latitude
+            "longitude" : "long", # Field representing longitude
+            "taxaName" : "taxon", # Field with taxon information
+            "uniqueId" : "id"  # Field representing unique id for each occurrence
+        },
+        "delimiter" : "," # Delimiter between fields in each line
+    }
+
+
+::
+
+    >>> from lm_client.client.client import LmApiClient
+    >>> cl = LmApiClient()
+    >>> cl.auth.login('my_user', 'my_password')
+    >>> cl.upload.occurrence(my_occurrence_csv_filename, occ_metadata_json_filename, 'my_occ_data')
+    
+
+Upload a phylogenetic tree
+--------------------------
+For many multi-species analyses, you will need a phylogenetic tree.  This call
+allows you to upload a tree that you have locally.  Note that there are other
+options for retrieving a phylogenetic tree from Open Tree of Life in your
+experiment.  Trees should be in Newick, Nexus, or PhyloXML format.
+
+::
+
+    >>> from lm_client.client.client import LmApiClient
+    >>> cl = LmApiClient()
+    >>> cl.auth.login('my_user', 'my_password')
+    >>> cl.upload.tree(my_tree_filename, 'my_tree_name')
+
+
+Get a SDM projection map
+========================
+
+
+Submit a new experiment
+=======================
+
+Get an Open Tree tree
+=====================
+
+Get accepted taxon ids from GBIF
+================================
+
+Find global pam matches
+=======================
+
+Subset a Global PAM
+===================
+
