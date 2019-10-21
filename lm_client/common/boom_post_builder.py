@@ -185,9 +185,9 @@ class BoomPostGenerator(object):  # pragma: no cover
                 "present".
             max_presence (int): The maximum value that should be considered
                 "present".
-            value_name (str): The laye rvalue to use for presence / absence.
+            value_name (str): The layer value to use for presence / absence.
                 Use 'pixel' for raster layers.
-            min_percent (int): THe minimum percentage of a shapegrid cell
+            min_percent (int): The minimum percentage of a shapegrid cell
                 classified as present to consider the entire cell present.
         """
         self.intersect_parameters = {

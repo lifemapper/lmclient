@@ -1,41 +1,30 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Tutorial &#8212; Lifemapper Client Library 1.0.0 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Contributing" href="contributing.html" />
     <link rel="prev" title="Installation" href="installation.html" /> 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
         <li class="right" >
           <a href="contributing.html" title="Contributing"
              accesskey="N">next</a> |</li>
@@ -63,7 +52,7 @@ Lifemapper service APIs via the client library.</p>
 <p>The first task you will need to perform is to create an instance and you will
 most likely want to authenticate.</p>
 <blockquote>
-<div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
 </pre></div>
@@ -74,7 +63,7 @@ most likely want to authenticate.</p>
 <div class="section" id="upload-data">
 <h2>Upload Data<a class="headerlink" href="#upload-data" title="Permalink to this headline">¶</a></h2>
 <p>For experiments using your own data, you will first need to upload those data
-objects.  See: <a class="reference external" href="../source/lm_client.apis.html#module-lm_client.apis.upload">Upload docs</a>.</p>
+objects.  See <a class="reference external" href="../source/lm_client.apis.html#module-lm_client.apis.upload">upload docs</a>.</p>
 <div class="section" id="upload-biogeographic-hypotheses">
 <h3>Upload biogeographic hypotheses<a class="headerlink" href="#upload-biogeographic-hypotheses" title="Permalink to this headline">¶</a></h3>
 <p>Biogeographic hypotheses are a collection of shapefiles representing historical
@@ -83,7 +72,7 @@ uploads should be zipped together into one file and each hypothesis should have
 an additional JSON metadata file describing the hypothesis that has the same
 name as the other files for the shapefile but with a .json extension.  The file
 should be in the format:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>{
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
     “description” : “A description of the hypothesis”,
     “author” : “The author of the shapefile”,
     “title” : “A title of this hypothesis”,
@@ -92,7 +81,7 @@ should be in the format:</p>
 }
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">upload</span><span class="o">.</span><span class="n">biogeographic_hypotheses</span><span class="p">(</span><span class="n">hypothesis_zip_filename</span><span class="p">,</span> <span class="s1">&#39;my_hypotheses&#39;</span><span class="p">)</span>
@@ -106,7 +95,7 @@ more species.  The occurrences for each species should be grouped together in
 contiguous lines.  Along with the CSV file, JSON metadata describing it should
 be uploaded as well.  This metadata file should be in the following format
 (found at: <a class="reference external" href="http://lifemapper.github.io/api.html?url=/assets/yaml/lmV2.yml#/definitions/OccurrenceMetadata">http://lifemapper.github.io/api.html?url=/assets/yaml/lmV2.yml#/definitions/OccurrenceMetadata</a>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;field&quot;</span> <span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="s2">&quot;key&quot;</span> <span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="c1"># The original name in the CSV header, or column index (zero-based)</span>
@@ -125,7 +114,7 @@ be uploaded as well.  This metadata file should be in the following format
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">upload</span><span class="o">.</span><span class="n">occurrence</span><span class="p">(</span><span class="n">my_occurrence_csv_filename</span><span class="p">,</span> <span class="n">occ_metadata_json_filename</span><span class="p">,</span> <span class="s1">&#39;my_occ_data&#39;</span><span class="p">)</span>
@@ -138,7 +127,7 @@ be uploaded as well.  This metadata file should be in the following format
 allows you to upload a tree that you have locally.  Note that there are other
 options for retrieving a phylogenetic tree from Open Tree of Life in your
 experiment.  Trees should be in Newick, Nexus, or PhyloXML format.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">upload</span><span class="o">.</span><span class="n">tree</span><span class="p">(</span><span class="n">my_tree_filename</span><span class="p">,</span> <span class="s1">&#39;my_tree_name&#39;</span><span class="p">)</span>
@@ -146,23 +135,76 @@ experiment.  Trees should be in Newick, Nexus, or PhyloXML format.</p>
 </div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="section" id="get-a-sdm-projection-map">
 <h2>Get a SDM projection map<a class="headerlink" href="#get-a-sdm-projection-map" title="Permalink to this headline">¶</a></h2>
+<p>If you generate SDMs but do not plan on downloading the entire output package
+or if you want to just show singular maps, you can use the OGC service endpoint
+to retrieve a map.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prj_id</span> <span class="o">=</span> <span class="mi">1234</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prj_obj</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">sdm_project</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">prj_id</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">map_image</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">ogc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">prj_obj</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">mapName</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">prj</span><span class="o">.</span><span class="n">spatialRaster</span><span class="o">.</span><span class="n">bbox</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;ff0000&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="s1">&#39;GetMap&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;image/png&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.1.0&#39;</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="n">prj_obj</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">layerName</span><span class="p">,</span> <span class="n">srs</span><span class="o">=</span><span class="s1">&#39;EPSG:4326&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
+</div>
+<hr class="docutils" />
+<div class="section" id="list-completed-sdm-projections">
+<h2>List completed SDM projections<a class="headerlink" href="#list-completed-sdm-projections" title="Permalink to this headline">¶</a></h2>
+<p>You may want to retrieve a list of all SDM projections that have been computed
+(status = 300).  You can use the sdm_projects list service to get those objects
+for additional processing.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">completed_prjs</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">sdm_project</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
 <div class="section" id="submit-a-new-experiment">
 <h2>Submit a new experiment<a class="headerlink" href="#submit-a-new-experiment" title="Permalink to this headline">¶</a></h2>
+<p>One of the primary functions of the client library is to enable experiment
+submission.  These experiments can vary quite a bit and for this example we
+will upload an occurrence set, biogeographic hypotheses, and a tree and ask
+that multi-species statistics, including MCPA, be generated.</p>
 </div>
-<div class="section" id="get-an-open-tree-tree">
-<h2>Get an Open Tree tree<a class="headerlink" href="#get-an-open-tree-tree" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<div class="section" id="download-output-package">
+<h2>Download output package<a class="headerlink" href="#download-output-package" title="Permalink to this headline">¶</a></h2>
+<p>After experiment submission and computation, you will probably want to retrieve
+the generated package of outputs.</p>
 </div>
+<hr class="docutils" />
+<div class="section" id="get-an-open-tree-of-life-tree">
+<h2>Get an Open Tree of Life tree<a class="headerlink" href="#get-an-open-tree-of-life-tree" title="Permalink to this headline">¶</a></h2>
+<p>If you have species data and want to run multi-species analyses that include
+phylogenetic analyses, but you don’t have a phylogenetic tree, you can retrieve
+one from Open Tree of Life.</p>
+</div>
+<hr class="docutils" />
 <div class="section" id="get-accepted-taxon-ids-from-gbif">
 <h2>Get accepted taxon ids from GBIF<a class="headerlink" href="#get-accepted-taxon-ids-from-gbif" title="Permalink to this headline">¶</a></h2>
+<p>If you want to retrieve an Open Tree of Life tree, you will need to have
+accepted GBIF taxonomy identifiers for the species to be included.  You can use
+the service to get those.</p>
 </div>
+<hr class="docutils" />
 <div class="section" id="find-global-pam-matches">
 <h2>Find global pam matches<a class="headerlink" href="#find-global-pam-matches" title="Permalink to this headline">¶</a></h2>
+<p>If you wish to create a subset of a global PAM, you will likely want to first
+see what that subset would include before performing the subset operation.  To
+do that, you can see which entries match your specified query parameters.</p>
 </div>
+<hr class="docutils" />
 <div class="section" id="subset-a-global-pam">
 <h2>Subset a Global PAM<a class="headerlink" href="#subset-a-global-pam" title="Permalink to this headline">¶</a></h2>
+<p>Once you know which parameters you would like to use to subset the global PAM,
+you can send a subset request to create a new gridset with data matching those
+query parameters.</p>
+<hr class="docutils" />
 </div>
 </div>
 
@@ -179,13 +221,13 @@ experiment.  Trees should be in Newick, Nexus, or PhyloXML format.</p>
   <p class="topless"><a href="contributing.html"
                         title="next chapter">Contributing</a></p>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -199,9 +241,6 @@ experiment.  Trees should be in Newick, Nexus, or PhyloXML format.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="../py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="contributing.html" title="Contributing"
              >next</a> |</li>
         <li class="right" >
@@ -212,7 +251,7 @@ experiment.  Trees should be in Newick, Nexus, or PhyloXML format.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Lifemapper Team.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
   </body>
 </html>

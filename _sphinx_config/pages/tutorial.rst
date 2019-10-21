@@ -107,36 +107,99 @@ experiment.  Trees should be in Newick, Nexus, or PhyloXML format.
 
 Get a SDM projection map
 ========================
+If you generate SDMs but do not plan on downloading the entire output package
+or if you want to just show singular maps, you can use the OGC service endpoint
+to retrieve a map.
 
+::
+
+    >>> prj_id = 1234
+    >>> from lm_client.client.client import LmApiClient
+    >>> cl = LmApiClient()
+    >>> cl.auth.login('my_user', 'my_password')
+    >>> prj_obj = cl.sdm_project.get(prj_id)
+    >>> map_image = cl.ogc.get(prj_obj.map.mapName, bbox=prj.spatialRaster.bbox, color='ff0000', height=200, width=400, request='GetMap', format='image/png', version='1.1.0', layer=prj_obj.map.layerName, srs='EPSG:4326', service='WMS')
+
+----
+
+List completed SDM projections
+==============================
+You may want to retrieve a list of all SDM projections that have been computed
+(status = 300).  You can use the sdm_projects list service to get those objects
+for additional processing.
+
+::
+
+    >>> from lm_client.client.client import LmApiClient
+    >>> cl = LmApiClient()
+    >>> cl.auth.login('my_user', 'my_password')
+    >>> completed_prjs = cl.sdm_project.list(status=300)
 
 ----
 
 Submit a new experiment
 =======================
+One of the primary functions of the client library is to enable experiment
+submission.  These experiments can vary quite a bit and for this example we
+will upload an occurrence set, biogeographic hypotheses, and a tree and ask
+that multi-species statistics, including MCPA, be generated.
 
+::
+
+    >>> from lm_client.client.client import LmApiClient
+    >>> from lm_client.common.boom_post_builder import BoomPostGenerator
+    >>> TAXA = ['Quercus ajoensis', 'Quercus alba', 'Quercus aliena', 'Quercus arizonica', 'Quercus austrina'] 
+    >>> cl = LmApiClient()
+    >>> cl.auth.login('my_user', 'my_password')
+    >>> scn_package_id = cl.scenario_package.list(limit=1).id
+    >>> scn_package_name = cl.scenario_package.get(scn_package_id).name
+    >>> bpg = BoomPostGenerator('my_exp')
+    >>> bpg.add_algorithm('ATT_MAXENT')
+    >>> bpg.add_scenario_package(scn_package_name)
+    >>> bpg.add_occurrence_sets(taxon_names=TAXA)
+    >>> bpg.add_pam_stats()
+    >>> bpg.add_shapegrid(name='my_grid', epsg=4326, min_x=-180, min_y=-90, max_x=180, max_y=90, resolution=1, cell_sides=4, map_units='dd')
+    >>> bpg.add_intersect_parameters(10, 255, 'pixel', 25)
+    >>> my_gs = cl.gridset.post(bpg.generate_request())
+    
 ----
 
 Download output package
 =======================
+After experiment submission and computation, you will probably want to retrieve
+the generated package of outputs.
 
 ----
 
-Get an Open Tree tree
-=====================
+Get an Open Tree of Life tree
+=============================
+If you have species data and want to run multi-species analyses that include
+phylogenetic analyses, but you don't have a phylogenetic tree, you can retrieve
+one from Open Tree of Life.
+
 
 ----
 
 Get accepted taxon ids from GBIF
 ================================
+If you want to retrieve an Open Tree of Life tree, you will need to have
+accepted GBIF taxonomy identifiers for the species to be included.  You can use
+the service to get those.
 
 ----
 
 Find global pam matches
 =======================
+If you wish to create a subset of a global PAM, you will likely want to first
+see what that subset would include before performing the subset operation.  To
+do that, you can see which entries match your specified query parameters.
 
 ----
 
 Subset a Global PAM
 ===================
+Once you know which parameters you would like to use to subset the global PAM,
+you can send a subset request to create a new gridset with data matching those
+query parameters.
 
 ----
