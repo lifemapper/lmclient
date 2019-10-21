@@ -1,30 +1,22 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>lm_client.common package &#8212; Lifemapper Client Library 1.0.0 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
-  </head>
-  <body>
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -53,220 +45,194 @@
 <p>Module containing base class for API service calls</p>
 <dl class="class">
 <dt id="lm_client.common.api_service.ApiService">
-<em class="property">class </em><code class="descclassname">lm_client.common.api_service.</code><code class="descname">ApiService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#ApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.ApiService" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<em class="property">class </em><code class="sig-prename descclassname">lm_client.common.api_service.</code><code class="sig-name descname">ApiService</code><span class="sig-paren">(</span><em class="sig-param">api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#ApiService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.ApiService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Base class for API calls</p>
 <dl class="attribute">
 <dt id="lm_client.common.api_service.ApiService.api_client">
-<code class="descname">api_client</code><a class="headerlink" href="#lm_client.common.api_service.ApiService.api_client" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>_Client</em> – A client object used to make requests to a
+<code class="sig-name descname">api_client</code><a class="headerlink" href="#lm_client.common.api_service.ApiService.api_client" title="Permalink to this definition">¶</a></dt>
+<dd><p>A client object used to make requests to a
 server.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>_Client</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="lm_client.common.api_service.RestService">
-<em class="property">class </em><code class="descclassname">lm_client.common.api_service.</code><code class="descname">RestService</code><span class="sig-paren">(</span><em>api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#RestService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.RestService" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#lm_client.common.api_service.ApiService" title="lm_client.common.api_service.ApiService"><code class="xref py py-class docutils literal"><span class="pre">lm_client.common.api_service.ApiService</span></code></a></p>
+<em class="property">class </em><code class="sig-prename descclassname">lm_client.common.api_service.</code><code class="sig-name descname">RestService</code><span class="sig-paren">(</span><em class="sig-param">api_client</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#RestService"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.RestService" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#lm_client.common.api_service.ApiService" title="lm_client.common.api_service.ApiService"><code class="xref py py-class docutils literal notranslate"><span class="pre">lm_client.common.api_service.ApiService</span></code></a></p>
 <p>Base class for RESTful API calls</p>
 <dl class="method">
 <dt id="lm_client.common.api_service.RestService.count">
-<code class="descname">count</code><span class="sig-paren">(</span><em>count_url</em>, <em>headers=None</em>, <em>**query_params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#RestService.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.RestService.count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">count</code><span class="sig-paren">(</span><em class="sig-param">count_url</em>, <em class="sig-param">headers=None</em>, <em class="sig-param">**query_params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#RestService.count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.RestService.count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Counts the number of objects matching the provided parameters.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>count_url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – A relative URL for counting objects.</li>
-<li><strong>headers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a>, optional) – Any headers to be sent to the
-request.</li>
-<li><strong>**query_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – A dictionary of query parameters to be used
-as criteria for counting.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>count_url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – A relative URL for counting objects.</p></li>
+<li><p><strong>headers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>, optional) – Any headers to be sent to the
+request.</p></li>
+<li><p><strong>**query_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – A dictionary of query parameters to be used
+as criteria for counting.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">int - The number of objects matching the specified criteria</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>int - The number of objects matching the specified criteria</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="lm_client.common.api_service.RestService.delete">
-<code class="descname">delete</code><span class="sig-paren">(</span><em>obj_url</em>, <em>headers=None</em>, <em>**query_params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#RestService.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.RestService.delete" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">delete</code><span class="sig-paren">(</span><em class="sig-param">obj_url</em>, <em class="sig-param">headers=None</em>, <em class="sig-param">**query_params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#RestService.delete"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.RestService.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sends a delete request to the specified URL</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>obj_url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – A relative URL for the object in question.</li>
-<li><strong>headers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a>, optional) – Any headers to be sent to the
-request.</li>
-<li><strong>**query_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – A dictionary of query parameters to be sent
-along with the request.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – A relative URL for the object in question.</p></li>
+<li><p><strong>headers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>, optional) – Any headers to be sent to the
+request.</p></li>
+<li><p><strong>**query_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – A dictionary of query parameters to be sent
+along with the request.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><em>ForbiddenError - Raised if the user does not have permission to</em> – delete the specified object.</li>
-<li>NotFoundError - Raised if the object was not found.</li>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ForbiddenError - Raised if the user does not have permission to</strong> – delete the specified object.</p></li>
+<li><p><strong>NotFoundError - Raised if the object was not found.</strong> – </p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="lm_client.common.api_service.RestService.get">
-<code class="descname">get</code><span class="sig-paren">(</span><em>obj_url</em>, <em>interface='json'</em>, <em>headers=None</em>, <em>**query_params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#RestService.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.RestService.get" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">obj_url</em>, <em class="sig-param">interface='json'</em>, <em class="sig-param">headers=None</em>, <em class="sig-param">**query_params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#RestService.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.RestService.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gets the object in the format specified by ‘interface’.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>obj_url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The relative URL to the object.</li>
-<li><strong>raw</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">bool</span></code></a>, optional) – If True, return the raw response
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The relative URL to the object.</p></li>
+<li><p><strong>raw</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bool</span></code></a>, optional) – If True, return the raw response
 file-like object from the request.  If False, attempt to
-process the response.</li>
-<li><strong>interface</strong> (<code class="xref py py-obj docutils literal"><span class="pre">INTERFACES</span></code>, optional) – The interface format to
-request for the object.</li>
-<li><strong>headers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a>, optional) – Any headers to be sent to the
-request.</li>
-<li><strong>**query_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – A dictionary of query parameters that may
-be used in object retrieval.</li>
+process the response.</p></li>
+<li><p><strong>interface</strong> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">INTERFACES</span></code>, optional) – The interface format to
+request for the object.</p></li>
+<li><p><strong>headers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>, optional) – Any headers to be sent to the
+request.</p></li>
+<li><p><strong>**query_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – A dictionary of query parameters that may
+be used in object retrieval.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
-<dt>dict - If the interface is a JSON interface, the response is</dt>
-<dd><p class="first last">encoded as a JSON dictionary object.</p>
 </dd>
-<dt>str - If the interface is a text interface, the response is</dt>
-<dd><p class="first last">returned as text.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>dict - If the interface is a JSON interface, the response is</dt><dd><p>encoded as a JSON dictionary object.</p>
 </dd>
-<dt>bytes - If the interface is a binary interface, the response is</dt>
-<dd><p class="first last">returned as bytes.</p>
+<dt>str - If the interface is a text interface, the response is</dt><dd><p>returned as text.</p>
+</dd>
+<dt>bytes - If the interface is a binary interface, the response is</dt><dd><p>returned as bytes.</p>
 </dd>
 </dl>
 </p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><em>ForbiddenError - Raised if the user does not have permission to</em> – access the specified object.</li>
-<li>NotFoundError - Raised if the requested object was not found.</li>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ForbiddenError - Raised if the user does not have permission to</strong> – access the specified object.</p></li>
+<li><p><strong>NotFoundError - Raised if the requested object was not found.</strong> – </p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="lm_client.common.api_service.RestService.list">
-<code class="descname">list</code><span class="sig-paren">(</span><em>list_url</em>, <em>headers=None</em>, <em>**query_params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#RestService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.RestService.list" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param">list_url</em>, <em class="sig-param">headers=None</em>, <em class="sig-param">**query_params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#RestService.list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.RestService.list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lists the number of objects matching the provided parameters.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>list_url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – A relative URL for listing objects.</li>
-<li><strong>headers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a>, optional) – Any headers to be sent to the
-request.</li>
-<li><strong>**query_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – A dictionary of query parameters to be used
-as criteria for listing.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>list_url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – A relative URL for listing objects.</p></li>
+<li><p><strong>headers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>, optional) – Any headers to be sent to the
+request.</p></li>
+<li><p><strong>**query_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – A dictionary of query parameters to be used
+as criteria for listing.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
-<dt>List of JSON dictionaries - The list of matching objects is</dt>
-<dd><p class="first last">returned as a list of dictionaries.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>List of JSON dictionaries - The list of matching objects is</dt><dd><p>returned as a list of dictionaries.</p>
 </dd>
 </dl>
 </p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="lm_client.common.api_service.RestService.post">
-<code class="descname">post</code><span class="sig-paren">(</span><em>post_url</em>, <em>files=None</em>, <em>headers=None</em>, <em>**query_params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#RestService.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.RestService.post" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">post</code><span class="sig-paren">(</span><em class="sig-param">post_url</em>, <em class="sig-param">files=None</em>, <em class="sig-param">headers=None</em>, <em class="sig-param">**query_params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#RestService.post"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.RestService.post" title="Permalink to this definition">¶</a></dt>
 <dd><p>Submits a POST request to the server.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>post_url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – A relative URL where the POST request will be made.</li>
-<li><strong>files</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a>, optional) – A dictionary with file query
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>post_url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – A relative URL where the POST request will be made.</p></li>
+<li><p><strong>files</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>, optional) – A dictionary with file query
 parameter name keys and tuple values with (file name, open
 file-like object or string, and optionally a mime-type for the
-file).</li>
-<li><strong>headers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><code class="xref py py-obj docutils literal"><span class="pre">dict</span></code></a>, optional) – Any headers to be sent to the
-request.</li>
-<li><strong>**query_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.7)"><em>dict</em></a>) – A dictionary of query parameters to be sent
-with the POST request.</li>
+file).</p></li>
+<li><p><strong>headers</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>, optional) – Any headers to be sent to the
+request.</p></li>
+<li><p><strong>**query_params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – A dictionary of query parameters to be sent
+with the POST request.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">dict - A JSON dictionary returned from the POST request</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
-<li><em>BadRequestError - Raised if the parameters provided do not match</em> – the parameters required.</li>
-<li><em>ConflictError - Raised if the POST cannot complete because an</em> – object already exists with those values.</li>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict - A JSON dictionary returned from the POST request</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>BadRequestError - Raised if the parameters provided do not match</strong> – the parameters required.</p></li>
+<li><p><strong>ConflictError - Raised if the POST cannot complete because an</strong> – object already exists with those values.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="function">
 <dt id="lm_client.common.api_service.format_object">
-<code class="descclassname">lm_client.common.api_service.</code><code class="descname">format_object</code><span class="sig-paren">(</span><em>response</em>, <em>interface</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#format_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.format_object" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">lm_client.common.api_service.</code><code class="sig-name descname">format_object</code><span class="sig-paren">(</span><em class="sig-param">response</em>, <em class="sig-param">interface</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/api_service.html#format_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.api_service.format_object" title="Permalink to this definition">¶</a></dt>
 <dd><p>Formats an object based on the interface provided</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>response</strong> (<em>requests.models.Response</em>) – A response object returned from a
-request.</li>
-<li><strong>interface</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – An interface string that should be matched against
-those in the INTERFACES constants class.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>response</strong> (<em>requests.models.Response</em>) – A response object returned from a
+request.</p></li>
+<li><p><strong>interface</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – An interface string that should be matched against
+those in the INTERFACES constants class.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first">Exception - If the interface is unknown, an Exception is raised.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
-<dt>dict - If the interface is a JSON interface, the response is encoded as</dt>
-<dd><p class="first last">a JSON dictionary object.</p>
 </dd>
-<dt>str - If the interface is a text interface, the response is returned as</dt>
-<dd><p class="first last">text.</p>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>Exception - If the interface is unknown</strong><strong>, </strong><strong>an Exception is raised.</strong> – </p>
 </dd>
-<dt>bytes - If the interface is a binary interface, the response is</dt>
-<dd><p class="first last">returned as bytes.</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>dict - If the interface is a JSON interface, the response is encoded as</dt><dd><p>a JSON dictionary object.</p>
+</dd>
+<dt>str - If the interface is a text interface, the response is returned as</dt><dd><p>text.</p>
+</dd>
+<dt>bytes - If the interface is a binary interface, the response is</dt><dd><p>returned as bytes.</p>
 </dd>
 </dl>
 </p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -275,290 +241,291 @@ those in the INTERFACES constants class.</li>
 <p>Module containing constants for the Lifemapper API Client</p>
 <dl class="class">
 <dt id="lm_client.common.constants.HttpStatus">
-<em class="property">class </em><code class="descclassname">lm_client.common.constants.</code><code class="descname">HttpStatus</code><a class="reference internal" href="../_modules/lm_client/common/constants.html#HttpStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.constants.HttpStatus" title="Permalink to this definition">¶</a></dt>
-<dd><p>Constants class for HTTP 1.1 Status Codes</p>
+<em class="property">class </em><code class="sig-prename descclassname">lm_client.common.constants.</code><code class="sig-name descname">HttpStatus</code><a class="reference internal" href="../_modules/lm_client/common/constants.html#HttpStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.constants.HttpStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Constants class for HTTP 1.1 Status Codes</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<ul class="last simple">
-<li><dl class="first docutils">
-<dt>HTTP 1.1 Status Codes as defined by</dt>
-<dd><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</a></dd>
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>HTTP 1.1 Status Codes as defined by</dt><dd><p><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</a></p>
+</dd>
 </dl>
 </li>
 </ul>
 </div>
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.ACCEPTED">
-<code class="descname">ACCEPTED</code><em class="property"> = 202</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.ACCEPTED" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">ACCEPTED</code><em class="property"> = 202</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.ACCEPTED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.BAD_GATEWAY">
-<code class="descname">BAD_GATEWAY</code><em class="property"> = 502</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.BAD_GATEWAY" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">BAD_GATEWAY</code><em class="property"> = 502</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.BAD_GATEWAY" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.BAD_REQUEST">
-<code class="descname">BAD_REQUEST</code><em class="property"> = 400</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.BAD_REQUEST" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">BAD_REQUEST</code><em class="property"> = 400</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.BAD_REQUEST" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.CONFLICT">
-<code class="descname">CONFLICT</code><em class="property"> = 409</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.CONFLICT" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">CONFLICT</code><em class="property"> = 409</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.CONFLICT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.CONTINUE">
-<code class="descname">CONTINUE</code><em class="property"> = 100</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.CONTINUE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">CONTINUE</code><em class="property"> = 100</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.CONTINUE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.CREATED">
-<code class="descname">CREATED</code><em class="property"> = 201</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.CREATED" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">CREATED</code><em class="property"> = 201</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.CREATED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.EXPECTATION_FAILED">
-<code class="descname">EXPECTATION_FAILED</code><em class="property"> = 417</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.EXPECTATION_FAILED" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">EXPECTATION_FAILED</code><em class="property"> = 417</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.EXPECTATION_FAILED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.FORBIDDEN">
-<code class="descname">FORBIDDEN</code><em class="property"> = 403</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.FORBIDDEN" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">FORBIDDEN</code><em class="property"> = 403</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.FORBIDDEN" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.FOUND">
-<code class="descname">FOUND</code><em class="property"> = 302</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.FOUND" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">FOUND</code><em class="property"> = 302</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.FOUND" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.GATEWAY_TIMEOUT">
-<code class="descname">GATEWAY_TIMEOUT</code><em class="property"> = 504</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.GATEWAY_TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">GATEWAY_TIMEOUT</code><em class="property"> = 504</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.GATEWAY_TIMEOUT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.GONE">
-<code class="descname">GONE</code><em class="property"> = 410</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.GONE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">GONE</code><em class="property"> = 410</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.GONE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.HTTP_VERSION_NOT_SUPPORTED">
-<code class="descname">HTTP_VERSION_NOT_SUPPORTED</code><em class="property"> = 505</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.HTTP_VERSION_NOT_SUPPORTED" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">HTTP_VERSION_NOT_SUPPORTED</code><em class="property"> = 505</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.HTTP_VERSION_NOT_SUPPORTED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.INTERNAL_SERVER_ERROR">
-<code class="descname">INTERNAL_SERVER_ERROR</code><em class="property"> = 500</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.INTERNAL_SERVER_ERROR" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">INTERNAL_SERVER_ERROR</code><em class="property"> = 500</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.INTERNAL_SERVER_ERROR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.LENGTH_REQUIRED">
-<code class="descname">LENGTH_REQUIRED</code><em class="property"> = 411</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.LENGTH_REQUIRED" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">LENGTH_REQUIRED</code><em class="property"> = 411</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.LENGTH_REQUIRED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.METHOD_NOT_ALLOWED">
-<code class="descname">METHOD_NOT_ALLOWED</code><em class="property"> = 405</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.METHOD_NOT_ALLOWED" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">METHOD_NOT_ALLOWED</code><em class="property"> = 405</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.METHOD_NOT_ALLOWED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.MOVED_PERMANENTLY">
-<code class="descname">MOVED_PERMANENTLY</code><em class="property"> = 301</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.MOVED_PERMANENTLY" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">MOVED_PERMANENTLY</code><em class="property"> = 301</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.MOVED_PERMANENTLY" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.MULTIPLE_CHOICES">
-<code class="descname">MULTIPLE_CHOICES</code><em class="property"> = 300</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.MULTIPLE_CHOICES" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">MULTIPLE_CHOICES</code><em class="property"> = 300</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.MULTIPLE_CHOICES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.NON_AUTHORITATIVE_INFORMATION">
-<code class="descname">NON_AUTHORITATIVE_INFORMATION</code><em class="property"> = 203</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.NON_AUTHORITATIVE_INFORMATION" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">NON_AUTHORITATIVE_INFORMATION</code><em class="property"> = 203</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.NON_AUTHORITATIVE_INFORMATION" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.NOT_ACCEPTABLE">
-<code class="descname">NOT_ACCEPTABLE</code><em class="property"> = 406</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.NOT_ACCEPTABLE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">NOT_ACCEPTABLE</code><em class="property"> = 406</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.NOT_ACCEPTABLE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.NOT_FOUND">
-<code class="descname">NOT_FOUND</code><em class="property"> = 404</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.NOT_FOUND" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">NOT_FOUND</code><em class="property"> = 404</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.NOT_FOUND" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.NOT_IMPLEMENTED">
-<code class="descname">NOT_IMPLEMENTED</code><em class="property"> = 501</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.NOT_IMPLEMENTED" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">NOT_IMPLEMENTED</code><em class="property"> = 501</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.NOT_IMPLEMENTED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.NOT_MODIFIED">
-<code class="descname">NOT_MODIFIED</code><em class="property"> = 204</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.NOT_MODIFIED" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">NOT_MODIFIED</code><em class="property"> = 204</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.NOT_MODIFIED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.NO_CONTENT">
-<code class="descname">NO_CONTENT</code><em class="property"> = 204</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.NO_CONTENT" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">NO_CONTENT</code><em class="property"> = 204</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.NO_CONTENT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.OK">
-<code class="descname">OK</code><em class="property"> = 200</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.OK" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">OK</code><em class="property"> = 200</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.OK" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.PARTIAL_CONTENT">
-<code class="descname">PARTIAL_CONTENT</code><em class="property"> = 206</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.PARTIAL_CONTENT" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">PARTIAL_CONTENT</code><em class="property"> = 206</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.PARTIAL_CONTENT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.PRECONDITION_FAILED">
-<code class="descname">PRECONDITION_FAILED</code><em class="property"> = 412</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.PRECONDITION_FAILED" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">PRECONDITION_FAILED</code><em class="property"> = 412</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.PRECONDITION_FAILED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.PROXY_AUTHENTICATION_REQUIRED">
-<code class="descname">PROXY_AUTHENTICATION_REQUIRED</code><em class="property"> = 407</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.PROXY_AUTHENTICATION_REQUIRED" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">PROXY_AUTHENTICATION_REQUIRED</code><em class="property"> = 407</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.PROXY_AUTHENTICATION_REQUIRED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.REQUEST_ENTITY_TOO_LARGE">
-<code class="descname">REQUEST_ENTITY_TOO_LARGE</code><em class="property"> = 413</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.REQUEST_ENTITY_TOO_LARGE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">REQUEST_ENTITY_TOO_LARGE</code><em class="property"> = 413</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.REQUEST_ENTITY_TOO_LARGE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.REQUEST_RANGE_NOT_SATISFIABLE">
-<code class="descname">REQUEST_RANGE_NOT_SATISFIABLE</code><em class="property"> = 416</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.REQUEST_RANGE_NOT_SATISFIABLE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">REQUEST_RANGE_NOT_SATISFIABLE</code><em class="property"> = 416</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.REQUEST_RANGE_NOT_SATISFIABLE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.REQUEST_TIMEOUT">
-<code class="descname">REQUEST_TIMEOUT</code><em class="property"> = 408</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.REQUEST_TIMEOUT" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">REQUEST_TIMEOUT</code><em class="property"> = 408</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.REQUEST_TIMEOUT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.REQUEST_URI_TOO_LONG">
-<code class="descname">REQUEST_URI_TOO_LONG</code><em class="property"> = 414</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.REQUEST_URI_TOO_LONG" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">REQUEST_URI_TOO_LONG</code><em class="property"> = 414</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.REQUEST_URI_TOO_LONG" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.RESET_CONTENT">
-<code class="descname">RESET_CONTENT</code><em class="property"> = 205</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.RESET_CONTENT" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">RESET_CONTENT</code><em class="property"> = 205</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.RESET_CONTENT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.SEE_OTHER">
-<code class="descname">SEE_OTHER</code><em class="property"> = 303</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.SEE_OTHER" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">SEE_OTHER</code><em class="property"> = 303</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.SEE_OTHER" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.SERVICE_UNAVAILABLE">
-<code class="descname">SERVICE_UNAVAILABLE</code><em class="property"> = 503</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.SERVICE_UNAVAILABLE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">SERVICE_UNAVAILABLE</code><em class="property"> = 503</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.SERVICE_UNAVAILABLE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.SWITCHING_PROTOCOLS">
-<code class="descname">SWITCHING_PROTOCOLS</code><em class="property"> = 101</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.SWITCHING_PROTOCOLS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">SWITCHING_PROTOCOLS</code><em class="property"> = 101</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.SWITCHING_PROTOCOLS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.TEMPORARY_REDIRECT">
-<code class="descname">TEMPORARY_REDIRECT</code><em class="property"> = 307</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.TEMPORARY_REDIRECT" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">TEMPORARY_REDIRECT</code><em class="property"> = 307</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.TEMPORARY_REDIRECT" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.UNAUTHORIZED">
-<code class="descname">UNAUTHORIZED</code><em class="property"> = 401</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.UNAUTHORIZED" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">UNAUTHORIZED</code><em class="property"> = 401</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.UNAUTHORIZED" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.UNSUPPORTED_MEDIA_TYPE">
-<code class="descname">UNSUPPORTED_MEDIA_TYPE</code><em class="property"> = 415</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.UNSUPPORTED_MEDIA_TYPE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">UNSUPPORTED_MEDIA_TYPE</code><em class="property"> = 415</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.UNSUPPORTED_MEDIA_TYPE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.HttpStatus.USE_PROXY">
-<code class="descname">USE_PROXY</code><em class="property"> = 305</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.USE_PROXY" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">USE_PROXY</code><em class="property"> = 305</em><a class="headerlink" href="#lm_client.common.constants.HttpStatus.USE_PROXY" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="lm_client.common.constants.INTERFACES">
-<em class="property">class </em><code class="descclassname">lm_client.common.constants.</code><code class="descname">INTERFACES</code><a class="reference internal" href="../_modules/lm_client/common/constants.html#INTERFACES"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.constants.INTERFACES" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<em class="property">class </em><code class="sig-prename descclassname">lm_client.common.constants.</code><code class="sig-name descname">INTERFACES</code><a class="reference internal" href="../_modules/lm_client/common/constants.html#INTERFACES"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.constants.INTERFACES" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Class containing constants for available service format interfaces</p>
 <dl class="attribute">
 <dt id="lm_client.common.constants.INTERFACES.CSV">
-<code class="descname">CSV</code><em class="property"> = 'csv'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.CSV" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">CSV</code><em class="property"> = 'csv'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.CSV" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.INTERFACES.EML">
-<code class="descname">EML</code><em class="property"> = 'eml'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.EML" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">EML</code><em class="property"> = 'eml'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.EML" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.INTERFACES.GEO_JSON">
-<code class="descname">GEO_JSON</code><em class="property"> = 'geojson'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.GEO_JSON" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">GEO_JSON</code><em class="property"> = 'geojson'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.GEO_JSON" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.INTERFACES.GTIFF">
-<code class="descname">GTIFF</code><em class="property"> = 'gtiff'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.GTIFF" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">GTIFF</code><em class="property"> = 'gtiff'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.GTIFF" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.INTERFACES.JSON">
-<code class="descname">JSON</code><em class="property"> = 'json'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.JSON" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">JSON</code><em class="property"> = 'json'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.JSON" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.INTERFACES.KML">
-<code class="descname">KML</code><em class="property"> = 'kml'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.KML" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">KML</code><em class="property"> = 'kml'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.KML" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.INTERFACES.NEWICK">
-<code class="descname">NEWICK</code><em class="property"> = 'newick'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.NEWICK" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">NEWICK</code><em class="property"> = 'newick'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.NEWICK" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.INTERFACES.NEXUS">
-<code class="descname">NEXUS</code><em class="property"> = 'nexus'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.NEXUS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">NEXUS</code><em class="property"> = 'nexus'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.NEXUS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.INTERFACES.PACKAGE">
-<code class="descname">PACKAGE</code><em class="property"> = 'package'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.PACKAGE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">PACKAGE</code><em class="property"> = 'package'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.PACKAGE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.INTERFACES.PROGRESS">
-<code class="descname">PROGRESS</code><em class="property"> = 'progress'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.PROGRESS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">PROGRESS</code><em class="property"> = 'progress'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.PROGRESS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.constants.INTERFACES.SHAPEFILE">
-<code class="descname">SHAPEFILE</code><em class="property"> = 'shapefile'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.SHAPEFILE" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">SHAPEFILE</code><em class="property"> = 'shapefile'</em><a class="headerlink" href="#lm_client.common.constants.INTERFACES.SHAPEFILE" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="lm_client.common.constants.INTERFACES.binary_interfaces">
-<em class="property">static </em><code class="descname">binary_interfaces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/constants.html#INTERFACES.binary_interfaces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.constants.INTERFACES.binary_interfaces" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">binary_interfaces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/constants.html#INTERFACES.binary_interfaces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.constants.INTERFACES.binary_interfaces" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of interfaces that have binary content</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="lm_client.common.constants.INTERFACES.json_interfaces">
-<em class="property">static </em><code class="descname">json_interfaces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/constants.html#INTERFACES.json_interfaces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.constants.INTERFACES.json_interfaces" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">json_interfaces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/constants.html#INTERFACES.json_interfaces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.constants.INTERFACES.json_interfaces" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of interfaces that can be processed as JSON</p>
 </dd></dl>
 
-<dl class="staticmethod">
+<dl class="method">
 <dt id="lm_client.common.constants.INTERFACES.text_interfaces">
-<em class="property">static </em><code class="descname">text_interfaces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/constants.html#INTERFACES.text_interfaces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.constants.INTERFACES.text_interfaces" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">text_interfaces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/constants.html#INTERFACES.text_interfaces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.constants.INTERFACES.text_interfaces" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of interfaces that are text</p>
 </dd></dl>
 
@@ -570,149 +537,149 @@ those in the INTERFACES constants class.</li>
 <p>This module contains exceptions that the client may throw</p>
 <dl class="exception">
 <dt id="lm_client.common.exceptions.BadRequestError">
-<em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">BadRequestError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#BadRequestError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.BadRequestError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<em class="property">exception </em><code class="sig-prename descclassname">lm_client.common.exceptions.</code><code class="sig-name descname">BadRequestError</code><span class="sig-paren">(</span><em class="sig-param">url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#BadRequestError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.BadRequestError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
 <p>Exception thrown when there is a problem with the request provided.</p>
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.BadRequestError.code">
-<code class="descname">code</code><em class="property"> = 400</em><a class="headerlink" href="#lm_client.common.exceptions.BadRequestError.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><em class="property"> = 400</em><a class="headerlink" href="#lm_client.common.exceptions.BadRequestError.code" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.BadRequestError.message">
-<code class="descname">message</code><em class="property"> = 'Bad Request'</em><a class="headerlink" href="#lm_client.common.exceptions.BadRequestError.message" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">message</code><em class="property"> = 'Bad Request'</em><a class="headerlink" href="#lm_client.common.exceptions.BadRequestError.message" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="exception">
 <dt id="lm_client.common.exceptions.ConflictError">
-<em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">ConflictError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#ConflictError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.ConflictError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<em class="property">exception </em><code class="sig-prename descclassname">lm_client.common.exceptions.</code><code class="sig-name descname">ConflictError</code><span class="sig-paren">(</span><em class="sig-param">url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#ConflictError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.ConflictError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
 <p>Exception thrown when there is a conflict posting data.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<ul class="last simple">
-<li>This often occurs if a file with the same name already exists</li>
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>This often occurs if a file with the same name already exists</p></li>
 </ul>
 </div>
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.ConflictError.code">
-<code class="descname">code</code><em class="property"> = 409</em><a class="headerlink" href="#lm_client.common.exceptions.ConflictError.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><em class="property"> = 409</em><a class="headerlink" href="#lm_client.common.exceptions.ConflictError.code" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.ConflictError.message">
-<code class="descname">message</code><em class="property"> = 'Conflict'</em><a class="headerlink" href="#lm_client.common.exceptions.ConflictError.message" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">message</code><em class="property"> = 'Conflict'</em><a class="headerlink" href="#lm_client.common.exceptions.ConflictError.message" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="exception">
 <dt id="lm_client.common.exceptions.ForbiddenError">
-<em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">ForbiddenError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#ForbiddenError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.ForbiddenError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<em class="property">exception </em><code class="sig-prename descclassname">lm_client.common.exceptions.</code><code class="sig-name descname">ForbiddenError</code><span class="sig-paren">(</span><em class="sig-param">url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#ForbiddenError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.ForbiddenError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
 <p>Exception thrown when the user does not have access to an object.</p>
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.ForbiddenError.code">
-<code class="descname">code</code><em class="property"> = 403</em><a class="headerlink" href="#lm_client.common.exceptions.ForbiddenError.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><em class="property"> = 403</em><a class="headerlink" href="#lm_client.common.exceptions.ForbiddenError.code" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.ForbiddenError.message">
-<code class="descname">message</code><em class="property"> = 'Forbidden'</em><a class="headerlink" href="#lm_client.common.exceptions.ForbiddenError.message" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">message</code><em class="property"> = 'Forbidden'</em><a class="headerlink" href="#lm_client.common.exceptions.ForbiddenError.message" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="exception">
 <dt id="lm_client.common.exceptions.InternalServerError">
-<em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">InternalServerError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#InternalServerError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.InternalServerError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<em class="property">exception </em><code class="sig-prename descclassname">lm_client.common.exceptions.</code><code class="sig-name descname">InternalServerError</code><span class="sig-paren">(</span><em class="sig-param">url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#InternalServerError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.InternalServerError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
 <p>Exception thrown when the server experiences an error during a request.</p>
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.InternalServerError.code">
-<code class="descname">code</code><em class="property"> = 500</em><a class="headerlink" href="#lm_client.common.exceptions.InternalServerError.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><em class="property"> = 500</em><a class="headerlink" href="#lm_client.common.exceptions.InternalServerError.code" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.InternalServerError.message">
-<code class="descname">message</code><em class="property"> = 'Internal Server Error'</em><a class="headerlink" href="#lm_client.common.exceptions.InternalServerError.message" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">message</code><em class="property"> = 'Internal Server Error'</em><a class="headerlink" href="#lm_client.common.exceptions.InternalServerError.message" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="exception">
 <dt id="lm_client.common.exceptions.MethodNotAllowedError">
-<em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">MethodNotAllowedError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#MethodNotAllowedError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.MethodNotAllowedError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<em class="property">exception </em><code class="sig-prename descclassname">lm_client.common.exceptions.</code><code class="sig-name descname">MethodNotAllowedError</code><span class="sig-paren">(</span><em class="sig-param">url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#MethodNotAllowedError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.MethodNotAllowedError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
 <p>Exception thrown when the requested HTTP method is not allowed.</p>
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.MethodNotAllowedError.code">
-<code class="descname">code</code><em class="property"> = 405</em><a class="headerlink" href="#lm_client.common.exceptions.MethodNotAllowedError.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><em class="property"> = 405</em><a class="headerlink" href="#lm_client.common.exceptions.MethodNotAllowedError.code" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.MethodNotAllowedError.message">
-<code class="descname">message</code><em class="property"> = 'Method not allowed'</em><a class="headerlink" href="#lm_client.common.exceptions.MethodNotAllowedError.message" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">message</code><em class="property"> = 'Method not allowed'</em><a class="headerlink" href="#lm_client.common.exceptions.MethodNotAllowedError.message" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="exception">
 <dt id="lm_client.common.exceptions.NotAcceptableError">
-<em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">NotAcceptableError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#NotAcceptableError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.NotAcceptableError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<em class="property">exception </em><code class="sig-prename descclassname">lm_client.common.exceptions.</code><code class="sig-name descname">NotAcceptableError</code><span class="sig-paren">(</span><em class="sig-param">url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#NotAcceptableError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.NotAcceptableError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
 <p>Exception thrown when cannot format in desired interface.</p>
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.NotAcceptableError.code">
-<code class="descname">code</code><em class="property"> = 406</em><a class="headerlink" href="#lm_client.common.exceptions.NotAcceptableError.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><em class="property"> = 406</em><a class="headerlink" href="#lm_client.common.exceptions.NotAcceptableError.code" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.NotAcceptableError.message">
-<code class="descname">message</code><em class="property"> = 'No acceptable format available'</em><a class="headerlink" href="#lm_client.common.exceptions.NotAcceptableError.message" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">message</code><em class="property"> = 'No acceptable format available'</em><a class="headerlink" href="#lm_client.common.exceptions.NotAcceptableError.message" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="exception">
 <dt id="lm_client.common.exceptions.NotFoundError">
-<em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">NotFoundError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#NotFoundError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.NotFoundError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<em class="property">exception </em><code class="sig-prename descclassname">lm_client.common.exceptions.</code><code class="sig-name descname">NotFoundError</code><span class="sig-paren">(</span><em class="sig-param">url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#NotFoundError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.NotFoundError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
 <p>Exception thrown when the requested object was not found.</p>
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.NotFoundError.code">
-<code class="descname">code</code><em class="property"> = 404</em><a class="headerlink" href="#lm_client.common.exceptions.NotFoundError.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><em class="property"> = 404</em><a class="headerlink" href="#lm_client.common.exceptions.NotFoundError.code" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.NotFoundError.message">
-<code class="descname">message</code><em class="property"> = 'Not found'</em><a class="headerlink" href="#lm_client.common.exceptions.NotFoundError.message" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">message</code><em class="property"> = 'Not found'</em><a class="headerlink" href="#lm_client.common.exceptions.NotFoundError.message" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="exception">
 <dt id="lm_client.common.exceptions.ServiceUnavailableError">
-<em class="property">exception </em><code class="descclassname">lm_client.common.exceptions.</code><code class="descname">ServiceUnavailableError</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#ServiceUnavailableError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.ServiceUnavailableError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
+<em class="property">exception </em><code class="sig-prename descclassname">lm_client.common.exceptions.</code><code class="sig-name descname">ServiceUnavailableError</code><span class="sig-paren">(</span><em class="sig-param">url</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#ServiceUnavailableError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.ServiceUnavailableError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">lm_client.common.exceptions._HttpError</span></code></p>
 <p>Exception thrown when the requested service is unavailable.</p>
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.ServiceUnavailableError.code">
-<code class="descname">code</code><em class="property"> = 503</em><a class="headerlink" href="#lm_client.common.exceptions.ServiceUnavailableError.code" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">code</code><em class="property"> = 503</em><a class="headerlink" href="#lm_client.common.exceptions.ServiceUnavailableError.code" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
 <dt id="lm_client.common.exceptions.ServiceUnavailableError.message">
-<code class="descname">message</code><em class="property"> = 'Service Unavailable'</em><a class="headerlink" href="#lm_client.common.exceptions.ServiceUnavailableError.message" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">message</code><em class="property"> = 'Service Unavailable'</em><a class="headerlink" href="#lm_client.common.exceptions.ServiceUnavailableError.message" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="function">
 <dt id="lm_client.common.exceptions.raise_http_exception">
-<code class="descclassname">lm_client.common.exceptions.</code><code class="descname">raise_http_exception</code><span class="sig-paren">(</span><em>response</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#raise_http_exception"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.raise_http_exception" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">lm_client.common.exceptions.</code><code class="sig-name descname">raise_http_exception</code><span class="sig-paren">(</span><em class="sig-param">response</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/lm_client/common/exceptions.html#raise_http_exception"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#lm_client.common.exceptions.raise_http_exception" title="Permalink to this definition">¶</a></dt>
 <dd><p>Look at the status_code of the response and throw the proper exception.</p>
 </dd></dl>
 
@@ -729,13 +696,13 @@ those in the INTERFACES constants class.</li>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -756,7 +723,7 @@ those in the INTERFACES constants class.</li>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2019, Lifemapper Team.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
     </div>
   </body>
 </html>

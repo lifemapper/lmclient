@@ -14,6 +14,7 @@ Lifemapper web services.
    :caption: Contents:
    
    pages/installation
+   pages/tutorial
    pages/contributing
 
 
