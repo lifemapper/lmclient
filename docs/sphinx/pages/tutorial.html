@@ -206,6 +206,21 @@ the generated package of outputs.</p>
 </div>
 </div>
 <hr class="docutils" />
+<div class="section" id="get-accepted-taxon-ids-from-gbif">
+<h2>Get accepted taxon ids from GBIF<a class="headerlink" href="#get-accepted-taxon-ids-from-gbif" title="Permalink to this headline">¶</a></h2>
+<p>If you want to retrieve an Open Tree of Life tree, you will need to have
+accepted GBIF taxonomy identifiers for the species to be included.  You can use
+the service to get those.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.common.boom_post_builder</span> <span class="k">import</span> <span class="n">BoomPostGenerator</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">TAXA</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Quercus ajoensis&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus alba&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus aliena&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus arizonica&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus austrina&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">taxon_ids</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">gbif_parser</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">TAXA</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
 <div class="section" id="get-an-open-tree-of-life-tree">
 <h2>Get an Open Tree of Life tree<a class="headerlink" href="#get-an-open-tree-of-life-tree" title="Permalink to this headline">¶</a></h2>
 <p>If you have species data and want to run multi-species analyses that include
@@ -222,18 +237,18 @@ one from Open Tree of Life.</p>
 </div>
 </div>
 <hr class="docutils" />
-<div class="section" id="get-accepted-taxon-ids-from-gbif">
-<h2>Get accepted taxon ids from GBIF<a class="headerlink" href="#get-accepted-taxon-ids-from-gbif" title="Permalink to this headline">¶</a></h2>
-<p>If you want to retrieve an Open Tree of Life tree, you will need to have
-accepted GBIF taxonomy identifiers for the species to be included.  You can use
-the service to get those.</p>
-</div>
-<hr class="docutils" />
 <div class="section" id="find-global-pam-matches">
-<h2>Find global pam matches<a class="headerlink" href="#find-global-pam-matches" title="Permalink to this headline">¶</a></h2>
+<h2>Find Global PAM matches<a class="headerlink" href="#find-global-pam-matches" title="Permalink to this headline">¶</a></h2>
 <p>If you wish to create a subset of a global PAM, you will likely want to first
 see what that subset would include before performing the subset operation.  To
 do that, you can see which entries match your specified query parameters.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.common.boom_post_builder</span> <span class="k">import</span> <span class="n">BoomPostGenerator</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">matches</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">global_pam</span><span class="o">.</span><span class="n">list_matches</span><span class="p">(</span><span class="n">algorithm_code</span><span class="o">=</span><span class="s1">&#39;ATT_MAXENT&#39;</span><span class="p">,</span> <span class="n">gridset_id</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span> <span class="n">taxon_genus</span><span class="o">=</span><span class="s1">&#39;Quercus&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <hr class="docutils" />
 <div class="section" id="subset-a-global-pam">
@@ -241,6 +256,13 @@ do that, you can see which entries match your specified query parameters.</p>
 <p>Once you know which parameters you would like to use to subset the global PAM,
 you can send a subset request to create a new gridset with data matching those
 query parameters.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.common.boom_post_builder</span> <span class="k">import</span> <span class="n">BoomPostGenerator</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_gs</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">global_pam</span><span class="o">.</span><span class="n">post_subset</span><span class="p">(</span><span class="s1">&#39;my_subset&#39;</span><span class="p">,</span> <span class="n">algorithm_code</span><span class="o">=</span><span class="s1">&#39;ATT_MAXENT&#39;</span><span class="p">,</span> <span class="n">gridset_id</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span> <span class="n">taxon_genus</span><span class="o">=</span><span class="s1">&#39;Quercus&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <hr class="docutils" />
 </div>
 </div>

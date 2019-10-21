@@ -180,6 +180,23 @@ the generated package of outputs.
 
 ----
 
+Get accepted taxon ids from GBIF
+================================
+If you want to retrieve an Open Tree of Life tree, you will need to have
+accepted GBIF taxonomy identifiers for the species to be included.  You can use
+the service to get those.
+
+::
+
+    >>> from lm_client.client.client import LmApiClient
+    >>> from lm_client.common.boom_post_builder import BoomPostGenerator
+    >>> TAXA = ['Quercus ajoensis', 'Quercus alba', 'Quercus aliena', 'Quercus arizonica', 'Quercus austrina'] 
+    >>> cl = LmApiClient()
+    >>> cl.auth.login('my_user', 'my_password')
+    >>> taxon_ids = cl.gbif_parser.post(TAXA)
+
+----
+
 Get an Open Tree of Life tree
 =============================
 If you have species data and want to run multi-species analyses that include
@@ -198,19 +215,19 @@ one from Open Tree of Life.
 
 ----
 
-Get accepted taxon ids from GBIF
-================================
-If you want to retrieve an Open Tree of Life tree, you will need to have
-accepted GBIF taxonomy identifiers for the species to be included.  You can use
-the service to get those.
-
-----
-
-Find global pam matches
+Find Global PAM matches
 =======================
 If you wish to create a subset of a global PAM, you will likely want to first
 see what that subset would include before performing the subset operation.  To
 do that, you can see which entries match your specified query parameters.
+
+::
+
+    >>> from lm_client.client.client import LmApiClient
+    >>> from lm_client.common.boom_post_builder import BoomPostGenerator
+    >>> cl = LmApiClient()
+    >>> cl.auth.login('my_user', 'my_password')
+    >>> matches = cl.global_pam.list_matches(algorithm_code='ATT_MAXENT', gridset_id=123, taxon_genus='Quercus')
 
 ----
 
@@ -219,5 +236,13 @@ Subset a Global PAM
 Once you know which parameters you would like to use to subset the global PAM,
 you can send a subset request to create a new gridset with data matching those
 query parameters.
+
+::
+
+    >>> from lm_client.client.client import LmApiClient
+    >>> from lm_client.common.boom_post_builder import BoomPostGenerator
+    >>> cl = LmApiClient()
+    >>> cl.auth.login('my_user', 'my_password')
+    >>> my_gs = cl.global_pam.post_subset('my_subset', algorithm_code='ATT_MAXENT', gridset_id=123, taxon_genus='Quercus')
 
 ----
