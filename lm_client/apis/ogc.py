@@ -34,7 +34,8 @@ class OgcApiService(RestService):
                 format: minx,miny,maxx,maxy.
             bgcolor (str): Hexadecimal RGB color for the background of the map
                 response (if WMS).
-            color: The color to use for the data in the response image (if WMS).
+            color: The color to use for the data in the response image (if
+                WMS).
             coverage (str): The data coverage to retrieve, this should be the
                 same value as the Lifemapper spatial object's map.layerName
                 attribute.

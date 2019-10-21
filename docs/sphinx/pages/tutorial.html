@@ -196,6 +196,14 @@ that multi-species statistics, including MCPA, be generated.</p>
 <h2>Download output package<a class="headerlink" href="#download-output-package" title="Permalink to this headline">¶</a></h2>
 <p>After experiment submission and computation, you will probably want to retrieve
 the generated package of outputs.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.common.boom_post_builder</span> <span class="k">import</span> <span class="n">BoomPostGenerator</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gridset_id</span> <span class="o">=</span> <span class="mi">1234</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gs_pkg</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">gridset</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gridset_id</span><span class="p">,</span> <span class="n">interface</span><span class="o">=</span><span class="s1">&#39;package&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <hr class="docutils" />
 <div class="section" id="get-an-open-tree-of-life-tree">
@@ -203,6 +211,15 @@ the generated package of outputs.</p>
 <p>If you have species data and want to run multi-species analyses that include
 phylogenetic analyses, but you don’t have a phylogenetic tree, you can retrieve
 one from Open Tree of Life.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.common.boom_post_builder</span> <span class="k">import</span> <span class="n">BoomPostGenerator</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">TAXA</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Quercus ajoensis&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus alba&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus aliena&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus arizonica&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus austrina&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">taxon_ids</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">gbif_parser</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">TAXA</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tree</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">open_tree</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">taxon_ids</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <hr class="docutils" />
 <div class="section" id="get-accepted-taxon-ids-from-gbif">

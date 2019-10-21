@@ -169,6 +169,15 @@ Download output package
 After experiment submission and computation, you will probably want to retrieve
 the generated package of outputs.
 
+::
+
+    >>> from lm_client.client.client import LmApiClient
+    >>> from lm_client.common.boom_post_builder import BoomPostGenerator
+    >>> gridset_id = 1234
+    >>> cl = LmApiClient()
+    >>> cl.auth.login('my_user', 'my_password')
+    >>> gs_pkg = cl.gridset.get(gridset_id, interface='package')
+
 ----
 
 Get an Open Tree of Life tree
@@ -177,6 +186,15 @@ If you have species data and want to run multi-species analyses that include
 phylogenetic analyses, but you don't have a phylogenetic tree, you can retrieve
 one from Open Tree of Life.
 
+::
+
+    >>> from lm_client.client.client import LmApiClient
+    >>> from lm_client.common.boom_post_builder import BoomPostGenerator
+    >>> TAXA = ['Quercus ajoensis', 'Quercus alba', 'Quercus aliena', 'Quercus arizonica', 'Quercus austrina'] 
+    >>> cl = LmApiClient()
+    >>> cl.auth.login('my_user', 'my_password')
+    >>> taxon_ids = cl.gbif_parser.post(TAXA)
+    >>> tree = cl.open_tree.post(taxon_ids)
 
 ----
 
