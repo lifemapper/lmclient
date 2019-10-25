@@ -1,51 +1,35 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
     <title>Tutorial &#8212; Lifemapper Client Library 1.0.0 documentation</title>
-    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '1.0.0',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Contributing" href="contributing.html" />
-    <link rel="prev" title="Installation" href="installation.html" /> 
-  </head>
-  <body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="contributing.html" title="Contributing"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="installation.html" title="Installation"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Lifemapper Client Library 1.0.0 documentation</a> &#187;</li> 
-      </ul>
-    </div>  
+    <link rel="prev" title="Installation" href="installation.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
+          
+
           <div class="body" role="main">
             
   <div class="section" id="tutorial">
@@ -60,7 +44,7 @@ Lifemapper service APIs via the client library.</p>
 <p>The first task you will need to perform is to create an instance and you will
 most likely want to authenticate.</p>
 <blockquote>
-<div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
 </pre></div>
@@ -80,7 +64,7 @@ uploads should be zipped together into one file and each hypothesis should have
 an additional JSON metadata file describing the hypothesis that has the same
 name as the other files for the shapefile but with a .json extension.  The file
 should be in the format:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>{
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>{
     “description” : “A description of the hypothesis”,
     “author” : “The author of the shapefile”,
     “title” : “A title of this hypothesis”,
@@ -89,7 +73,7 @@ should be in the format:</p>
 }
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">upload</span><span class="o">.</span><span class="n">biogeographic_hypotheses</span><span class="p">(</span><span class="n">hypothesis_zip_filename</span><span class="p">,</span> <span class="s1">&#39;my_hypotheses&#39;</span><span class="p">)</span>
@@ -103,7 +87,7 @@ more species.  The occurrences for each species should be grouped together in
 contiguous lines.  Along with the CSV file, JSON metadata describing it should
 be uploaded as well.  This metadata file should be in the following format
 (found at: <a class="reference external" href="http://lifemapper.github.io/api.html?url=/assets/yaml/lmV2.yml#/definitions/OccurrenceMetadata">http://lifemapper.github.io/api.html?url=/assets/yaml/lmV2.yml#/definitions/OccurrenceMetadata</a>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;field&quot;</span> <span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="s2">&quot;key&quot;</span> <span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="c1"># The original name in the CSV header, or column index (zero-based)</span>
@@ -122,7 +106,7 @@ be uploaded as well.  This metadata file should be in the following format
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">upload</span><span class="o">.</span><span class="n">occurrence</span><span class="p">(</span><span class="n">my_occurrence_csv_filename</span><span class="p">,</span> <span class="n">occ_metadata_json_filename</span><span class="p">,</span> <span class="s1">&#39;my_occ_data&#39;</span><span class="p">)</span>
@@ -135,7 +119,7 @@ be uploaded as well.  This metadata file should be in the following format
 allows you to upload a tree that you have locally.  Note that there are other
 options for retrieving a phylogenetic tree from Open Tree of Life in your
 experiment.  Trees should be in Newick, Nexus, or PhyloXML format.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">upload</span><span class="o">.</span><span class="n">tree</span><span class="p">(</span><span class="n">my_tree_filename</span><span class="p">,</span> <span class="s1">&#39;my_tree_name&#39;</span><span class="p">)</span>
@@ -149,7 +133,7 @@ experiment.  Trees should be in Newick, Nexus, or PhyloXML format.</p>
 <p>If you generate SDMs but do not plan on downloading the entire output package
 or if you want to just show singular maps, you can use the OGC service endpoint
 to retrieve a map.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prj_id</span> <span class="o">=</span> <span class="mi">1234</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prj_id</span> <span class="o">=</span> <span class="mi">1234</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
@@ -164,7 +148,7 @@ to retrieve a map.</p>
 <p>You may want to retrieve a list of all SDM projections that have been computed
 (status = 300).  You can use the sdm_projects list service to get those objects
 for additional processing.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">completed_prjs</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">sdm_project</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
@@ -178,7 +162,7 @@ for additional processing.</p>
 submission.  These experiments can vary quite a bit and for this example we
 will upload an occurrence set, biogeographic hypotheses, and a tree and ask
 that multi-species statistics, including MCPA, be generated.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.common.boom_post_builder</span> <span class="k">import</span> <span class="n">BoomPostGenerator</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">TAXA</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Quercus ajoensis&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus alba&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus aliena&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus arizonica&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus austrina&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
@@ -201,7 +185,7 @@ that multi-species statistics, including MCPA, be generated.</p>
 <h2>Download output package<a class="headerlink" href="#download-output-package" title="Permalink to this headline">¶</a></h2>
 <p>After experiment submission and computation, you will probably want to retrieve
 the generated package of outputs.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.common.boom_post_builder</span> <span class="k">import</span> <span class="n">BoomPostGenerator</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">gridset_id</span> <span class="o">=</span> <span class="mi">1234</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
@@ -216,7 +200,7 @@ the generated package of outputs.</p>
 <p>If you want to retrieve an Open Tree of Life tree, you will need to have
 accepted GBIF taxonomy identifiers for the species to be included.  You can use
 the service to get those.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.common.boom_post_builder</span> <span class="k">import</span> <span class="n">BoomPostGenerator</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">TAXA</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Quercus ajoensis&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus alba&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus aliena&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus arizonica&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus austrina&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
@@ -231,7 +215,7 @@ the service to get those.</p>
 <p>If you have species data and want to run multi-species analyses that include
 phylogenetic analyses, but you don’t have a phylogenetic tree, you can retrieve
 one from Open Tree of Life.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.common.boom_post_builder</span> <span class="k">import</span> <span class="n">BoomPostGenerator</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">TAXA</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Quercus ajoensis&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus alba&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus aliena&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus arizonica&#39;</span><span class="p">,</span> <span class="s1">&#39;Quercus austrina&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
@@ -247,7 +231,7 @@ one from Open Tree of Life.</p>
 <p>If you wish to create a subset of a global PAM, you will likely want to first
 see what that subset would include before performing the subset operation.  To
 do that, you can see which entries match your specified query parameters.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.common.boom_post_builder</span> <span class="k">import</span> <span class="n">BoomPostGenerator</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
@@ -261,7 +245,7 @@ do that, you can see which entries match your specified query parameters.</p>
 <p>Once you know which parameters you would like to use to subset the global PAM,
 you can send a subset request to create a new gridset with data matching those
 query parameters.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.client.client</span> <span class="k">import</span> <span class="n">LmApiClient</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lm_client.common.boom_post_builder</span> <span class="k">import</span> <span class="n">BoomPostGenerator</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span> <span class="o">=</span> <span class="n">LmApiClient</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cl</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s1">&#39;my_user&#39;</span><span class="p">,</span> <span class="s1">&#39;my_password&#39;</span><span class="p">)</span>
@@ -274,48 +258,85 @@ query parameters.</p>
 
 
           </div>
+          
         </div>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="installation.html"
-                        title="previous chapter">Installation</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="contributing.html"
-                        title="next chapter">Contributing</a></p>
+<h1 class="logo"><a href="../index.html">Lifemapper Client Library</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-client-instance-and-authenticate">Create a client instance and authenticate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upload-data">Upload Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-a-sdm-projection-map">Get a SDM projection map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-completed-sdm-projections">List completed SDM projections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#submit-a-new-experiment">Submit a new experiment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-output-package">Download output package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-accepted-taxon-ids-from-gbif">Get accepted taxon ids from GBIF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-an-open-tree-of-life-tree">Get an Open Tree of Life tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#find-global-pam-matches">Find Global PAM matches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subset-a-global-pam">Subset a Global PAM</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="installation.html" title="previous chapter">Installation</a></li>
+      <li>Next: <a href="contributing.html" title="next chapter">Contributing</a></li>
+  </ul></li>
+</ul>
+</div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="contributing.html" title="Contributing"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="installation.html" title="Installation"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Lifemapper Client Library 1.0.0 documentation</a> &#187;</li> 
-      </ul>
+    <div class="footer">
+      &copy;2019, Lifemapper Team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/pages/tutorial.rst.txt"
+          rel="nofollow">Page source</a>
     </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2019, Lifemapper Team.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.
-    </div>
+
+    
+
+    
   </body>
 </html>
