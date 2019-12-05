@@ -146,20 +146,6 @@ class _Client(object):
         return self.session.post(
             self._make_url(relative_url), headers=self._get_headers(headers),
             params=query_parameters, files=files, data=data, json=json)
-#         
-#         if files is not None:
-#             return requests.post(
-#                 self._make_url(relative_url),
-#                 headers=self._get_headers(headers), params=query_parameters,
-#                 files=files)
-#         else:
-#             print(self._make_url(relative_url))
-#             print(query_parameters)
-#             print(self._get_headers(headers))
-#             
-#             return requests.post(
-#                 self._make_url(relative_url),
-#                 headers=self._get_headers(headers), data=query_parameters)
 
 
 # .............................................................................

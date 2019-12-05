@@ -9,6 +9,7 @@ statistics that we add in the future
 """
 import json
 
+
 # .............................................................................
 class BoomPostGenerator(object):
     # ................................
@@ -200,7 +201,7 @@ class BoomPostGenerator(object):
     # ................................
     def add_tree(self, tree_filename):
         self.tree = {
-            'tree_file_name' : tree_filename
+            'tree_file_name': tree_filename
         }
 
     # ................................
