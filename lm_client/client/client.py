@@ -53,6 +53,7 @@ class _Client(object):
             server (str): The base URL for a desired server to use.
         """
         self.server = server
+        self.session = requests.Session()
 
     # ...........................
     def _get_headers(self, request_headers):
@@ -100,7 +101,7 @@ class _Client(object):
             requests.models.Response - The response object generated from the
                 request.
         """
-        return requests.delete(
+        return self.session.delete(
             self._make_url(relative_url), headers=self._get_headers(headers),
             params=dict(query_parameters))
 
@@ -119,12 +120,13 @@ class _Client(object):
             requests.models.Response - The response object generated from the
                 request.
         """
-        return requests.get(
+        return self.session.get(
             self._make_url(relative_url), params=dict(query_parameters),
             headers=self._get_headers(headers))
 
     # ...........................
-    def post(self, relative_url, files=None, headers=None, **query_parameters):
+    def post(self, relative_url, files=None, headers=None, json=None,
+             data=None, **query_parameters):
         """Sends an HTTP POST request to a URL.
 
         Args:
@@ -141,15 +143,23 @@ class _Client(object):
             requests.models.Response - The response object generated from the
                 request.
         """
-        if files is not None:
-            return requests.post(
-                self._make_url(relative_url),
-                headers=self._get_headers(headers), params=query_parameters,
-                files=files)
-        else:
-            return requests.post(
-                self._make_url(relative_url),
-                headers=self._get_headers(headers), data=query_parameters)
+        return self.session.post(
+            self._make_url(relative_url), headers=self._get_headers(headers),
+            params=query_parameters, files=files, data=data, json=json)
+#         
+#         if files is not None:
+#             return requests.post(
+#                 self._make_url(relative_url),
+#                 headers=self._get_headers(headers), params=query_parameters,
+#                 files=files)
+#         else:
+#             print(self._make_url(relative_url))
+#             print(query_parameters)
+#             print(self._get_headers(headers))
+#             
+#             return requests.post(
+#                 self._make_url(relative_url),
+#                 headers=self._get_headers(headers), data=query_parameters)
 
 
 # .............................................................................

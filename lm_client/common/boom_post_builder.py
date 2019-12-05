@@ -7,10 +7,10 @@ analyses in the form of Presence Absence Matrix (PAM) statistics and
 metacommunity phylogenetics analyses and any new multi-species analyses and/or
 statistics that we add in the future
 """
-
+import json
 
 # .............................................................................
-class BoomPostGenerator(object):  # pragma: no cover
+class BoomPostGenerator(object):
     # ................................
     def __init__(self, archive_name):
         self.archive_name = archive_name
@@ -195,6 +195,12 @@ class BoomPostGenerator(object):  # pragma: no cover
             'max_presence': max_presence,
             'value_name': value_name,
             'min_percent': min_percent
+        }
+
+    # ................................
+    def add_tree(self, tree_filename):
+        self.tree = {
+            'tree_file_name' : tree_filename
         }
 
     # ................................

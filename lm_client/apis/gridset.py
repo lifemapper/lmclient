@@ -88,7 +88,7 @@ class GridsetApiService(RestService):
         """
         """
         return RestService.post(
-            self, self.end_point, body=boom_post_json,
+            self, self.end_point, data=boom_post_json,
             headers={'Content-Type': 'application/json'})
 
     # ...........................
