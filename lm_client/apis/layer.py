@@ -1,14 +1,10 @@
-"""Module containing a class for accessing the layer end-point.
-"""
-
-
+"""Module containing a class for accessing the layer end-point."""
 from lm_client.common.api_service import RestService
 
 
-# .............................................................................
+# .....................................................................................
 class LayerApiService(RestService):
-    """Class for accessing the layer service end-point.
-    """
+    """Class for accessing the layer service end-point."""
     end_point = 'api/v2/layer'
 
     # ...........................
@@ -27,7 +23,7 @@ class LayerApiService(RestService):
                 based species identifier.
 
         Returns:
-            int - The number of matching layers.
+            int: The number of matching layers.
         """
         return RestService.count(
             self, '{}/count'.format(self.end_point), after_time=after_time,
@@ -35,7 +31,7 @@ class LayerApiService(RestService):
 
     # ...........................
     def get(self, layer_id, interface=None):
-        """Attempts to get a layer
+        """Attempts to get a layer.
 
         Args:
             layer_id (int): The identifier of the layer to be retrieved.
@@ -51,14 +47,26 @@ class LayerApiService(RestService):
                 specified format.
             NotFoundError: Raised if the specified layer was not found on the
                 server.
+
+        Returns:
+            dict: Layer metadata in JSON format.
         """
         return RestService.get(
-            self, '{}/{}'.format(self.end_point, layer_id),
-            interface=interface)
+            self,
+            '{}/{}'.format(self.end_point, layer_id),
+            interface=interface
+        )
 
     # ...........................
-    def list(self, after_time=None, before_time=None, epsg_code=None,
-             limit=None, offset=None, squid=None):
+    def list(
+        self,
+        after_time=None,
+        before_time=None,
+        epsg_code=None,
+        limit=None,
+        offset=None,
+        squid=None
+    ):
         """Gets a list of layers matching the specified criteria.
 
         Args:
@@ -79,6 +87,12 @@ class LayerApiService(RestService):
                 about each one.  The response format is JSON.
         """
         return RestService.list(
-            self, self.end_point, after_time=after_time,
-            before_time=before_time, epsg_code=epsg_code, squid=squid,
-            limit=limit, offset=offset)
+            self,
+            self.end_point,
+            after_time=after_time,
+            before_time=before_time,
+            epsg_code=epsg_code,
+            squid=squid,
+            limit=limit,
+            offset=offset
+        )

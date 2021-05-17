@@ -1,14 +1,10 @@
-"""Module containing a class for accessing the environmental layer end-point.
-"""
-
-
+"""Module containing a class for accessing the environmental layer end-point."""
 from lm_client.common.api_service import RestService
 
 
 # .............................................................................
 class EnvLayerApiService(RestService):
-    """Class for accessing the environmental layer service end-point.
-    """
+    """Class for accessing the environmental layer service end-point."""
     end_point = 'api/v2/envlayer'
 
     # ...........................
@@ -50,7 +46,7 @@ class EnvLayerApiService(RestService):
 
     # ...........................
     def get(self, env_layer_id, interface=None):
-        """Attempts to get an environmental layer
+        """Attempts to get an environmental layer.
 
         Args:
             env_layer_id (int): The identifier of the environmental layer to be
@@ -114,8 +110,17 @@ class EnvLayerApiService(RestService):
                 with metadata about each one.  The response format is JSON.
         """
         return RestService.list(
-            self, self.end_point, after_time=after_time,
-            alt_pred_code=alt_pred_code, before_time=before_time,
-            date_code=date_code, epsg_code=epsg_code, env_code=env_code,
-            env_type_id=env_type_id, gcm_code=gcm_code,
-            scenario_id=scenario_id, limit=limit, offset=offset)
+            self,
+            self.end_point,
+            after_time=after_time,
+            alt_pred_code=alt_pred_code,
+            before_time=before_time,
+            date_code=date_code,
+            epsg_code=epsg_code,
+            env_code=env_code,
+            env_type_id=env_type_id,
+            gcm_code=gcm_code,
+            scenario_id=scenario_id,
+            limit=limit,
+            offset=offset
+        )

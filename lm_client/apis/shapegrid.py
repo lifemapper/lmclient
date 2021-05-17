@@ -1,28 +1,30 @@
-"""This module interacts with the shapegrid end-point
+"""This module interacts with the shapegrid end-point.
 
-Shapegrids are vector layers where each feature represents a site.  These are
-the same sites that are used for Presence Absence Matrices, PAMs, as well as
-encoded climate data and biogeographic hypotheses.  Lifemapper generated
-shapegrids are regularly spaced rectangular or hexagonal cells that form a
-grid.  The grid generally covers an area specified by a bounding box, but may
-also have some cells removed in a "cutout" operation so that the remaining
-cells cover the desired area of interest.
+Shapegrids are vector layers where each feature represents a site.  These are the same
+sites that are used for Presence Absence Matrices, PAMs, as well as encoded climate
+data and biogeographic hypotheses.  Lifemapper generated shapegrids are regularly
+spaced rectangular or hexagonal cells that form a grid.  The grid generally covers an
+area specified by a bounding box, but may also have some cells removed in a "cutout"
+operation so that the remaining cells cover the desired area of interest.
 """
-
-
 from lm_client.common.api_service import RestService
 
 
-# .............................................................................
+# .....................................................................................
 class ShapegridApiService(RestService):
-    """This class is responsible for interactions with shapegrid end-point
-    """
+    """This class is responsible for interactions with shapegrid end-point."""
     end_point = 'api/v2/shapegrid'
 
     # ...........................
-    def count(self, after_time=None, before_time=None, cell_sides=None,
-              cell_size=None, epsg_code=None):
-        """Counts shapegrids matching the provided criteria
+    def count(
+        self,
+        after_time=None,
+        before_time=None,
+        cell_sides=None,
+        cell_size=None,
+        epsg_code=None
+    ):
+        """Counts shapegrids matching the provided criteria.
 
         Args:
             after_time (:obj:`str`, optional): Count shapegrids modified after
@@ -39,7 +41,7 @@ class ShapegridApiService(RestService):
                 the EPSG code.
 
         Returns:
-            int - The number of shapegrids matching the provided criteria.
+            int: The number of shapegrids matching the provided criteria.
         """
         return RestService.count(
             self, '{}/count'.format(self.end_point), after_time=after_time,
@@ -48,7 +50,7 @@ class ShapegridApiService(RestService):
 
     # ...........................
     def delete(self, shapegrid_id):
-        """Attempts to delete a shapegrid
+        """Attempts to delete a shapegrid.
 
         Args:
             shapegrid_id (int): The database identifier of the shapegrid to
@@ -64,7 +66,7 @@ class ShapegridApiService(RestService):
 
     # ...........................
     def get(self, shapegrid_id, interface=None):
-        """Attempts to get a shapegrid
+        """Attempts to get a shapegrid.
 
         Args:
             shapegrid_id (int): The database identifier of the shapegrid to
@@ -89,9 +91,17 @@ class ShapegridApiService(RestService):
             interface=interface)
 
     # ...........................
-    def list(self, after_time=None, before_time=None, cell_sides=None,
-             cell_size=None, epsg_code=None, limit=None, offset=None):
-        """Gets a list of shapegrids matching the provided criteria
+    def list(
+        self,
+        after_time=None,
+        before_time=None,
+        cell_sides=None,
+        cell_size=None,
+        epsg_code=None,
+        limit=None,
+        offset=None
+    ):
+        """Gets a list of shapegrids matching the provided criteria.
 
         Args:
             after_time (:obj:`str`, optional): Return shapegrids modified after
@@ -121,8 +131,16 @@ class ShapegridApiService(RestService):
             offset=offset)
 
     # ...........................
-    def post(self, name, epsg_code, cell_sides, cell_size, map_units, bbox,
-             cutout=None):
+    def post(
+        self,
+        name,
+        epsg_code,
+        cell_sides,
+        cell_size,
+        map_units,
+        bbox,
+        cutout=None
+    ):
         """Posts a new shapegrid to the server.
 
         Args:
@@ -155,6 +173,14 @@ class ShapegridApiService(RestService):
                 server.
         """
         return RestService.post(
-            self, self.end_point, headers={'Content-Type': 'application/json'},
-            name=name, epsg_code=epsg_code, cell_sides=cell_sides,
-            cell_size=cell_size, map_units=map_units, bbox=bbox, cutout=cutout)
+            self,
+            self.end_point,
+            headers={'Content-Type': 'application/json'},
+            name=name,
+            epsg_code=epsg_code,
+            cell_sides=cell_sides,
+            cell_size=cell_size,
+            map_units=map_units,
+            bbox=bbox,
+            cutout=cutout
+        )
