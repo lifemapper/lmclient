@@ -1,5 +1,4 @@
-"""Module containing functions for using the Occurrence service"""
-
+"""Module containing functions for using the Occurrence service."""
 from lm_client.common.api_service import RestService
 
 

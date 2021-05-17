@@ -1,11 +1,11 @@
-name-template: v$NEXT_PATCH_VERSION
-tag-template: v$NEXT_PATCH_VERSION
+name-template: $NEXT_PATCH_VERSION
+tag-template: $NEXT_PATCH_VERSION
 categories:
   - title: 🚀 Features
     label: enhancement
-  - title: :beetle: Bug Fixes
+  - title: ":beetle: Bug Fixes"
     label: bug
-  - title: :page_facing_up: Documentation
+  - title: ":page_facing_up: Documentation"
     label: documentation
 tag-template: - $TITLE @$AUTHOR (#$NUMBER)
 template: |

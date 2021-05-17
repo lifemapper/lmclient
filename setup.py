@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+"""Package setup metadata."""
 from setuptools import setup, find_packages
 
 with open('README.md') as f:

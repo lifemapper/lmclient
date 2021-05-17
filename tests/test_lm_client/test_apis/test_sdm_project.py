@@ -1,14 +1,9 @@
-"""Tests the sdm_project service end-point
-"""
-import pytest
-
-from lm_client.client.client import LmApiClient
+"""Tests the sdm_project service end-point."""
 
 
 # .............................................................................
-class Test_sdm_project_api_service(object):
-    """This class tests the sdm projections service.
-    """
+class Test_sdm_project_api_service:
+    """This class tests the sdm projections service."""
     # ...........................
     def test_count_no_parameters(self, client_generator):
         """Tests count without providing any parameters.
@@ -22,7 +17,10 @@ class Test_sdm_project_api_service(object):
 
     # ...........................
     def test_get_valid_json(self, client_generator):
-        """Tests that projection JSON can be retrieved
+        """Tests that projection JSON can be retrieved.
+
+        Args:
+            client_generator (ClientGetter): Object used to get a client.
         """
         with client_generator.get_client() as cl:
             prjs = cl.sdm_project.list()

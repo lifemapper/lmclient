@@ -1,22 +1,18 @@
-"""Tests the env_layer service end-point
-"""
-import json
-import os
-import random
+"""Tests the env_layer service end-point."""
+import pytest
 from xml.etree.ElementTree import fromstring
 
-import pytest
-
-from lm_client.client.client import LmApiClient
 from lm_client.common.constants import INTERFACES
-from lm_client.common.exceptions import (BadRequestError, NotAcceptableError,
-                                         NotFoundError)
+from lm_client.common.exceptions import (
+    BadRequestError,
+    NotAcceptableError,
+    NotFoundError
+)
 
 
-# .............................................................................
+# .....................................................................................
 class Test_env_layer_api_service(object):
-    """This class tests the environmental layers service.
-    """
+    """This class tests the environmental layers service."""
     # ...........................
     def test_count_no_parameters(self, client_generator):
         """Tests count without providing any parameters.
@@ -78,7 +74,7 @@ class Test_env_layer_api_service(object):
 
     # ...........................
     def test_get_invalid_interface(self, client_generator):
-        """Test for valid env layer but invalid interface
+        """Test for valid env layer but invalid interface.
 
         Args:
             client_generator (ClientGetter): Object used to get a client.
@@ -92,7 +88,7 @@ class Test_env_layer_api_service(object):
 
     # ...........................
     def test_get_valid_eml(self, client_generator):
-        """Tests that an env layer EML can be retrieved
+        """Tests that an env layer EML can be retrieved.
 
         Args:
             client_generator (ClientGetter): Object used to get a client.
@@ -106,7 +102,7 @@ class Test_env_layer_api_service(object):
 
     # ...........................
     def test_get_valid_gtiff(self, client_generator):
-        """Tests that an env layer geotiff can be retrieved
+        """Tests that an env layer geotiff can be retrieved.
 
         Args:
             client_generator (ClientGetter): Object used to get a client.
@@ -121,7 +117,7 @@ class Test_env_layer_api_service(object):
 
     # ...........................
     def test_get_valid_json(self, client_generator):
-        """Tests that an env layer JSON can be retrieved
+        """Tests that an env layer JSON can be retrieved.
 
         Args:
             client_generator (ClientGetter): Object used to get a client.

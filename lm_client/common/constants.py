@@ -1,13 +1,16 @@
-"""Module containing constants for the Lifemapper API Client
-"""
+"""Module containing constants for the Lifemapper API Client."""
 
 
-# .............................................................................
+# .....................................................................................
+API_SERVER = 'https://client.lifemapper.org/'
+
+
+# .....................................................................................
 class HttpStatus:
-    """Constants class for HTTP 1.1 Status Codes
+    """Constants class for HTTP 1.1 Status Codes.
 
     Note:
-        * HTTP 1.1 Status Codes as defined by
+        HTTP 1.1 Status Codes as defined by
             http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
     """
     # Informational 1xx
@@ -60,10 +63,9 @@ class HttpStatus:
     HTTP_VERSION_NOT_SUPPORTED = 505
 
 
-# .............................................................................
-class INTERFACES(object):
-    """Class containing constants for available service format interfaces
-    """
+# .....................................................................................
+class INTERFACES:
+    """Class containing constants for available service format interfaces."""
     CSV = 'csv'
     EML = 'eml'
     GEO_JSON = 'geojson'
@@ -79,23 +81,38 @@ class INTERFACES(object):
     # ...........................
     @staticmethod
     def binary_interfaces():
-        """Returns a list of interfaces that have binary content
+        """Returns a list of interfaces that have binary content.
+
+        Returns:
+            list of str: A list of binary interface strings.
         """
         return [INTERFACES.GTIFF, INTERFACES.PACKAGE, INTERFACES.SHAPEFILE]
 
     # ...........................
     @staticmethod
     def json_interfaces():
-        """Returns a list of interfaces that can be processed as JSON
+        """Returns a list of interfaces that can be processed as JSON.
+
+        Returns:
+            list of str: A list of json interface strings.
         """
         return [INTERFACES.GEO_JSON, INTERFACES.JSON, INTERFACES.PROGRESS]
 
     # ...........................
     @staticmethod
     def text_interfaces():
-        """Returns a list of interfaces that are text
+        """Returns a list of interfaces that are text.
+
+        Returns:
+            list of str: A list of text interface strings.
         """
         return [
-            INTERFACES.CSV, INTERFACES.EML, INTERFACES.GEO_JSON,
-            INTERFACES.JSON, INTERFACES.KML, INTERFACES.NEWICK,
-            INTERFACES.NEXUS, INTERFACES.PROGRESS]
+            INTERFACES.CSV,
+            INTERFACES.EML,
+            INTERFACES.GEO_JSON,
+            INTERFACES.JSON,
+            INTERFACES.KML,
+            INTERFACES.NEWICK,
+            INTERFACES.NEXUS,
+            INTERFACES.PROGRESS
+        ]

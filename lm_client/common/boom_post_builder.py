@@ -1,18 +1,25 @@
 """This module contains functions for building BOOM POSTs.
 
 "BOOM POST" is a Lifemapper term for posting larger experiments at once.  These
-experiments can include occurrence CSV files with multiple species as well as
-multiple scenarios for SDM projection.  They can also include multi-species
-analyses in the form of Presence Absence Matrix (PAM) statistics and
-metacommunity phylogenetics analyses and any new multi-species analyses and/or
-statistics that we add in the future
+experiments can include occurrence CSV files with multiple species as well as multiple
+scenarios for SDM projection.  They can also include multi-species analyses in the
+form of Presence Absence Matrix (PAM) statistics and metacommunity phylogenetics
+analyses and any new multi-species analyses and/or statistics that we add in the
+future.
 """
+import json
 
 
-# .............................................................................
-class BoomPostGenerator(object):  # pragma: no cover
+# .....................................................................................
+class BoomPostGenerator:  # pragma: no cover
+    """Tool for generating BOOM posts."""
     # ................................
     def __init__(self, archive_name):
+        """Construct the base generator.
+
+        Args:
+            archive_name (str): A name for this experiment.
+        """
         self.archive_name = archive_name
         self.shapegrid = None
         self.intersect_parameters = None
@@ -25,7 +32,7 @@ class BoomPostGenerator(object):  # pragma: no cover
 
     # ................................
     def add_algorithm(self, algorithm_code, parameters=None):
-        """Adds an algorithm to the configuration
+        """Adds an algorithm to the configuration.
 
         Args:
             algorithm_code (str): The code for the algorithm being added.
@@ -49,8 +56,7 @@ class BoomPostGenerator(object):  # pragma: no cover
 
     # ................................
     def add_hull_region_intersect_mask(self, region_layer_name, buffer):
-        """Adds the hull region intersect masking method to the configuration.
-        """
+        """Adds the hull region intersect masking method to the configuration."""
         if self.sdm is None:
             self.sdm = {}
         self.sdm['hull_region_intersect_mask'] = {
@@ -61,8 +67,7 @@ class BoomPostGenerator(object):  # pragma: no cover
     # ................................
     def add_scenario_package(self, package_name, model_scenario_code=None,
                              projection_scenario_codes=None):
-        """Adds scenario package to the post
-        """
+        """Adds scenario package to the post."""
         self.scenario_package = {
             'scenario_package_filename': package_name
         }
@@ -80,8 +85,7 @@ class BoomPostGenerator(object):  # pragma: no cover
     def add_occurrence_sets(self, points_filename=None, delimiter=None,
                             occurrence_ids=None, taxon_ids=None,
                             taxon_names=None, point_count_min=None):
-        """Adds occurrence data to the post.
-        """
+        """Adds occurrence data to the post."""
         # TODO: Document
         # TODO: Check if inputs are valid
         self.occurrence = {}
@@ -100,7 +104,11 @@ class BoomPostGenerator(object):  # pragma: no cover
 
     # ................................
     def add_mcpa(self, hypothesis_package_name):
-        """Adds MCPA configuration to the boom post
+        """Adds MCPA configuration to the boom post.
+
+        Args:
+            hypothesis_package_name (str): The hypothesis package name to add to the
+                experiment.
         """
         self.mcpa = {
             'compute_mcpa': 1,
@@ -109,8 +117,7 @@ class BoomPostGenerator(object):  # pragma: no cover
 
     # ................................
     def add_pam_stats(self):
-        """Adds pam stats configuration to the boom post
-        """
+        """Adds pam stats configuration to the boom post."""
         self.pam_stats = {
             'compute_pam_stats': 1
         }
@@ -120,17 +127,16 @@ class BoomPostGenerator(object):  # pragma: no cover
                       min_x=None, min_y=None, max_x=None, max_y=None,
                       resolution=None, cell_sides=None, map_units=None,
                       cutout=None):
-        """Add a shapegrid configuration to the boom post
+        """Add a shapegrid configuration to the boom post.
 
         A shapegrid is a regularly spaced grid of polygonal cells that will be
         the "sites" for multi-species analyses.  They may either be square or
         hexagonal cells.
 
         Notes:
-            * Either the identifier for an existing shapegrid (shapegrid_id) or
-                parameters for creating a new shapegrid (name, epsg, min_x,
-                min_y, max_x, max_y, resolution, cell_sides, map_units) must
-                be provided.
+            Either the identifier for an existing shapegrid (shapegrid_id) or parameters
+                for creating a new shapegrid (name, epsg, min_x, min_y, max_x, max_y,
+                resolution, cell_sides, map_units) must be provided.
 
         Args:
             shapegrid_id (:obj:`int`, optional): The identifier of an existing
@@ -176,8 +182,13 @@ class BoomPostGenerator(object):  # pragma: no cover
                 self.shapegrid['cutout_wkt'] = cutout
 
     # ................................
-    def add_intersect_parameters(self, min_presence, max_presence, value_name,
-                                 min_percent):
+    def add_intersect_parameters(
+        self,
+        min_presence,
+        max_presence,
+        value_name,
+        min_percent
+    ):
         """Adds intersect parameters for creating a PAM from SDMs or layers.
 
         Args:
@@ -199,8 +210,7 @@ class BoomPostGenerator(object):  # pragma: no cover
 
     # ................................
     def generate_request(self):
-        """Generates a request JSON string for BOOM POSTs.
-        """
+        """Generates a request JSON string for BOOM POSTs."""
         req = {
             'archive_name': self.archive_name
         }

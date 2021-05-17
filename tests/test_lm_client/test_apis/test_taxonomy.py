@@ -1,14 +1,9 @@
-"""Tests the taxonomy service end-point
-"""
-import pytest
-
-from lm_client.client.client import LmApiClient
+"""Tests the taxonomy service end-point."""
 
 
 # .............................................................................
-class Test_taxonomy_api_service(object):
-    """This class tests the taxonomy service.
-    """
+class Test_taxonomy_api_service:
+    """This class tests the taxonomy service."""
     # ...........................
     def test_list_no_parameters(self, client_generator):
         """Tests list without providing any parameters.
@@ -37,7 +32,7 @@ class Test_taxonomy_api_service(object):
             t_order = test_taxon['taxon_order']
             t_family = test_taxon['taxon_family']
             t_genus = test_taxon['taxon_genus']
-            sp_name = test_taxon['scientific_name']
+            _ = test_taxon['scientific_name']
 
             kingdom_list = cl.taxonomy.list(taxon_kingdom=t_kingdom)
             assert len(kingdom_list) <= len(taxs)

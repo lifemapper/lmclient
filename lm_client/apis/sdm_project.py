@@ -72,7 +72,7 @@ class SdmProjectApiService(RestService):
         Returns:
             HTTP Response: An HTTP response indicating success.
         """
-        return RestService.delete(self, '{}/{}'.format(self.end_point, _id))
+        return RestService.delete(self, '{}/{}'.format(self.end_point, sdmproject_id))
 
     # ...........................
     def get(self, sdmproject_id, interface=None):

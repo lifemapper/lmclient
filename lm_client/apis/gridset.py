@@ -51,12 +51,15 @@ class GridsetApiService(RestService):
 
     # ...........................
     def delete_tree(self, gridset_id):
-        """Attempts to delete a gridset's tree
+        """Attempts to delete a gridset's tree.
 
         Args:
+            gridset_id (int): The identifier of the tree to delete.
         """
         return RestService.delete(
-            self, '{}/{}/tree'.format(self.end_point, gridset_id))
+            self,
+            '{}/{}/tree'.format(self.end_point, gridset_id)
+        )
 
     # ...........................
     def get(self, gridset_id, interface=None):
@@ -117,7 +120,8 @@ class GridsetApiService(RestService):
         limit=None,
         meta_string=None,
         offset=None,
-        shapegrid_id=None):
+        shapegrid_id=None
+    ):
         """Gets a list of gridsets matching the provided criteria.
 
         Args:
