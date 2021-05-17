@@ -1,21 +1,24 @@
-"""Module containing authentication service calls
-"""
+"""Module containing authentication service calls."""
 import http.cookiejar as cookie_jar
 from urllib.parse import urlparse
 import urllib.request
 
-import json
-
 from lm_client.common.api_service import ApiService
 
 
-# .............................................................................
+# .....................................................................................
 class AuthApiService(ApiService):
-    """
-    """
+    """Class wrapping the Lifemapper authentication service."""
     # ...........................
     def login(self, user_id, passwd):  # pragma: no cover
-        """
+        """Log in to the Lifemapper server.
+
+        Args:
+            user_id (str): The user id to authenticate with.
+            passwd (str): The password associated with the provided user.
+
+        Returns:
+            HTTP Response: An HTTP redirect response upon successful login.
         """
         policy_server = urlparse(self.api_client.server).netloc
         policy = cookie_jar.DefaultCookiePolicy(
@@ -31,6 +34,10 @@ class AuthApiService(ApiService):
 
     # ...........................
     def logout(self):
+        """Log out of the server.
 
+        Returns:
+            HTTP Response: A HTTP response containing headers from the server.
+        """
         response = self.api_client.get('api/v2/logout')
         return response

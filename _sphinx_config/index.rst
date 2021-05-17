@@ -12,7 +12,7 @@ Lifemapper web services.
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-   
+
    pages/installation
    pages/tutorial
    pages/contributing

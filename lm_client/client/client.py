@@ -1,12 +1,7 @@
-"""Module containing the Lifemapper web service client
-
-Todo:
-    * Singleton?
-    * Save session?
-    * Acceptable versions?
-"""
+"""Module containing the Lifemapper web service client."""
 import requests
 
+from lm_client.common.constants import API_SERVER
 from lm_client.apis.auth import AuthApiService
 from lm_client.apis.biotaphy_points import BiotaPhyPointsApiService
 from lm_client.apis.env_layer import EnvLayerApiService
@@ -29,8 +24,8 @@ from lm_client.apis.upload import UploadApiService
 from lm_client.apis.tree import TreeApiService
 
 
-# .............................................................................
-class _Client(object):
+# .....................................................................................
+class _Client:
     """Base client class for communicating with a server.
 
     Attributes:
@@ -38,7 +33,7 @@ class _Client(object):
         UA_STRING (str): The User-Agent string this client sends to a server.
         server (str): The base URL for a desired server.
     """
-    __version__ = '4.0.0'
+    __version__ = '2.0.0'
     UA_STRING = ' '.join([
         'lm_client/{}'.format(__version__),
         '(Lifemapper Python Client Library;',
@@ -63,7 +58,7 @@ class _Client(object):
                 headers to be sent to the specific request.
 
         Returns:
-            dict - A merged dictionary of request headers.
+            dict: A merged dictionary of request headers.
         """
         if request_headers is None:
             request_headers = {}
@@ -81,7 +76,7 @@ class _Client(object):
             relative_url (str): The relative URL from the server root.
 
         Returns:
-            str - A URL string
+            str: A URL string
         """
         return '{}/{}'.format(self.server, relative_url)
 
@@ -152,8 +147,8 @@ class _Client(object):
                 headers=self._get_headers(headers), data=query_parameters)
 
 
-# .............................................................................
-class LmApiClient(object):
+# .....................................................................................
+class LmApiClient:
     """A Lifemapper API Client object used to make service requests.
 
     Attributes:
@@ -192,10 +187,14 @@ class LmApiClient(object):
         tree (TreeApiService): Service end-point for tree requests.
         upload (UploadApiService): Service end-point for large file uploads.
     """
-    def __init__(self):
-        """Constructor
+    # ...........................
+    def __init__(self, server=API_SERVER):
+        """Constructor for client instance.
+
+        Args:
+            server (str): The base URL of the API server.
         """
-        self._client = _Client('http://client.lifemapper.org')
+        self._client = _Client(server)
 
         self.auth = AuthApiService(self._client)
         self.biotaphy_points = BiotaPhyPointsApiService(self._client)

@@ -1,22 +1,18 @@
-"""Tests the layer service end-point
-"""
-import json
-import os
-import random
+"""Tests the layer service end-point."""
+import pytest
 from xml.etree.ElementTree import fromstring
 
-import pytest
-
-from lm_client.client.client import LmApiClient
 from lm_client.common.constants import INTERFACES
-from lm_client.common.exceptions import (BadRequestError, NotAcceptableError,
-                                         NotFoundError)
+from lm_client.common.exceptions import (
+    BadRequestError,
+    NotAcceptableError,
+    NotFoundError
+)
 
 
-# .............................................................................
-class Test_layer_api_service(object):
-    """This class tests the layers service.
-    """
+# .....................................................................................
+class Test_layer_api_service:
+    """This class tests the layers service."""
     # ...........................
     def test_count_no_parameters(self, client_generator):
         """Tests count without providing any parameters.
@@ -78,7 +74,7 @@ class Test_layer_api_service(object):
 
     # ...........................
     def test_get_vector_valid_eml(self, client_generator):
-        """Tests retrieving EML for valid vector layer
+        """Tests retrieving EML for valid vector layer.
 
         Args:
             client_generator (ClientGetter): Object used to get a client.
@@ -96,7 +92,7 @@ class Test_layer_api_service(object):
 
     # ...........................
     def test_get_vector_valid_json(self, client_generator):
-        """Tests retrieving JSON for valid vector layer
+        """Tests retrieving JSON for valid vector layer.
 
         Args:
             client_generator (ClientGetter): Object used to get a client.
@@ -113,7 +109,7 @@ class Test_layer_api_service(object):
 
     # ...........................
     def test_get_vector_valid_shapefile(self, client_generator):
-        """Tests retrieving SHAPEFILE for valid vector layer
+        """Tests retrieving SHAPEFILE for valid vector layer.
 
         Args:
             client_generator (ClientGetter): Object used to get a client.
@@ -131,7 +127,7 @@ class Test_layer_api_service(object):
 
     # ...........................
     def test_get_vector_invalid_interface(self, client_generator):
-        """Tests retrieving an invalid interface for valid vector layer
+        """Tests retrieving an invalid interface for valid vector layer.
 
         Args:
             client_generator (ClientGetter): Object used to get a client.
@@ -148,7 +144,7 @@ class Test_layer_api_service(object):
 
     # ...........................
     def test_get_raster_valid_eml(self, client_generator):
-        """Tests retrieving EML for valid raster layer
+        """Tests retrieving EML for valid raster layer.
 
         Args:
             client_generator (ClientGetter): Object used to get a client.
@@ -166,7 +162,7 @@ class Test_layer_api_service(object):
 
     # ...........................
     def test_get_raster_valid_json(self, client_generator):
-        """Tests retrieving JSON for valid raster layer
+        """Tests retrieving JSON for valid raster layer.
 
         Args:
             client_generator (ClientGetter): Object used to get a client.
@@ -183,7 +179,7 @@ class Test_layer_api_service(object):
 
     # ...........................
     def test_get_raster_valid_gtiff(self, client_generator):
-        """Tests retrieving GTIFF for valid raster layer
+        """Tests retrieving GTIFF for valid raster layer.
 
         Args:
             client_generator (ClientGetter): Object used to get a client.
@@ -201,7 +197,7 @@ class Test_layer_api_service(object):
 
     # ...........................
     def test_get_raster_invalid_interface(self, client_generator):
-        """Tests retrieving an invalid interface for valid raster layer
+        """Tests retrieving an invalid interface for valid raster layer.
 
         Args:
             client_generator (ClientGetter): Object used to get a client.

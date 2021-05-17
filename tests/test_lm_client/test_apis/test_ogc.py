@@ -1,2 +1,1 @@
-"""Module containing tests for the OGC service end-point
-"""
+"""Module containing tests for the OGC service end-point."""

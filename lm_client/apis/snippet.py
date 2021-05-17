@@ -1,19 +1,28 @@
-"""Module containing functions for using the snippet service end-point
-"""
-
+"""Module containing functions for using the snippet service end-point."""
 from lm_client.common.api_service import RestService
 
 
-# .............................................................................
+# .....................................................................................
 class SnippetApiService(RestService):
-    """This class is used for working with the snippet service end-point
-    """
+    """This class is used for working with the snippet service end-point."""
     end_point = 'api/v2/snippet/'
 
     # ...........................
-    def list(self, after_time=None, agent=None, before_time=None,
-             catalog_number=None, collection=None, ident1=None, ident2=None,
-             operation=None, provider=None, url=None, who=None, why=None):
+    def list(
+        self,
+        after_time=None,
+        agent=None,
+        before_time=None,
+        catalog_number=None,
+        collection=None,
+        ident1=None,
+        ident2=None,
+        operation=None,
+        provider=None,
+        url=None,
+        who=None,
+        why=None
+    ):
         """Lists snippets matching the provided criteria.
 
         Args:
@@ -38,9 +47,23 @@ class SnippetApiService(RestService):
             who (:obj:`str`, optional): List snippets created by this entity.
             why (:obj:`str`, optional): List snippets that were created for
                 this reason.
+
+        Returns:
+            list of dict: A list of JSON dictionaries for matching snippets.
         """
         return RestService.list(
-            self, self.end_point, after_time=after_time, agent=agent,
-            before_time=before_time, catalog_number=catalog_number,
-            collection=collection, ident1=ident1, ident2=ident2,
-            operation=operation, provider=provider, url=url, who=who, why=why)
+            self,
+            self.end_point,
+            after_time=after_time,
+            agent=agent,
+            before_time=before_time,
+            catalog_number=catalog_number,
+            collection=collection,
+            ident1=ident1,
+            ident2=ident2,
+            operation=operation,
+            provider=provider,
+            url=url,
+            who=who,
+            why=why
+        )

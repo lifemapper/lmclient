@@ -1,13 +1,10 @@
-"""Module containing functions for using the Occurrence service
-"""
-
+"""Module containing functions for using the Occurrence service."""
 from lm_client.common.api_service import RestService
 
 
-# .............................................................................
+# .....................................................................................
 class OccurrenceApiService(RestService):
-    """
-    """
+    """Wrapper for the Lifemapper occurrence service."""
     end_point = 'api/v2/occurrence/'
 
     # ...........................
@@ -54,6 +51,13 @@ class OccurrenceApiService(RestService):
     # ...........................
     def delete(self, occurrence_id):
         """Attempts to delete the occurrence set specified by occurrence_id.
+
+        Args:
+            occurrence_id (int): The identifier of the occurrence set to delete.
+
+        Returns:
+            HTTP Response: A response from the server with the HTTP status indicating
+                success of the delete request.
         """
         return RestService.delete(
             self, '{}/{}'.format(self.end_point, occurrence_id))
@@ -67,16 +71,31 @@ class OccurrenceApiService(RestService):
                 retrieve.
             interface (:obj:`str`, optional): If provided, request the response
                 in this interface.
+
+        Returns:
+            dict: A JSON dictionary of occurrence set metadata.
         """
         return RestService.get(
             self, '{}{}'.format(self.end_point, occurrence_id),
             interface=interface)
 
     # ...........................
-    def list(self, after_status=None, after_time=None, before_status=None,
-             before_time=None, display_name=None, epsg_code=None,
-             gridset_id=None, limit=None, minimum_number_of_points=None,
-             offset=None, squid=None, status=None, user=None):
+    def list(
+        self,
+        after_status=None,
+        after_time=None,
+        before_status=None,
+        before_time=None,
+        display_name=None,
+        epsg_code=None,
+        gridset_id=None,
+        limit=None,
+        minimum_number_of_points=None,
+        offset=None,
+        squid=None,
+        status=None,
+        user=None
+    ):
         """Lists occurrence sets matching the provided criteria.
 
         Args:
@@ -109,9 +128,19 @@ class OccurrenceApiService(RestService):
                 return the user's occurrence sets.
         """
         return RestService.list(
-            self, self.end_point, after_status=after_status,
-            after_time=after_time, before_status=before_status,
-            before_time=before_time, display_name=display_name,
-            epsg_code=epsg_code, gridset_id=gridset_id, limit=limit,
-            minimum_number_of_points=minimum_number_of_points, offset=offset,
-            squid=squid, status=status, user=user)
+            self,
+            self.end_point,
+            after_status=after_status,
+            after_time=after_time,
+            before_status=before_status,
+            before_time=before_time,
+            display_name=display_name,
+            epsg_code=epsg_code,
+            gridset_id=gridset_id,
+            limit=limit,
+            minimum_number_of_points=minimum_number_of_points,
+            offset=offset,
+            squid=squid,
+            status=status,
+            user=user
+        )

@@ -1,14 +1,9 @@
-"""Tests the shapegrid service end-point
-"""
-import pytest
-
-from lm_client.client.client import LmApiClient
+"""Tests the shapegrid service end-point."""
 
 
 # .............................................................................
-class Test_shapegrid_api_service(object):
-    """This class tests the shapegrid service.
-    """
+class Test_shapegrid_api_service:
+    """This class tests the shapegrid service."""
     # ...........................
     def test_count_no_parameters(self, client_generator):
         """Tests count without providing any parameters.
@@ -22,7 +17,10 @@ class Test_shapegrid_api_service(object):
 
     # ...........................
     def test_get_valid_json(self, client_generator):
-        """Tests that shapegrid JSON can be retrieved
+        """Tests that shapegrid JSON can be retrieved.
+
+        Args:
+            client_generator (ClientGetter): Object used to get a client.
         """
         with client_generator.get_client() as cl:
             shapegrids = cl.shapegrid.list()

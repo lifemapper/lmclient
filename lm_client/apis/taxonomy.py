@@ -1,14 +1,10 @@
-"""This module contains functions for getting taxonomy hints
-"""
-
-
+"""This module contains functions for getting taxonomy hints."""
 from lm_client.common.api_service import RestService
 
 
 # .............................................................................
 class TaxonomyApiService(RestService):
-    """
-    """
+    """Class for accessing the taxonomy hint endpoint."""
     end_point = 'api/v2/taxonomy'
 
     # ...........................
@@ -16,7 +12,7 @@ class TaxonomyApiService(RestService):
              squid=None, taxon_class=None, taxon_family=None, taxon_genus=None,
              taxon_key=None, taxon_kingdom=None, taxon_order=None,
              taxon_phylum=None, user=None):
-        """Gets a list of taxonomy matches
+        """Gets a list of taxonomy matches.
 
         Args:
             canoncial_name (:obj:`str`, optional): Return matches that have
@@ -48,9 +44,18 @@ class TaxonomyApiService(RestService):
                 parameters
         """
         return RestService.list(
-            self, self.end_point, canonical_name=canonical_name, limit=limit,
-            scientific_name=scientific_name, squid=squid,
-            taxon_class=taxon_class, taxon_family=taxon_family,
-            taxon_genus=taxon_genus, taxon_key=taxon_key,
-            taxon_kingdom=taxon_kingdom, taxon_order=taxon_order,
-            taxon_phylum=taxon_phylum, user=user)
+            self,
+            self.end_point,
+            canonical_name=canonical_name,
+            limit=limit,
+            scientific_name=scientific_name,
+            squid=squid,
+            taxon_class=taxon_class,
+            taxon_family=taxon_family,
+            taxon_genus=taxon_genus,
+            taxon_key=taxon_key,
+            taxon_kingdom=taxon_kingdom,
+            taxon_order=taxon_order,
+            taxon_phylum=taxon_phylum,
+            user=user
+        )
