@@ -12,5 +12,5 @@ template: |
   ## Changes since $PREVIOUS_TAG
   $CHANGES
   ## Contributors
-  
+
   $CONTRIBUTORS

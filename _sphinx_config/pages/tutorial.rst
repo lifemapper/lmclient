@@ -8,9 +8,9 @@ Lifemapper service APIs via the client library.
 .. toctree::
     :maxdepth: 1
     :caption: Contents:
-        
+
 ----
-    
+
 Create a client instance and authenticate
 =========================================
 The first task you will need to perform is to create an instance and you will
@@ -87,7 +87,7 @@ be uploaded as well.  This metadata file should be in the following format
     >>> cl = LmApiClient()
     >>> cl.auth.login('my_user', 'my_password')
     >>> cl.upload.occurrence(my_occurrence_csv_filename, occ_metadata_json_filename, 'my_occ_data')
-    
+
 
 Upload a phylogenetic tree
 --------------------------
@@ -148,7 +148,7 @@ that multi-species statistics, including MCPA, be generated.
 
     >>> from lm_client.client.client import LmApiClient
     >>> from lm_client.common.boom_post_builder import BoomPostGenerator
-    >>> TAXA = ['Quercus ajoensis', 'Quercus alba', 'Quercus aliena', 'Quercus arizonica', 'Quercus austrina'] 
+    >>> TAXA = ['Quercus ajoensis', 'Quercus alba', 'Quercus aliena', 'Quercus arizonica', 'Quercus austrina']
     >>> cl = LmApiClient()
     >>> cl.auth.login('my_user', 'my_password')
     >>> scn_package_id = cl.scenario_package.list(limit=1).id
@@ -161,7 +161,7 @@ that multi-species statistics, including MCPA, be generated.
     >>> bpg.add_shapegrid(name='my_grid', epsg=4326, min_x=-180, min_y=-90, max_x=180, max_y=90, resolution=1, cell_sides=4, map_units='dd')
     >>> bpg.add_intersect_parameters(10, 255, 'pixel', 25)
     >>> my_gs = cl.gridset.post(bpg.generate_request())
-    
+
 ----
 
 Download output package
@@ -190,7 +190,7 @@ the service to get those.
 
     >>> from lm_client.client.client import LmApiClient
     >>> from lm_client.common.boom_post_builder import BoomPostGenerator
-    >>> TAXA = ['Quercus ajoensis', 'Quercus alba', 'Quercus aliena', 'Quercus arizonica', 'Quercus austrina'] 
+    >>> TAXA = ['Quercus ajoensis', 'Quercus alba', 'Quercus aliena', 'Quercus arizonica', 'Quercus austrina']
     >>> cl = LmApiClient()
     >>> cl.auth.login('my_user', 'my_password')
     >>> taxon_ids = cl.gbif_parser.post(TAXA)
@@ -207,7 +207,7 @@ one from Open Tree of Life.
 
     >>> from lm_client.client.client import LmApiClient
     >>> from lm_client.common.boom_post_builder import BoomPostGenerator
-    >>> TAXA = ['Quercus ajoensis', 'Quercus alba', 'Quercus aliena', 'Quercus arizonica', 'Quercus austrina'] 
+    >>> TAXA = ['Quercus ajoensis', 'Quercus alba', 'Quercus aliena', 'Quercus arizonica', 'Quercus austrina']
     >>> cl = LmApiClient()
     >>> cl.auth.login('my_user', 'my_password')
     >>> taxon_ids = cl.gbif_parser.post(TAXA)
