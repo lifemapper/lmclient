@@ -8,8 +8,8 @@ with open('LICENSE') as f:
     license = f.read()
 
 setup(
-    name='Lifemapper Client Library',
-    version='1.0.0',
+    name='lm_client',
+    version='2.0.0',
     description='Client for accessing Lifemapper APIs',
     long_description=readme,
     author='CJ Grady',
