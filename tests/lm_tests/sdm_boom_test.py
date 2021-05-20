@@ -1,17 +1,10 @@
 """Tests for SDM BOOM jobs initiated by backend."""
-import json
+import csv
 import os
 from random import randint, random
 
-from lm_client.lm_client import LmApiClient
-import lm_test.base.test_base as test_base
-from LmCommon.common.lmconstants import JobStatus
-from LmDbServer.boom.init_workflow import BOOMFiller
-from LmServer.common.lmconstants import ARCHIVE_PATH, TEMP_PATH
-from LmServer.common.log import ScriptLogger
-from LmServer.db.borg_scribe import BorgScribe
-from LmTest.validate.raster_validator import validate_raster_file
-from LmTest.validate.vector_validator import validate_vector_file
+from lmclient.client.client import LmApiClient
+import lmtest.base.test_base as test_base
 
 
 # .....................................................................................
@@ -22,6 +15,8 @@ class BoomJobSubmissionTest(test_base.LmTest):
     def __init__(
         self,
         user_id,
+        passwd,
+        server,
         config,
         wait_timeout,
         delay_time=0,
@@ -30,21 +25,22 @@ class BoomJobSubmissionTest(test_base.LmTest):
         """Construct the simulated submission test."""
         test_base.LmTest.__init__(self, delay_time=delay_time)
         self.wait_timeout = wait_timeout
+        self.user_id = user_id
+        self.passwd = passwd
+        self.server = server
         self.boom_config = config
+
         # Create a random value used for filenames
         rand_val = randint(0, 99999)
-        self.user_dir = os.path.join(ARCHIVE_PATH, user_id)
         self._replace_lookup = {
             'TEST_USER': user_id,
             'ARCHIVE_NAME': 'Auto_test-{}'.format(rand_val),
             'OCCURRENCE_FILENAME': 'Auto_test_occ-{}'.format(rand_val),
         }
-        self.test_name = 'SDM BOOM Job test (user: {}, archive: {})'.format(
+        self.test_name = 'lmclient SDM BOOM Job test (user: {}, archive: {})'.format(
             user_id, self._replace_lookup['ARCHIVE_NAME']
         )
-        self.config_filename = os.path.join(
-            TEMP_PATH, '{}.ini'.format(self._replace_lookup['ARCHIVE_NAME'])
-        )
+        self.client = LmApiClient(server=server)
 
     # .............................
     def __repr__(self):
@@ -63,9 +59,6 @@ class BoomJobSubmissionTest(test_base.LmTest):
         csv_filename = os.path.join(
             self.user_dir, '{}.csv'.format(self._replace_lookup['OCCURRENCE_FILENAME'])
         )
-        json_filename = os.path.join(
-            self.user_dir, '{}.json'.format(self._replace_lookup['OCCURRENCE_FILENAME'])
-        )
         with open(csv_filename, mode='wt') as out_file:
             out_file.write('Species,Longitude,Latitude\n')
             for i in range(num_species):
@@ -82,22 +75,21 @@ class BoomJobSubmissionTest(test_base.LmTest):
             '1': {'name': 'Longitude', 'role': 'longitude', 'type': 'real'},
             '2': {'name': 'Latitude', 'role': 'latitude', 'type': 'real'},
         }
-
-        with open(json_filename, mode='wt') as json_file:
-            json.dump(point_meta, json_file)
+        return (csv_filename, point_meta, self._replace_lookup['OCCURRENCE_FILENAME'])
 
     # .............................
-    def _generate_config_file(self):
+    def _replace_dict_vals(self, val_dict):
+        """Replace templated dictionary values recursively."""
+        for k in val_dict.keys():
+            if isinstance(val_dict[k], dict):
+                self._replace_dict_vals(val_dict[k])
+            else:
+                val_dict[k] = self._replace_val(val_dict[k])
+
+    # .............................
+    def _generate_experiment_config(self):
         """Generate a SDM BOOM job configuration file."""
-        with open(self.config_filename, mode='wt') as config_file:
-            for key in self.boom_config.keys():
-                # Write the section header
-                config_file.write('[{}]\n'.format(key))
-                # Write the parameters
-                for k, val in self.boom_config[key].items():
-                    config_file.write('{} = {}\n'.format(k, self._replace_val(val)))
-                # Write a blank line
-                config_file.write('\n')
+        self._replace_dict_vals(self.boom_config)
 
     # .............................
     def _replace_val(self, value):
@@ -119,19 +111,43 @@ class BoomJobSubmissionTest(test_base.LmTest):
         min_points = 200
         max_points = 1000
         try:
+            # Log in
+            self.client.api.auth.login(self.user_id, self.passwd)
+
             # Create point file
-            self._generate_random_occurrences(num_species, min_points, max_points)
-            # Create config file
-            self._generate_config_file()
-            # init workflow
-            filler = BOOMFiller(
-                self.config_filename,
-                logname='Auto_test_{}'.format(self._replace_lookup['ARCHIVE_NAME']),
+            (
+                points_filename,
+                points_metadata,
+                occurrences_name
+            ) = self._generate_random_occurrences(num_species, min_points, max_points)
+
+            # Post points
+            self.client.api.upload.occurrence(
+                points_filename, points_metadata, occurrences_name
             )
-            # Gridset
-            gridset = filler.init_boom()
-            gridset_id = gridset.get_id()
-            self.add_new_test(BoomWaitTest(gridset_id, self.wait_timeout))
+
+            # Create config file
+            self._generate_experiment_config()
+            # Post experiment request
+            post_response = self.client.api.gridset.post(self.boom_config)
+
+            # Get grideset ID
+            gridset_id = post_response['id']
+
+            # Add waiting test
+            self.add_new_test(
+                BoomWaitTest(
+                    gridset_id,
+                    self.user_id,
+                    self.passwd,
+                    self.server,
+                    self.wait_timeout
+                )
+            )
+
+            # Log out
+            self.client.api.auth.logout()
+
         except Exception as err:
             raise test_base.LmTestFailure(
                 'Failed to submit test job: {}'.format(err)
@@ -143,13 +159,25 @@ class BoomWaitTest(test_base.LmTest):
     """Waiting test for a gridset computations to complete."""
 
     # .............................
-    def __init__(self, gridset_id, wait_timeout, delay_time=0, delay_interval=120):
+    def __init__(
+        self,
+        gridset_id,
+        user_id, passwd,
+        server,
+        wait_timeout,
+        delay_time=0,
+        delay_interval=120
+    ):
         """Construct the instance."""
         test_base.LmTest.__init__(self, delay_time=delay_time)
+        self.user_id = user_id
+        self.passwd = passwd
+        self.server = server
         self.gridset_id = gridset_id
         self.wait_timeout = wait_timeout
         self.test_name = 'Waiting test for gridset id: {}'.format(self.gridset_id)
         self.delay_interval = delay_interval
+        self.client = LmApiClient(server=server)
 
     # .............................
     def __repr__(self):
@@ -159,24 +187,18 @@ class BoomWaitTest(test_base.LmTest):
     # .............................
     def run_test(self):
         """Run the test."""
+        # Log in
+        self.client.api.auth.login(self.user_id, self.passwd)
+
         # Check if gridset is finished
-        scribe = BorgScribe(
-            ScriptLogger('Auto_test_gridset_{}'.format(self.gridset_id))
-        )
-        scribe.open_connections()
-        gridset_summary = scribe.summarize_mf_chains_for_gridset(self.gridset_id)
-        scribe.close_connections()
-        # Check if complete
-        waiting = False
-        for status, count in gridset_summary:
-            # Check if any are waiting or running
-            if status < JobStatus.COMPLETE and count > 0:
-                waiting = True
-            # Check if errors
-            if status > JobStatus.COMPLETE and count > 0:
-                raise test_base.LmTestFailure(
-                    'Some makeflows failed for gridset {}'.format(self.gridset_id)
-                )
+        gridset = self.client.api.gridset.get(self.gridset_id)
+
+        # Log out
+        self.client.api.auth.logout()
+
+        # Check if the gridset is complete
+        raise Exception(gridset)
+
         # If still waiting, check that we should
         if waiting:
             if self.wait_timeout < 0:
@@ -187,6 +209,9 @@ class BoomWaitTest(test_base.LmTest):
             self.add_new_test(
                 BoomWaitTest(
                     self.gridset_id,
+                    self.user_id,
+                    self.passwd,
+                    self.server,
                     self.wait_timeout - self.delay_interval,
                     delay_time=self.delay_interval,
                     delay_interval=self.delay_interval,
@@ -194,7 +219,14 @@ class BoomWaitTest(test_base.LmTest):
             )
         else:
             # Finished? Validate it
-            self.add_new_test(BoomValidateTest(self.gridset_id))
+            self.add_new_test(
+                BoomValidateTest(
+                    self.gridset_id,
+                    self.user_id,
+                    self.passwd,
+                    self.server
+                )
+            )
 
 
 # .............................................................................
@@ -202,11 +234,23 @@ class BoomValidateTest(test_base.LmTest):
     """Gridset validation test."""
 
     # .............................
-    def __init__(self, gridset_id, delay_time=0, delay_interval=60):
+    def __init__(
+        self,
+        gridset_id,
+        user_id,
+        passwd,
+        server,
+        delay_time=0,
+        delay_interval=60
+    ):
         """Construct the instance."""
         test_base.LmTest.__init__(self, delay_time=delay_time)
+        self.user_id = user_id
+        self.passwd = passwd
+        self.server = server
         self.gridset_id = gridset_id
         self.test_name = 'Gridset {} validation test'.format(self.gridset_id)
+        self.client = LmApiClient(server=server)
 
     # .............................
     def __repr__(self):
@@ -216,65 +260,92 @@ class BoomValidateTest(test_base.LmTest):
     # .............................
     def run_test(self):
         """Run the test."""
-        scribe = BorgScribe(
-            ScriptLogger('Auto_test_gridset_{}'.format(self.gridset_id))
+        # Log in
+        self.client.api.auth.login(self.user_id, self.passwd)
+
+        # Get occurence sets
+        occurrence_sets = self.client.api.occurrence.list(
+            gridset_id=self.gridset_id,
+            limit=1000,
+            offset=0,
         )
-        scribe.open_connections()
-        occs = scribe.list_occurrence_sets(
-            0, 1000, gridset_id=self.gridset_id, atom=False
-        )
-        prjs = scribe.list_sdm_projects(0, 1000, gridset_id=self.gridset_id, atom=False)
-        scribe.close_connections()
-        for occ in occs:
-            # Fail if unknown error status, known errors okay
-            if occ.status == JobStatus.GENERAL_ERROR:
+        # Test occurrence sets
+        for occ_atom in occurrence_sets:
+            occ_id = occ_atom['id']
+            occ_meta = self.client.api.occurrence.get(occ_id)
+            occ_status = int(occ_meta['status'])
+            # Fail if unknown error
+            if occ_status == 1000:
                 raise test_base.LmTestFailure(
                     'Unknown error for occurrence set {} from gridset {}'.format(
-                        occ.get_id(), self.gridset_id
+                        occ_id, self.gridset_id
                     )
                 )
-            # Fail if status < COMPLETE
-            if occ.status < JobStatus.COMPLETE:
+            # Fail if not complete
+            if occ_status < 300:
                 raise test_base.LmTestFailure(
                     'Occurrence set {} did not complete for gridset {}'.format(
-                        occ.get_id(), self.gridset_id
+                        occ_id, self.gridset_id
                     )
                 )
-            # Validate if occurrence set is complete
-            if occ.status == JobStatus.COMPLETE:
-                valid, msg = validate_vector_file(occ.get_dlocation())
-                if not valid:
+            # If complete, retrieve it
+            if occ_status == 300:
+                occ_csv_resp = self.client.api.occurrence.get(occ_id, interface='csv')
+                # Check content type to be sure it is csv
+                if occ_csv_resp.header['Content-Type'].lower() == 'text/csv':
+                    # Check that it looks like csv
+                    try:
+                        reader = csv.reader(occ_csv_resp.body)
+                        _ = [rec for rec in reader]
+                    except Exception as err:
+                        raise test_base.LmTestFailure(
+                            'Occurrence set csv seems wrong... {}'.format(err)
+                        )
+                else:
                     raise test_base.LmTestFailure(
-                        'Occurrence set {} for gridset {} is not valid: {}'.format(
-                            occ.get_id(),
-                            self.gridset_id,
-                            msg,
+                        'Incorrect content type for occurrence set {} csv: {}'.format(
+                            occ_id, occ_csv_resp.header['Content-Type']
                         )
                     )
 
-        for prj in prjs:
-            # Fail if unknown error status, known errors okay
-            if prj.status == JobStatus.GENERAL_ERROR:
+        # Get projections
+        projections = self.client.api.sdm_project.list(
+            gridset_id=self.gridset_id,
+            limit=1000,
+            offset=0,
+        )
+        # Test projections
+        for prj_atom in projections:
+            prj_id = prj_atom['id']
+            prj_meta = self.client.api.sdm_project.get(prj_id)
+            prj_status = int(prj_meta['status'])
+            # Fail if unknown error
+            if prj_status == 1000:
                 raise test_base.LmTestFailure(
                     'Unknown error for projection {} from gridset {}'.format(
-                        prj.get_id(), self.gridset_id
+                        prj_id, self.gridset_id
                     )
                 )
-            # Fail if status < COMPLETE
-            if prj.status < JobStatus.COMPLETE:
+            # Fail if not complete
+            if prj_status < 300:
                 raise test_base.LmTestFailure(
                     'Projection {} did not complete for gridset {}'.format(
-                        prj.get_id(), self.gridset_id
+                        prj_id, self.gridset_id
                     )
                 )
-            # Validate if projection is complete
-            if prj.status == JobStatus.COMPLETE:
-                valid, msg = validate_raster_file(prj.get_dlocation())
-                if not valid:
+            # If complete, retrieve it
+            if prj_status == 300:
+                prj_gtiff_resp = self.client.api.sdm_project.get(
+                    prj_id, interface='Gtiff'
+                )
+                # Make sure that the content type is image/tiff
+                # Check content type to be sure it is ascii
+                if prj_gtiff_resp.header['Content-Type'].lower() != 'image/tiff':
                     raise test_base.LmTestFailure(
-                        'Projection {} for gridset {} is not valid: {}'.format(
-                            prj.get_id(),
-                            self.gridset_id,
-                            msg,
+                        'Incorrect content type for projection {} geotiff: {}'.format(
+                            prj_id, prj_gtiff_resp.header['Content-Type']
                         )
                     )
+
+        # Log out
+        self.client.api.auth.logout()
