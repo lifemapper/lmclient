@@ -38,15 +38,25 @@ class OccurrenceApiService(RestService):
             user (:obj:`str`, optional): If 'public', return public occurrence
                 sets.  If 'anon', return anonymous occurrence sets.  If None,
                 return the user's occurrence sets.
+
+        Returns:
+            int: The number of matching occurrence set records.
         """
         return RestService.count(
-            self, '{}/count'.format(self.end_point),
-            after_status=after_status, after_time=after_time,
-            before_status=before_status, before_time=before_time,
-            display_name=display_name, epsg_code=epsg_code,
+            self,
+            '{}/count'.format(self.end_point),
+            after_status=after_status,
+            after_time=after_time,
+            before_status=before_status,
+            before_time=before_time,
+            display_name=display_name,
+            epsg_code=epsg_code,
             gridset_id=gridset_id,
-            minimum_number_of_points=minimum_number_of_points, squid=squid,
-            status=status, user=user)
+            minimum_number_of_points=minimum_number_of_points,
+            squid=squid,
+            status=status,
+            user=user
+        )
 
     # ...........................
     def delete(self, occurrence_id):
@@ -126,6 +136,9 @@ class OccurrenceApiService(RestService):
             user (:obj:`str`, optional): If 'public', return public occurrence
                 sets.  If 'anon', return anonymous occurrence sets.  If None,
                 return the user's occurrence sets.
+
+        Returns:
+            list of dict: A list of matching layer atoms.
         """
         return RestService.list(
             self,

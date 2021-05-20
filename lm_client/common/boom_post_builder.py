@@ -56,7 +56,13 @@ class BoomPostGenerator:  # pragma: no cover
 
     # ................................
     def add_hull_region_intersect_mask(self, region_layer_name, buffer):
-        """Adds the hull region intersect masking method to the configuration."""
+        """Adds the hull region intersect masking method to the configuration.
+
+        Args:
+            region_layer_name (str): The region layer in the scenario to use for
+                masking.
+            buffer (number): A buffer distance in map units for the mask.
+        """
         if self.sdm is None:
             self.sdm = {}
         self.sdm['hull_region_intersect_mask'] = {
@@ -65,9 +71,21 @@ class BoomPostGenerator:  # pragma: no cover
         }
 
     # ................................
-    def add_scenario_package(self, package_name, model_scenario_code=None,
-                             projection_scenario_codes=None):
-        """Adds scenario package to the post."""
+    def add_scenario_package(
+        self,
+        package_name,
+        model_scenario_code=None,
+        projection_scenario_codes=None
+    ):
+        """Adds scenario package to the post.
+
+        Args:
+            package_name (str): The nmae of the scenario package.
+            model_scenario_code (str): The scenario code of the modeling climate
+                scenario.
+            projection_scenario_cods (list of str): A list of scenario codes for the
+                projecting climate scenarios.
+        """
         self.scenario_package = {
             'scenario_package_filename': package_name
         }
@@ -82,10 +100,26 @@ class BoomPostGenerator:  # pragma: no cover
                 } for prj_code in projection_scenario_codes]
 
     # ................................
-    def add_occurrence_sets(self, points_filename=None, delimiter=None,
-                            occurrence_ids=None, taxon_ids=None,
-                            taxon_names=None, point_count_min=None):
-        """Adds occurrence data to the post."""
+    def add_occurrence_sets(
+        self,
+        points_filename=None,
+        delimiter=None,
+        occurrence_ids=None,
+        taxon_ids=None,
+        taxon_names=None,
+        point_count_min=None
+    ):
+        """Adds occurrence data to the post.
+
+        Args:
+            points_filename (str): A file containing occurrence data.
+            delimiter (str): If using `points_filename`, this is the field delimiter.
+            occurrence_ids (list of int): A list of occurrence set identifiers to use.
+            taxon_ids (list of int): A list of GBIF taxon ids to use for sdms.
+            taxon_names (list of str): A list fo taxonomic names to use for sdms.
+            point_count_min (int): The minimum number of points required to create a
+                model for an occurrence set.
+        """
         # TODO: Document
         # TODO: Check if inputs are valid
         self.occurrence = {}

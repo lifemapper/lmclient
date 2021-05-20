@@ -9,7 +9,11 @@ class GlobalPamApiService(RestService):
 
     # ...........................
     def get_facets(self):
-        """Attempts to get Global PAM facets."""
+        """Attempts to get Global PAM facets.
+
+        Returns:
+            list of dict: A list of facets for the gridset.
+        """
         return RestService.get(self, '{}/gridset'.format(self.end_point))
 
     # ...........................
@@ -101,6 +105,7 @@ class GlobalPamApiService(RestService):
         """Create a new subset using the query parameters to select PAVs.
 
         Args:
+            archive_name (str): The name of the new subset archive.
             algorithm_code (str): The code of the modeling algorithm the PAVs should
                 have been built from.
             bbox (tuple of number): A (min x, min y, max x, max y) bounding box to

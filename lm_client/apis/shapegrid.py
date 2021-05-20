@@ -44,25 +44,28 @@ class ShapegridApiService(RestService):
             int: The number of shapegrids matching the provided criteria.
         """
         return RestService.count(
-            self, '{}/count'.format(self.end_point), after_time=after_time,
-            before_time=before_time, cell_sides=cell_sides,
-            cell_size=cell_size, epsg_code=epsg_code)
+            self,
+            '{}/count'.format(self.end_point),
+            after_time=after_time,
+            before_time=before_time,
+            cell_sides=cell_sides,
+            cell_size=cell_size,
+            epsg_code=epsg_code
+        )
 
     # ...........................
     def delete(self, shapegrid_id):
         """Attempts to delete a shapegrid.
 
         Args:
-            shapegrid_id (int): The database identifier of the shapegrid to
-                attempt to delete.
+            shapegrid_id (int): The database identifier of the shapegrid to delete.
 
-        Raises:
-            ForbiddenError: Thrown if the client user does not have permission
-                to delete the requested shapegrid.
-            NotFoundError: Thrown if the requested shapegrid is not found.
+        Returns:
+            HTTP Response: HTTP status indicating success.
         """
         return RestService.delete(
-            self, '{}/{}'.format(self.end_point, shapegrid_id))
+            self, '{}/{}'.format(self.end_point, shapegrid_id)
+        )
 
     # ...........................
     def get(self, shapegrid_id, interface=None):
@@ -80,11 +83,6 @@ class ShapegridApiService(RestService):
                 dictionary
             bytes: If the interface is set to SHAPEFILE, the zipped shapefile
                 is returned.
-
-        Raises:
-            ForbiddenError: Thrown if the client user does not have permission
-                to access the requested shapegrid.
-            NotFoundError: Thrown if the requested shapegrid is not found.
         """
         return RestService.get(
             self, '{}/{}'.format(self.end_point, shapegrid_id),
@@ -120,7 +118,7 @@ class ShapegridApiService(RestService):
             offset (:obj:`int`, optional): Offset the shapegrids returned by
                 this number.  Use along with limit to implement paging.
 
-        Return:
+        Returns:
             list of shapegrid metadata - Returns a list of shapegrids matching
                 the provided criteria.
         """
@@ -166,11 +164,6 @@ class ShapegridApiService(RestService):
         Returns:
             dict - A JSON dictionary of metadata about the newly posted
                 shapegrid.
-
-        Raises:
-            BadRequestError: Raised if the post data required is invalid.
-            ConflictError: Raised if the post data already exists on the
-                server.
         """
         return RestService.post(
             self,

@@ -88,7 +88,7 @@ class _Client:
             relative_url (str): The relative URL from the server root.
             headers (:obj:`dict`, optional): Any headers to be sent to the
                 request.
-            **query_params (dict): A dictionary of query parameters to be sent
+            **query_parameters (dict): A dictionary of query parameters to be sent
                 with the request.
 
         Returns:
@@ -107,7 +107,7 @@ class _Client:
             relative_url (str): The relative URL from the server root.
             headers (:obj:`dict`, optional): Any headers to be sent to the
                 request.
-            **query_params (dict): A dictionary of query parameters to be sent
+            **query_parameters (dict): A dictionary of query parameters to be sent
                 with the request.
 
         Returns:
@@ -129,7 +129,7 @@ class _Client:
                 content-type (optional)).
             headers (:obj:`dict`, optional): Any headers to be sent to the
                 request.
-            **query_params (dict): A dictionary of query parameters to be sent
+            **query_parameters (dict): A dictionary of query parameters to be sent
                 with the request.
 
         Returns:

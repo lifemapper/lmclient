@@ -31,7 +31,11 @@ class ClientGetter:
     # ...........................
     @contextmanager
     def get_client(self):
-        """Get a client."""
+        """Get a client.
+
+        Yields:
+            LmApiClient: A Lifemapper client library instance.
+        """
         cl = LmApiClient()
         if self.user is not None and self.passwd is not None:
             cl.auth.login(self.user, self.passwd)
@@ -52,10 +56,9 @@ class SampleDataFiles:
         """Get biogeographic hypothesis files.
 
         Returns:
-           str: File path to biogeographic hypotheses zip file.
+            str: File path to biogeographic hypotheses zip file.
         """
-        bg_filename = os.path.join(SAMPLE_DATA_PATH, 'test_biogeo.zip')
-        return bg_filename
+        return os.path.join(SAMPLE_DATA_PATH, 'test_biogeo.zip')
 
     # ...........................
     def get_occ_uploads(self):
@@ -111,14 +114,26 @@ def get_client_generators():
 
 # .............................................................................
 def pytest_addoption(parser):
-    """Adds a command line option to pytest."""
-    parser.addoption('--config_file', type=str, default=None,
-                     help='Configuration file containing test users')
+    """Adds a command line option to pytest.
+
+    Args:
+        parser (Parser): A PyTest parser.
+    """
+    parser.addoption(
+        '--config_file',
+        type=str,
+        default=None,
+        help='Configuration file containing test users'
+    )
 
 
 # .............................................................................
 def pytest_generate_tests(metafunc):
-    """Fill in client_generator fixtures when generating tests."""
+    """Fill in client_generator fixtures when generating tests.
+
+    Args:
+        metafunc (method): A function that should be parameterized.
+    """
     if 'client_generator' in metafunc.fixturenames:
         metafunc.parametrize(
             'client_generator', get_client_generators())

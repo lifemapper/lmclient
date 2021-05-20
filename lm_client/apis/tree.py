@@ -69,11 +69,12 @@ class TreeApiService(RestService):
                 interface.
 
         Returns:
-           str: XML metadata about the tree.
-           dict: JSON dictionary metadata about the tree.
+            str: XML metadata about the tree.
+            dict: JSON dictionary metadata about the tree.
         """
         return RestService.get(
-            self, '{}{}'.format(self.end_point, tree_id), interface=interface)
+            self, '{}{}'.format(self.end_point, tree_id), interface=interface
+        )
 
     # ...........................
     def list(

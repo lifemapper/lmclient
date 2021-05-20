@@ -55,6 +55,9 @@ class GridsetApiService(RestService):
 
         Args:
             gridset_id (int): The identifier of the tree to delete.
+
+        Returns:
+            HTTP Response: An indication from the server if the delete was successful.
         """
         return RestService.delete(
             self,
@@ -74,8 +77,10 @@ class GridsetApiService(RestService):
             dict: A JSON dictionary of gridset metadata.
         """
         return RestService.get(
-            self, '{}/{}'.format(self.end_point, gridset_id),
-            interface=interface)
+            self,
+            '{}/{}'.format(self.end_point, gridset_id),
+            interface=interface
+        )
 
     # ...........................
     def get_hypotheses(self, gridset_id, interface=None):

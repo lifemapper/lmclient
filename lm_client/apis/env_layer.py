@@ -54,16 +54,6 @@ class EnvLayerApiService(RestService):
             interface (:obj:`str`, optional): The format in which to return the
                 environmental layer.  Valid formats are eml, gtiff and json.
 
-        Raises:
-            BadRequestError: Raised if the environmental layer id provided is
-                invalid.
-            ForbiddenError: Raised if the client user does not have permission
-                to access the specified environmental layer.
-            NotAcceptableError: Raised if the environmental layer cannot be
-                returned in the specified format.
-            NotFoundError: Raised if the specified environmental layer was not
-                found on the server.
-
         Returns:
             dict - Returned if JSON interface is selected.
             bytes - Returned if GTIFF interface is selected.
@@ -71,13 +61,24 @@ class EnvLayerApiService(RestService):
         """
         return RestService.get(
             self, '{}/{}'.format(self.end_point, env_layer_id),
-            interface=interface)
+            interface=interface
+        )
 
     # ...........................
-    def list(self, after_time=None, alt_pred_code=None,
-             before_time=None, date_code=None, epsg_code=None, env_code=None,
-             env_type_id=None, gcm_code=None, scenario_id=None, limit=None,
-             offset=None):
+    def list(
+        self,
+        after_time=None,
+        alt_pred_code=None,
+        before_time=None,
+        date_code=None,
+        epsg_code=None,
+        env_code=None,
+        env_type_id=None,
+        gcm_code=None,
+        scenario_id=None,
+        limit=None,
+        offset=None
+    ):
         """Gets a list of environmental layers matching the specified criteria.
 
         Args:

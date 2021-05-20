@@ -82,11 +82,6 @@ class RestService(ApiService):
                 request.
             **query_params (dict): A dictionary of query parameters to be sent
                 along with the request.
-
-        Raises:
-            ForbiddenError: Raised if the user does not have permission to delete the
-                specified object.
-            NotFoundError: Raised if the object was not found.
         """
         response = self.api_client.delete(obj_url, headers=headers, **query_params)
 
@@ -98,9 +93,6 @@ class RestService(ApiService):
 
         Args:
             obj_url (str): The relative URL to the object.
-            raw (:obj:`bool`, optional): If True, return the raw response
-                file-like object from the request.  If False, attempt to
-                process the response.
             interface (:obj:`INTERFACES`, optional): The interface format to
                 request for the object.
             headers (:obj:`dict`, optional): Any headers to be sent to the
@@ -115,11 +107,6 @@ class RestService(ApiService):
                 returned as text.
             bytes: If the interface is a binary interface, the response is
                 returned as bytes.
-
-        Raises:
-            ForbiddenError: Raised if the user does not have permission to access the
-                specified object.
-            NotFoundError: Raised if the requested object was not found.
         """
         if interface is not None:
             obj_url = '{}/{}'.format(obj_url, interface)
@@ -161,12 +148,6 @@ class RestService(ApiService):
 
         Returns:
             dict: A JSON dictionary returned from the POST request
-
-        Raises:
-            BadRequestError: Raised if the parameters provided do not match the
-                parameters required.
-            ConflictError: Raised if the POST cannot complete because an object already
-                exists with those values.
         """
         response = self.api_client.post(
             post_url, files=files, headers=headers, **query_params

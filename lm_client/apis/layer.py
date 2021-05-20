@@ -39,15 +39,6 @@ class LayerApiService(RestService):
                 layer.  Valid formats are eml, json and either gtiff or
                 shapefile.
 
-        Raises:
-            BadRequestError: Raised if the layer id provided is invalid.
-            ForbiddenError: Raised if the client user does not have permission
-                to access the specified layer.
-            NotAcceptableError: Raised if the layer cannot be returned in the
-                specified format.
-            NotFoundError: Raised if the specified layer was not found on the
-                server.
-
         Returns:
             dict: Layer metadata in JSON format.
         """
