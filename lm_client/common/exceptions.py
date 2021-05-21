@@ -13,6 +13,13 @@ class _HttpError(Exception):
     def __init__(self, url):
         """Constructor.
 
+        Args:
+            url (str): The url that emitted the error.
+
+        Raises:
+            RuntimeError: Raised if _HttpError is instantiated directly instead of by a
+                subclass.
+
         Note:
             Should not be instantiated directly
         """
@@ -87,7 +94,23 @@ class ServiceUnavailableError(_HttpError):
 
 # .....................................................................................
 def raise_http_exception(response):
-    """Look at the status_code of the response and throw the proper exception."""
+    """Look at the status_code of the response and throw the proper exception.
+
+    Args:
+        response (requests.Response): A requests.Response object from a service call.
+
+    Raises:
+        BadRequestError: Raised when the request to the service was not valid.
+        ConflictError: Raised when a request results in a conflict on the server.
+        ForbiddenError: Raised when the request is not authorized.
+        InternalServerError: Raised when there is a failure on the server.
+        MethodNotAllowedError: Raised when the requesting method is not allowed.
+        NotAcceptableError: Raised when the server cannot respond with an acceptable
+            format.
+        NotFoundError: Raised when the requested resource does not exist.
+        ServiceUnavailableError: Raised if the requested service is not available.
+        Exception: Raised if there is some other 4xx or 5xx error returned.
+    """
     if response.status_code == HttpStatus.BAD_REQUEST:
         raise BadRequestError(response.url)
     elif response.status_code == HttpStatus.CONFLICT:

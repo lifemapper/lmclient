@@ -22,7 +22,18 @@ class BoomJobSubmissionTest(test_base.LmTest):
         delay_time=0,
         delay_interval=3600,
     ):
-        """Construct the simulated submission test."""
+        """Construct the simulated submission test.
+
+        Args:
+            user_id (str): The Lifemapper username to perform this test.
+            passwd (str): The password of the specified Lifemapper test user.
+            server (str): The base Lifemapper server URL to test against.
+            config (dict): A dictionary of job submission parameters.
+            wait_timeout (int): The number of seconds to wait for a job to complete
+                before failing.
+            delay_time (int): The number of seconds to wait before running the test.
+            delay_interval (int): The number of seconds to wait between test runs.
+        """
         test_base.LmTest.__init__(self, delay_time=delay_time)
         self.wait_timeout = wait_timeout
         self.user_id = user_id
@@ -44,7 +55,11 @@ class BoomJobSubmissionTest(test_base.LmTest):
 
     # .............................
     def __repr__(self):
-        """Return a string representation of this instance."""
+        """Return a string representation of this instance.
+
+        Returns:
+            str: A string representation of this test object.
+        """
         return self.test_name
 
     # .............................
@@ -55,6 +70,10 @@ class BoomJobSubmissionTest(test_base.LmTest):
             num_species (int): Number of species to include in this run.
             min_points (int): Minimum number of points per species.
             max_points (int): Maximum number of points per species.
+
+        Returns:
+            tuple (str, dict, str): A tuple of csv file path, metadata dictionary,
+                occurrence set name for the generated occurrence data.
         """
         csv_filename = os.path.join(
             self.user_dir, '{}.csv'.format(self._replace_lookup['OCCURRENCE_FILENAME'])
@@ -79,7 +98,11 @@ class BoomJobSubmissionTest(test_base.LmTest):
 
     # .............................
     def _replace_dict_vals(self, val_dict):
-        """Replace templated dictionary values recursively."""
+        """Replace templated dictionary values recursively.
+
+        Args:
+            val_dict (dict): A dictionary to recurse through and replace values.
+        """
         for k in val_dict.keys():
             if isinstance(val_dict[k], dict):
                 self._replace_dict_vals(val_dict[k])
@@ -97,6 +120,9 @@ class BoomJobSubmissionTest(test_base.LmTest):
 
         Args:
             value (str): A string potentially containing a template value.
+
+        Returns:
+            str: A value with templates replaced.
         """
         parts = str(value).split('$')
         # Replace odd values with lookup replace values.
@@ -106,7 +132,11 @@ class BoomJobSubmissionTest(test_base.LmTest):
 
     # .............................
     def run_test(self):
-        """Run the test."""
+        """Run the test.
+
+        Raises:
+            LmTestFailure: Raised if the test fails.
+        """
         num_species = 10
         min_points = 200
         max_points = 1000
@@ -162,13 +192,25 @@ class BoomWaitTest(test_base.LmTest):
     def __init__(
         self,
         gridset_id,
-        user_id, passwd,
+        user_id,
+        passwd,
         server,
         wait_timeout,
         delay_time=0,
         delay_interval=120
     ):
-        """Construct the instance."""
+        """Construct the instance.
+
+        Args:
+            gridset_id (int): The identifier of the gridset to request.
+            user_id (str): The Lifemapper username to perform this test.
+            passwd (str): The password of the specified Lifemapper test user.
+            server (str): The base Lifemapper server URL to test against.
+            wait_timeout (int): The number of seconds to wait for a job to complete
+                before failing.
+            delay_time (int): The number of seconds to wait before running the test.
+            delay_interval (int): The number of seconds to wait between test runs.
+        """
         test_base.LmTest.__init__(self, delay_time=delay_time)
         self.user_id = user_id
         self.passwd = passwd
@@ -181,12 +223,21 @@ class BoomWaitTest(test_base.LmTest):
 
     # .............................
     def __repr__(self):
-        """Return a string representation of this instance."""
+        """Return a string representation of this instance.
+
+        Returns:
+            str: A string representation of this test object.
+        """
         return self.test_name
 
     # .............................
     def run_test(self):
-        """Run the test."""
+        """Run the test.
+
+        Raises:
+            LmTestFailure: Raised if the test fails.
+            Exception: Raised for now.
+        """
         # Log in
         self.client.api.auth.login(self.user_id, self.passwd)
 
@@ -198,6 +249,7 @@ class BoomWaitTest(test_base.LmTest):
 
         # Check if the gridset is complete
         raise Exception(gridset)
+        waiting = False
 
         # If still waiting, check that we should
         if waiting:
@@ -243,7 +295,16 @@ class BoomValidateTest(test_base.LmTest):
         delay_time=0,
         delay_interval=60
     ):
-        """Construct the instance."""
+        """Construct the instance.
+
+        Args:
+            gridset_id (int): The identifier of the gridset to request.
+            user_id (str): The Lifemapper username to perform this test.
+            passwd (str): The password of the specified Lifemapper test user.
+            server (str): The base Lifemapper server URL to test against.
+            delay_time (int): The number of seconds to wait before running the test.
+            delay_interval (int): The number of seconds to wait between test runs.
+        """
         test_base.LmTest.__init__(self, delay_time=delay_time)
         self.user_id = user_id
         self.passwd = passwd
@@ -254,12 +315,20 @@ class BoomValidateTest(test_base.LmTest):
 
     # .............................
     def __repr__(self):
-        """Return a string representation of this instance."""
+        """Return a string representation of this instance.
+
+        Returns:
+            str: A string representation of this test object.
+        """
         return self.test_name
 
     # .............................
     def run_test(self):
-        """Run the test."""
+        """Run the test.
+
+        Raises:
+            LmTestFailure: Raised if there is a problem with one of the objects.
+        """
         # Log in
         self.client.api.auth.login(self.user_id, self.passwd)
 

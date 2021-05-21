@@ -36,9 +36,8 @@ class BoomPostGenerator:  # pragma: no cover
 
         Args:
             algorithm_code (str): The code for the algorithm being added.
-            parameters (:obj:`list` of (:obj:`str`, :obj:`str`) :obj:`tuple`:
-                A list of algorithm parameter tuples where the first element is
-                the parameter name and the second is the value.
+            parameters (list of tuples): A list of algorithm parameter tuples where the
+                first element is the parameter name and the second is the value.
         """
         if self.sdm is None:
             self.sdm = {}
@@ -83,7 +82,7 @@ class BoomPostGenerator:  # pragma: no cover
             package_name (str): The nmae of the scenario package.
             model_scenario_code (str): The scenario code of the modeling climate
                 scenario.
-            projection_scenario_cods (list of str): A list of scenario codes for the
+            projection_scenario_codes (list of str): A list of scenario codes for the
                 projecting climate scenarios.
         """
         self.scenario_package = {
@@ -244,7 +243,11 @@ class BoomPostGenerator:  # pragma: no cover
 
     # ................................
     def generate_request(self):
-        """Generates a request JSON string for BOOM POSTs."""
+        """Generates a request JSON string for BOOM POSTs.
+
+        Returns:
+            str: A stringified version of the JSON object for the request.
+        """
         req = {
             'archive_name': self.archive_name
         }
