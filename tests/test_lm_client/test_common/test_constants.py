@@ -1,5 +1,5 @@
 """Test module for constants."""
-from lm_client.common.constants import HttpStatus, INTERFACES
+from lmclient.common.constants import HttpStatus, INTERFACES
 
 
 # .............................................................................

@@ -1,6 +1,6 @@
 """Module containing base class for API service calls."""
-from lm_client.common.constants import INTERFACES
-from lm_client.common.exceptions import raise_http_exception
+from lmclient.common.constants import INTERFACES
+from lmclient.common.exceptions import raise_http_exception
 
 
 # .....................................................................................

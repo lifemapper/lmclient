@@ -1,5 +1,5 @@
 """Module containing functions for using the tree service endpoint."""
-from lm_client.common.api_service import RestService
+from lmclient.common.api_service import RestService
 
 
 # .....................................................................................

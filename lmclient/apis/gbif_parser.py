@@ -1,7 +1,7 @@
 """Service wrapping the GBIF name parser."""
 import json
 
-from lm_client.common.api_service import RestService
+from lmclient.common.api_service import RestService
 
 
 # .....................................................................................

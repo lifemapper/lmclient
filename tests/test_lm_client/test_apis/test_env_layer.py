@@ -2,8 +2,8 @@
 import pytest
 from xml.etree.ElementTree import fromstring
 
-from lm_client.common.constants import INTERFACES
-from lm_client.common.exceptions import (
+from lmclient.common.constants import INTERFACES
+from lmclient.common.exceptions import (
     BadRequestError,
     NotAcceptableError,
     NotFoundError

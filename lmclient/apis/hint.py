@@ -1,5 +1,5 @@
 """Wrapper around the Lifemapper occurrence set hint service."""
-from lm_client.common.api_service import RestService
+from lmclient.common.api_service import RestService
 
 
 # .....................................................................................

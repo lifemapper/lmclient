@@ -1,5 +1,5 @@
 """SDM Projection service wrapper."""
-from lm_client.common.api_service import RestService
+from lmclient.common.api_service import RestService
 
 
 # .....................................................................................

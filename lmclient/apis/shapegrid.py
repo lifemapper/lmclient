@@ -7,7 +7,7 @@ spaced rectangular or hexagonal cells that form a grid.  The grid generally cove
 area specified by a bounding box, but may also have some cells removed in a "cutout"
 operation so that the remaining cells cover the desired area of interest.
 """
-from lm_client.common.api_service import RestService
+from lmclient.common.api_service import RestService
 
 
 # .....................................................................................

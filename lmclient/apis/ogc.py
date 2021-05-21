@@ -7,7 +7,7 @@ See: https://www.opengeospatial.org/standards/wms
 
 See: https://www.opengeospatial.org/standards/wcs
 """
-from lm_client.common.api_service import RestService
+from lmclient.common.api_service import RestService
 
 
 # .....................................................................................

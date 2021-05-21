@@ -1,8 +1,8 @@
 """This module tests the exceptions module."""
 import pytest
 
-from lm_client.common.constants import HttpStatus
-import lm_client.common.exceptions as client_exceptions
+from lmclient.common.constants import HttpStatus
+import lmclient.common.exceptions as client_exceptions
 
 
 # .....................................................................................

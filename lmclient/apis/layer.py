@@ -1,5 +1,5 @@
 """Module containing a class for accessing the layer end-point."""
-from lm_client.common.api_service import RestService
+from lmclient.common.api_service import RestService
 
 
 # .....................................................................................

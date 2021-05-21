@@ -1,5 +1,5 @@
 """Tools wrapping the Lifemapper climate scenarios endpoint."""
-from lm_client.common.api_service import RestService
+from lmclient.common.api_service import RestService
 
 
 # .....................................................................................

@@ -3,7 +3,7 @@ import http.cookiejar as cookie_jar
 from urllib.parse import urlparse
 import urllib.request
 
-from lm_client.common.api_service import ApiService
+from lmclient.common.api_service import ApiService
 
 
 # .....................................................................................

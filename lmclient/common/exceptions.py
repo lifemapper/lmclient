@@ -1,5 +1,5 @@
 """This module contains exceptions that the client may throw."""
-from lm_client.common.constants import HttpStatus
+from lmclient.common.constants import HttpStatus
 
 
 # .....................................................................................

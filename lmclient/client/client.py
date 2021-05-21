@@ -1,27 +1,27 @@
 """Module containing the Lifemapper web service client."""
 import requests
 
-from lm_client.common.constants import API_SERVER
-from lm_client.apis.auth import AuthApiService
-from lm_client.apis.biotaphy_points import BiotaPhyPointsApiService
-from lm_client.apis.env_layer import EnvLayerApiService
-from lm_client.apis.gbif_parser import GbifNameParserApiService
-from lm_client.apis.global_pam import GlobalPamApiService
-from lm_client.apis.gridset import GridsetApiService
-from lm_client.apis.hint import SpeciesHintApiService
-from lm_client.apis.layer import LayerApiService
-from lm_client.apis.occurrence import OccurrenceApiService
-from lm_client.apis.ogc import OgcApiService
-from lm_client.apis.open_tree import OpenTreeApiService
-from lm_client.apis.raw_solr import SolrRawApiService
-from lm_client.apis.scenario import ScenarioApiService
-from lm_client.apis.scenario_package import ScenarioPackageApiService
-from lm_client.apis.sdm_project import SdmProjectApiService
-from lm_client.apis.shapegrid import ShapegridApiService
-from lm_client.apis.snippet import SnippetApiService
-from lm_client.apis.taxonomy import TaxonomyApiService
-from lm_client.apis.upload import UploadApiService
-from lm_client.apis.tree import TreeApiService
+from lmclient.common.constants import API_SERVER
+from lmclient.apis.auth import AuthApiService
+from lmclient.apis.biotaphy_points import BiotaPhyPointsApiService
+from lmclient.apis.env_layer import EnvLayerApiService
+from lmclient.apis.gbif_parser import GbifNameParserApiService
+from lmclient.apis.global_pam import GlobalPamApiService
+from lmclient.apis.gridset import GridsetApiService
+from lmclient.apis.hint import SpeciesHintApiService
+from lmclient.apis.layer import LayerApiService
+from lmclient.apis.occurrence import OccurrenceApiService
+from lmclient.apis.ogc import OgcApiService
+from lmclient.apis.open_tree import OpenTreeApiService
+from lmclient.apis.raw_solr import SolrRawApiService
+from lmclient.apis.scenario import ScenarioApiService
+from lmclient.apis.scenario_package import ScenarioPackageApiService
+from lmclient.apis.sdm_project import SdmProjectApiService
+from lmclient.apis.shapegrid import ShapegridApiService
+from lmclient.apis.snippet import SnippetApiService
+from lmclient.apis.taxonomy import TaxonomyApiService
+from lmclient.apis.upload import UploadApiService
+from lmclient.apis.tree import TreeApiService
 
 
 # .....................................................................................
@@ -35,7 +35,7 @@ class _Client:
     """
     __version__ = '2.0.0'
     UA_STRING = ' '.join([
-        'lm_client/{}'.format(__version__),
+        'lmclient/{}'.format(__version__),
         '(Lifemapper Python Client Library;',
         'http://lifemapper.org; lifemapper@ku.edu)'])
     client_headers = {'User-Agent': UA_STRING}

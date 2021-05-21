@@ -15,7 +15,7 @@ setup(
     long_description=readme,
     author='CJ Grady',
     author_email='cjgrady@ku.edu',
-    url='https://github.com/lifemapper/lm_client',
+    url='https://github.com/lifemapper/lmclient',
     license=license,
     packages=find_packages(exclude=('tests', 'docs')),
     install_requires=[

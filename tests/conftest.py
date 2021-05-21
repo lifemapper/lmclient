@@ -4,7 +4,7 @@ import os
 
 
 import pytest
-from lm_client.client.client import LmApiClient
+from lmclient.client.client import LmApiClient
 
 
 # .....................................................................................

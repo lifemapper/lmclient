@@ -1,7 +1,7 @@
 """Access the Lifemapper Raw Solr endpoint."""
 import json
 
-from lm_client.common.api_service import RestService
+from lmclient.common.api_service import RestService
 
 
 # .....................................................................................

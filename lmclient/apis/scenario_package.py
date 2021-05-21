@@ -1,5 +1,5 @@
 """Wrapper for the Lifemapper scenario package endpoint."""
-from lm_client.common.api_service import RestService
+from lmclient.common.api_service import RestService
 
 
 # .....................................................................................

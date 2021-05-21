@@ -1,7 +1,7 @@
 """API access for Lifemapper Open Tree of Life connection."""
 import json
 
-from lm_client.common.api_service import RestService
+from lmclient.common.api_service import RestService
 
 
 # .....................................................................................
