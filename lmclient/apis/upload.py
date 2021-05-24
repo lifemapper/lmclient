@@ -1,4 +1,5 @@
 """Module containing functions for uploading data services."""
+import json
 import os
 
 from lmclient.common.api_service import RestService
@@ -41,6 +42,9 @@ class UploadApiService(RestService):
         Returns:
             HTTP Response: An indication of success.
         """
+        # If metadata is a dictionary, encode for posting
+        if isinstance(metadata, dict):
+            metadata = json.dumps(metadata)
         if os.path.exists(filename):
             return RestService.post(
                 self,

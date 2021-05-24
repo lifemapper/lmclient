@@ -1,4 +1,5 @@
 """Wrapper for Lifemapper Gridset endpoint."""
+import json
 from lmclient.common.api_service import RestService
 
 
@@ -168,7 +169,7 @@ class GridsetApiService(RestService):
         return RestService.post(
             self,
             self.end_point,
-            body=boom_post_json,
+            body=json.dumps(boom_post_json),
             headers={'Content-Type': 'application/json'}
         )
 

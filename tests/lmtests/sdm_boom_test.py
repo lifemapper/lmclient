@@ -2,6 +2,7 @@
 import csv
 import os
 from random import randint, random
+from tempfile import NamedTemporaryFile
 
 from lmclient.client.client import LmApiClient
 import lmtest.base.test_base as test_base
@@ -75,24 +76,43 @@ class BoomJobSubmissionTest(test_base.LmTest):
             tuple (str, dict, str): A tuple of csv file path, metadata dictionary,
                 occurrence set name for the generated occurrence data.
         """
-        csv_filename = os.path.join(
-            self.user_dir, '{}.csv'.format(self._replace_lookup['OCCURRENCE_FILENAME'])
-        )
-        with open(csv_filename, mode='wt') as out_file:
-            out_file.write('Species,Longitude,Latitude\n')
-            for i in range(num_species):
-                for _ in range(randint(min_points, max_points)):
-                    out_file.write(
-                        '{},{},{}\n'.format(
-                            'Species {}'.format(i),
-                            360.0 * random() - 180.0,
-                            180.0 * random() - 90.0,
-                        )
+        out_file = NamedTemporaryFile(mode='wt', suffix='.csv', delete=False)
+        out_file.write('Species,Longitude,Latitude\n')
+        for i in range(num_species):
+            for _ in range(randint(min_points, max_points)):
+                out_file.write(
+                    '{},{},{}\n'.format(
+                        'Species {}'.format(i),
+                        360.0 * random() - 180.0,
+                        180.0 * random() - 90.0,
                     )
+                )
+        csv_filename = out_file.name
+        out_file.close()
         point_meta = {
-            '0': {'name': 'Species', 'role': 'taxaName', 'type': 'string'},
-            '1': {'name': 'Longitude', 'role': 'longitude', 'type': 'real'},
-            '2': {'name': 'Latitude', 'role': 'latitude', 'type': 'real'},
+            'field': [
+                {
+                    'key': '0',
+                    'shortName': 'Species',
+                    'fieldType': 'string'
+                },
+                {
+                    'key': '1',
+                    'shortName': 'Longitude',
+                    'fieldType': 'real'
+                },
+                {
+                    'key': '2',
+                    'shortName': 'Latitude',
+                    'fieldType': 'real'
+                },
+            ],
+            'role': {
+                'groupBy': 'Species',
+                'latitude': 'Latitude',
+                'longitude': 'Longitude',
+                'taxaName': 'Species'
+            }
         }
         return (csv_filename, point_meta, self._replace_lookup['OCCURRENCE_FILENAME'])
 
@@ -106,8 +126,11 @@ class BoomJobSubmissionTest(test_base.LmTest):
         for k in val_dict.keys():
             if isinstance(val_dict[k], dict):
                 self._replace_dict_vals(val_dict[k])
+            elif isinstance(val_dict[k], list):
+                val_dict[k] = [self._replace_dict_vals(val) for val in val_dict[k]]
             else:
                 val_dict[k] = self._replace_val(val_dict[k])
+        return val_dict
 
     # .............................
     def _generate_experiment_config(self):
@@ -142,7 +165,7 @@ class BoomJobSubmissionTest(test_base.LmTest):
         max_points = 1000
         try:
             # Log in
-            self.client.api.auth.login(self.user_id, self.passwd)
+            self.client.auth.login(self.user_id, self.passwd)
 
             # Create point file
             (
@@ -152,14 +175,17 @@ class BoomJobSubmissionTest(test_base.LmTest):
             ) = self._generate_random_occurrences(num_species, min_points, max_points)
 
             # Post points
-            self.client.api.upload.occurrence(
+            self.client.upload.occurrence(
                 points_filename, points_metadata, occurrences_name
             )
+            # Delete temp csv file
+            os.remove(points_filename)
 
             # Create config file
             self._generate_experiment_config()
             # Post experiment request
-            post_response = self.client.api.gridset.post(self.boom_config)
+            post_response = self.client.gridset.post(self.boom_config)
+            print(post_response)
 
             # Get grideset ID
             gridset_id = post_response['id']
@@ -176,7 +202,7 @@ class BoomJobSubmissionTest(test_base.LmTest):
             )
 
             # Log out
-            self.client.api.auth.logout()
+            self.client.auth.logout()
 
         except Exception as err:
             raise test_base.LmTestFailure(
@@ -239,17 +265,16 @@ class BoomWaitTest(test_base.LmTest):
             Exception: Raised for now.
         """
         # Log in
-        self.client.api.auth.login(self.user_id, self.passwd)
+        self.client.auth.login(self.user_id, self.passwd)
 
         # Check if gridset is finished
-        gridset = self.client.api.gridset.get(self.gridset_id)
+        progress_request = self.client.gridset.get(
+            self.gridset_id, interface='progress'
+        )
+        waiting = float(progress_request['progress']) >= 1.0
 
         # Log out
-        self.client.api.auth.logout()
-
-        # Check if the gridset is complete
-        raise Exception(gridset)
-        waiting = False
+        self.client.auth.logout()
 
         # If still waiting, check that we should
         if waiting:
@@ -330,10 +355,10 @@ class BoomValidateTest(test_base.LmTest):
             LmTestFailure: Raised if there is a problem with one of the objects.
         """
         # Log in
-        self.client.api.auth.login(self.user_id, self.passwd)
+        self.client.auth.login(self.user_id, self.passwd)
 
         # Get occurence sets
-        occurrence_sets = self.client.api.occurrence.list(
+        occurrence_sets = self.client.occurrence.list(
             gridset_id=self.gridset_id,
             limit=1000,
             offset=0,
@@ -341,7 +366,7 @@ class BoomValidateTest(test_base.LmTest):
         # Test occurrence sets
         for occ_atom in occurrence_sets:
             occ_id = occ_atom['id']
-            occ_meta = self.client.api.occurrence.get(occ_id)
+            occ_meta = self.client.occurrence.get(occ_id)
             occ_status = int(occ_meta['status'])
             # Fail if unknown error
             if occ_status == 1000:
@@ -359,7 +384,7 @@ class BoomValidateTest(test_base.LmTest):
                 )
             # If complete, retrieve it
             if occ_status == 300:
-                occ_csv_resp = self.client.api.occurrence.get(occ_id, interface='csv')
+                occ_csv_resp = self.client.occurrence.get(occ_id, interface='csv')
                 # Check content type to be sure it is csv
                 if occ_csv_resp.header['Content-Type'].lower() == 'text/csv':
                     # Check that it looks like csv
@@ -378,7 +403,7 @@ class BoomValidateTest(test_base.LmTest):
                     )
 
         # Get projections
-        projections = self.client.api.sdm_project.list(
+        projections = self.client.sdm_project.list(
             gridset_id=self.gridset_id,
             limit=1000,
             offset=0,
@@ -386,7 +411,7 @@ class BoomValidateTest(test_base.LmTest):
         # Test projections
         for prj_atom in projections:
             prj_id = prj_atom['id']
-            prj_meta = self.client.api.sdm_project.get(prj_id)
+            prj_meta = self.client.sdm_project.get(prj_id)
             prj_status = int(prj_meta['status'])
             # Fail if unknown error
             if prj_status == 1000:
@@ -404,7 +429,7 @@ class BoomValidateTest(test_base.LmTest):
                 )
             # If complete, retrieve it
             if prj_status == 300:
-                prj_gtiff_resp = self.client.api.sdm_project.get(
+                prj_gtiff_resp = self.client.sdm_project.get(
                     prj_id, interface='Gtiff'
                 )
                 # Make sure that the content type is image/tiff
@@ -417,4 +442,4 @@ class BoomValidateTest(test_base.LmTest):
                     )
 
         # Log out
-        self.client.api.auth.logout()
+        self.client.auth.logout()

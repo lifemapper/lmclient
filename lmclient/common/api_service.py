@@ -33,7 +33,7 @@ def format_object(response, interface):
 
 
 # .....................................................................................
-class ApiService(object):
+class ApiService:
     """Base class for API calls.
 
     Attributes:

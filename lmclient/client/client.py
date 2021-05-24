@@ -48,6 +48,7 @@ class _Client:
             server (str): The base URL for a desired server to use.
         """
         self.server = server
+        self.session = requests.Session()
 
     # ...........................
     def _get_headers(self, request_headers):
@@ -95,7 +96,7 @@ class _Client:
             requests.models.Response - The response object generated from the
                 request.
         """
-        return requests.delete(
+        return self.session.delete(
             self._make_url(relative_url), headers=self._get_headers(headers),
             params=dict(query_parameters))
 
@@ -114,12 +115,12 @@ class _Client:
             requests.models.Response - The response object generated from the
                 request.
         """
-        return requests.get(
+        return self.session.get(
             self._make_url(relative_url), params=dict(query_parameters),
             headers=self._get_headers(headers))
 
     # ...........................
-    def post(self, relative_url, files=None, headers=None, **query_parameters):
+    def post(self, relative_url, files=None, headers=None, body=None, **query_parameters):
         """Sends an HTTP POST request to a URL.
 
         Args:
@@ -137,12 +138,17 @@ class _Client:
                 request.
         """
         if files is not None:
-            return requests.post(
+            return self.session.post(
                 self._make_url(relative_url),
                 headers=self._get_headers(headers), params=query_parameters,
                 files=files)
+        elif body is not None:
+            return self.session.post(
+                self._make_url(relative_url),
+                headers=self._get_headers(headers), params=query_parameters,
+                data=body)
         else:
-            return requests.post(
+            return self.session.post(
                 self._make_url(relative_url),
                 headers=self._get_headers(headers), data=query_parameters)
 

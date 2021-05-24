@@ -1,5 +1,5 @@
 {
-    "module": "lmclient.tests.lm_tests.sdm_boom_test",
+    "module": "tests.lmtests.sdm_boom_test",
     "test_class": "BoomJobSubmissionTest",
     "parameters": {
         "server": "https://notyeti-194.lifemapper.org",
@@ -8,19 +8,36 @@
         "wait_timeout": 3600,
         "config": {
             "archive_name": "$ARCHIVE_NAME$",
+            "global_pam": {
+                "intersect_parameters": {
+                    "min_presence": 1,
+                    "max_presence": 255,
+                    "min_percent": 10,
+                    "value_name": "pixel"
+                },
+                "shapegrid": {
+                    "cell_sides": 4,
+                    "maxx": 180.0,
+                    "maxy": 90.0,
+                    "minx": -180.0,
+                    "miny": -90.0,
+                    "name": "$ARCHIVE_NAME$-grid",
+                    "resolution": 0.5
+                }
+            },
             "occurrence": {
                 "delimiter": ",",
                 "points_filename": "$OCCURRENCE_FILENAME$",
                 "point_count_min": 5
             },
             "scenario_package": {
-                "scenario_package_name" : "10min-past-present-future"
+                "scenario_package_filename" : "10min-past-present-future"
             },
             "sdm": {
                 "algorithm": [
                     {
                         "code": "ATT_MAXENT",
-                        "parameters: []
+                        "parameters": {}
                     }
                 ],
                 "hull_region_intersect_mask": {
