@@ -122,6 +122,9 @@ class BoomJobSubmissionTest(test_base.LmTest):
 
         Args:
             val_dict (dict): A dictionary to recurse through and replace values.
+
+        Returns:
+            dict or list: The val_dict parameter with replaced templates.
         """
         for k in val_dict.keys():
             if isinstance(val_dict[k], dict):
@@ -262,7 +265,6 @@ class BoomWaitTest(test_base.LmTest):
 
         Raises:
             LmTestFailure: Raised if the test fails.
-            Exception: Raised for now.
         """
         # Log in
         self.client.auth.login(self.user_id, self.passwd)

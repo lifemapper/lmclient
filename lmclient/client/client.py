@@ -120,7 +120,14 @@ class _Client:
             headers=self._get_headers(headers))
 
     # ...........................
-    def post(self, relative_url, files=None, headers=None, body=None, **query_parameters):
+    def post(
+        self,
+        relative_url,
+        files=None,
+        headers=None,
+        body=None,
+        **query_parameters
+    ):
         """Sends an HTTP POST request to a URL.
 
         Args:
@@ -130,6 +137,7 @@ class _Client:
                 content-type (optional)).
             headers (:obj:`dict`, optional): Any headers to be sent to the
                 request.
+            body (object): Data to send as the data body of the request.
             **query_parameters (dict): A dictionary of query parameters to be sent
                 with the request.
 
