@@ -10,7 +10,7 @@ with open('LICENSE') as f:
 
 setup(
     name='lmclient',
-    version='2.0.0',
+    version='2.0.0b2',
     description='Client for accessing Lifemapper APIs',
     long_description=readme,
     author='CJ Grady',
