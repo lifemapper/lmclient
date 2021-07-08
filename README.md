@@ -17,7 +17,7 @@ Installation help can be found at https://lifemapper.github.io/lm_client/sphinx/
 
 ## Getting help
 
-A this time, the easiest way to get help is to [file a bug report](https://github.com/lifemapper/lm_client/issues/new?labels=&template=bug_report.md&title=).
+At this time, the easiest way to get help is to [file a bug report](https://github.com/lifemapper/lm_client/issues/new?labels=&template=bug_report.md&title=).
 
 ## Contributing
 
