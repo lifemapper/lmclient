@@ -13,7 +13,7 @@ access to Lifemapper web services.
 
 ## Install
 
-Installation help can be found at https://lifemapper.github.io/lm_client/_sphinx_config/pages/installation.html
+Installation help can be found at https://github.com/lifemapper/lmclient/blob/main/_sphinx_config/pages/installation.rst
 
 ## Getting help
 
